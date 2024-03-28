@@ -54,7 +54,7 @@ export const Login = () => {
                                   </div>
             
                                   <div className="text-center">
-                                  <Link to="/demo">
+                                  <Link to="/register">
                                       <a className="small" href="register.html">Create a New Register!</a>
                                   </Link>
                                   </div>

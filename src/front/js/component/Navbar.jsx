@@ -11,11 +11,11 @@ export const Navbar = () => {
           <span className="navbar-brand mb-0 h1">React Boilerplate</span>
         </Link>
         <div className="ml-auto">
-          <Link to="/demo">
-            <button className="btn btn-primary">Check the Context in action</button>
+        <Link to="/login">
+            <button className="btn btn-primary mx-3">Sign in</button>
           </Link>
-          <Link to="/login">
-            <button className="btn btn-info">Login</button>
+          <Link to="/register">
+            <button className="btn btn-info">Sign up</button>
           </Link>
         </div>
       </div>
