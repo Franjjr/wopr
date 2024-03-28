@@ -9,8 +9,6 @@ import { Footer } from "./component/Footer.jsx";
 // Import custom pages
 import { Home } from "./pages/Home.jsx";
 import { Demo } from "./pages/Demo.jsx";
-import { Single } from "./pages/Single.jsx";
-
 import { Login } from "./pages/Login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Recipes } from "./pages/Recipes.jsx";
@@ -20,7 +18,7 @@ import { ManufacturingOrders } from "./pages/ManufacturingOrders.jsx";
 import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
-
+import { NotFound } from "./pages/NotFound.jsx";
 
 
 // Create your first component
@@ -40,7 +38,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<NotFound />} path="*" />
                         <Route element={<Register />} path="/register" />
                         <Route element={<Recipes />} path="/recipes" />
                         <Route element={<Previsions />} path="/previsions" />
