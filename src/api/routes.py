@@ -10,6 +10,8 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from dotenv import load_dotenv
 import os
+import json
+import requests
 
 
 load_dotenv()
@@ -717,301 +719,164 @@ def modify_manufacturing(manufacturing_orders_id):
         return response_body, 200
 
 
-@api.route("/suppliers", methods=['GET'])
+@api.route("/suppliers/<int:center_id>", methods=['GET'])
 @jwt_required()
-def handle_supplier():
+def handle_supplier(center_id):
     response_body = {}
     current_user = get_jwt_identity()
     user_id = current_user['user_id']
-    center_id = current_user['center_id']
+    
     if user_id is None:
         response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
         return response_body, 400
+    
     if center_id == 2:
         payload = json.dumps({"client_id": os.getenv("CLIENT_COB"), "client_secret": os.getenv("SECRET_COB")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
-            # Almacenar los proveedores de la respuesta JSON en la base de datos
-            json_data = response.json()
-            suppliers = json_data.get("suppliers", [])
-            new_suppliers = []
-            for supplier_data in suppliers:
-                # Verificar si el proveedor ya existe en la base de datos
-                if not Suppliers.query.filter_by(id=supplier_data['id']).first():
-                    # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
-                    new_supplier = Suppliers   (id=supplier_data['id'],
-                                                reference=supplier_data['reference'],
-                                                categoryId=supplier_data['categoryId'],
-                                                subcategoryId=supplier_data['subcategoryId'],
-                                                name=supplier_data['name'],
-                                                nameRegistered=supplier_data['nameRegistered'],
-                                                cif=supplier_data['cif'],
-                                                address=supplier_data['address'],
-                                                addressAdditional=supplier_data['addressAdditional'],
-                                                addressNumber=supplier_data['addressNumber'],
-                                                addressFloor=supplier_data['addressFloor'],
-                                                addressLetter=supplier_data['addressLetter'],
-                                                codePostal=supplier_data['codePostal'],
-                                                cityCode=supplier_data['cityCode'],
-                                                cityName=supplier_data['cityName'],
-                                                provinceCode=supplier_data['provinceCode'],
-                                                provinceName=supplier_data['provinceName'],
-                                                phone1=supplier_data['phone1'],
-                                                phone2=supplier_data['phone2'],
-                                                fax=supplier_data['fax'],
-                                                mobile=supplier_data['mobile'],
-                                                email=supplier_data['email'],
-                                                languageCode=supplier_data['languageCode'],
-                                                active=supplier_data['active'],
-                                                creationDate=supplier_data['creationDate'],
-                                                modificationDate=supplier_data['modificationDate'])
-                    new_suppliers.append(new_supplier)
-            # Almacena solo los nuevos proveedores en la base de datos
-            db.session.add_all(new_suppliers)
-            db.session.commit()
-            response_body['message'] = f'{len(new_suppliers)} Todos los provvedores nuevos aderidos con exito'
-            return response_body, 200
-        else:
-            response_body['message'] = 'Error con los datos del proveedor'
-            return response_body, 500
-    if center_id == 3:
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 3:
         payload = json.dumps({"client_id": os.getenv("CLIENT_PER"), "client_secret": os.getenv("SECRET_PER")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
-            # Almacenar los proveedores de la respuesta JSON en la base de datos
-            json_data = response.json()
-            suppliers = json_data.get("suppliers", [])
-            new_suppliers = []
-            for supplier_data in suppliers:
-                # Verificar si el proveedor ya existe en la base de datos
-                if not Suppliers.query.filter_by(id=supplier_data['id']).first():
-                    # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
-                    new_supplier = Suppliers   (id=supplier_data['id'],
-                                                reference=supplier_data['reference'],
-                                                categoryId=supplier_data['categoryId'],
-                                                subcategoryId=supplier_data['subcategoryId'],
-                                                name=supplier_data['name'],
-                                                nameRegistered=supplier_data['nameRegistered'],
-                                                cif=supplier_data['cif'],
-                                                address=supplier_data['address'],
-                                                addressAdditional=supplier_data['addressAdditional'],
-                                                addressNumber=supplier_data['addressNumber'],
-                                                addressFloor=supplier_data['addressFloor'],
-                                                addressLetter=supplier_data['addressLetter'],
-                                                codePostal=supplier_data['codePostal'],
-                                                cityCode=supplier_data['cityCode'],
-                                                cityName=supplier_data['cityName'],
-                                                provinceCode=supplier_data['provinceCode'],
-                                                provinceName=supplier_data['provinceName'],
-                                                phone1=supplier_data['phone1'],
-                                                phone2=supplier_data['phone2'],
-                                                fax=supplier_data['fax'],
-                                                mobile=supplier_data['mobile'],
-                                                email=supplier_data['email'],
-                                                languageCode=supplier_data['languageCode'],
-                                                active=supplier_data['active'],
-                                                creationDate=supplier_data['creationDate'],
-                                                modificationDate=supplier_data['modificationDate'])
-                    new_suppliers.append(new_supplier)
-            # Almacena solo los nuevos proveedores en la base de datos
-            db.session.add_all(new_suppliers)
-            db.session.commit()
-            response_body['message'] = f'{len(new_suppliers)} Todos los provvedores nuevos aderidos con exito'
-            return response_body, 200
-        else:
-            response_body['message'] = 'Error con los datos del proveedor'
-            return response_body, 500
-    if center_id == 4:
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 4:
         payload = json.dumps({"client_id": os.getenv("CLIENT_PAR"), "client_secret": os.getenv("SECRET_PAR")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
-            # Almacenar los proveedores de la respuesta JSON en la base de datos
-            json_data = response.json()
-            suppliers = json_data.get("suppliers", [])
-            new_suppliers = []
-            for supplier_data in suppliers:
-                # Verificar si el proveedor ya existe en la base de datos
-                if not Suppliers.query.filter_by(id=supplier_data['id']).first():
-                    # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
-                    new_supplier = Suppliers   (id=supplier_data['id'],
-                                                reference=supplier_data['reference'],
-                                                categoryId=supplier_data['categoryId'],
-                                                subcategoryId=supplier_data['subcategoryId'],
-                                                name=supplier_data['name'],
-                                                nameRegistered=supplier_data['nameRegistered'],
-                                                cif=supplier_data['cif'],
-                                                address=supplier_data['address'],
-                                                addressAdditional=supplier_data['addressAdditional'],
-                                                addressNumber=supplier_data['addressNumber'],
-                                                addressFloor=supplier_data['addressFloor'],
-                                                addressLetter=supplier_data['addressLetter'],
-                                                codePostal=supplier_data['codePostal'],
-                                                cityCode=supplier_data['cityCode'],
-                                                cityName=supplier_data['cityName'],
-                                                provinceCode=supplier_data['provinceCode'],
-                                                provinceName=supplier_data['provinceName'],
-                                                phone1=supplier_data['phone1'],
-                                                phone2=supplier_data['phone2'],
-                                                fax=supplier_data['fax'],
-                                                mobile=supplier_data['mobile'],
-                                                email=supplier_data['email'],
-                                                languageCode=supplier_data['languageCode'],
-                                                active=supplier_data['active'],
-                                                creationDate=supplier_data['creationDate'],
-                                                modificationDate=supplier_data['modificationDate'])
-                    new_suppliers.append(new_supplier)
-            # Almacena solo los nuevos proveedores en la base de datos
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    
+    if response.status_code == 200:
+        json_response = response.json()
+        access_token = json_response.get("access_token")
+        headers = {'Authorization': f'Bearer {access_token}'}
+        response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
+        # Almacenar los proveedores de la respuesta JSON en la base de datos
+        json_data = response.json()
+        suppliers = json_data.get("data", [])
+        # Obtener los proveedores existentes en la Base de datos
+        existing_suppliers = Suppliers.query.all()
+        existing_suppliers_names = {supplier.name for supplier in existing_suppliers}
+        new_suppliers = []
+        for supplier_data in suppliers:
+            # Verificar si el proveedor ya existe en la base de datos
+            if supplier_data['name'] not in existing_suppliers_names:
+                # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
+                new_supplier = Suppliers   (id=supplier_data['id'],
+                                            reference=supplier_data['reference'],
+                                            categoryId=supplier_data['categoryId'],
+                                            subcategoryId=supplier_data['subcategoryId'],
+                                            name=supplier_data['name'],
+                                            nameRegistered=supplier_data['nameRegistered'],
+                                            cif=supplier_data['CIF'],
+                                            address=supplier_data['address'],
+                                            addressAdditional=supplier_data['addressAdditional'],
+                                            addressNumber=supplier_data['addressNumber'],
+                                            addressFloor=supplier_data['addressFloor'],
+                                            addressLetter=supplier_data['addressLetter'],
+                                            codePostal=supplier_data['codePostal'],
+                                            cityCode=supplier_data['cityCode'],
+                                            cityName=supplier_data['cityName'],
+                                            provinceCode=supplier_data['provinceCode'],
+                                            provinceName=supplier_data['provinceName'],
+                                            phone1=supplier_data['phone1'],
+                                            phone2=supplier_data['phone2'],
+                                            fax=supplier_data['fax'],
+                                            mobile=supplier_data['mobile'],
+                                            email=supplier_data['email'],
+                                            languageCode=supplier_data['languageCode'],
+                                            active=supplier_data['active'],
+                                            creationDate=supplier_data['creationDate'],
+                                            modificationDate=supplier_data['modificationDate'])
+                new_suppliers.append(new_supplier)
+        # Almacena solo los nuevos proveedores en la base de datos
+        if new_suppliers:
             db.session.add_all(new_suppliers)
             db.session.commit()
-            response_body['message'] = f'{len(new_suppliers)} Todos los provvedores nuevos aderidos con exito'
-            return response_body, 200
+            response_body['message'] = f'{len(new_suppliers)} proveedores nuevos añadidos con éxito'
         else:
-            response_body['message'] = 'Error con los datos del proveedor'
-            return response_body, 500
+            response_body['message'] = 'No se encontraron nuevos proveedores para añadir'
+            for supplier_data in suppliers:
+                print(supplier_data['name'])
+            for supplier in existing_suppliers:
+                print(supplier.name)
+        return response_body, 200
+    else:
+        response_body['message'] = 'Error con los datos del proveedor'
+        return response_body, 500
 
 
-@api.route("/references", methods=['GET'])
+
+@api.route("/references/<int:center_id>", methods=['GET'])
 @jwt_required()
-def handle_references():
+def handle_references(center_id):
     response_body = {}
     current_user = get_jwt_identity()
     user_id = current_user['user_id']
-    center_id = current_user['center_id']
+    
     if user_id is None:
         response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
         return response_body, 400
+    
     if center_id == 2:
         payload = json.dumps({"client_id": os.getenv("CLIENT_COB"), "client_secret": os.getenv("SECRET_COB")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
-            # Almacenar las referencias de la respuesta JSON en la base de datos
-            json_data = response.json()
-            references = json_data.get("references", [])
-            new_references = []
-            for reference_data in references:
-                # Verificar si la referencia ya existe en la base de datos
-                if not References.query.filter_by(id=reference_data['id']).first():
-                    # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
-                    new_references = References(id=reference_data['id'],
-                                                name=reference_data['name'],
-                                                reference=reference_data['reference'],
-                                                categoryId=reference_data['categoryId'],
-                                                familyId=reference_data['familyId'],
-                                                typeId=reference_data['typeId'],
-                                                subtypeId=reference_data['subtypeId'],
-                                                masureUnitId=reference_data['masureUnitId'],
-                                                masurePriceLastPurchase=reference_data['masurePriceLastPurchase'],
-                                                masurePriceAverage=reference_data['masurePriceAverage'],
-                                                displayUnitId=reference_data['displayUnitId'],
-                                                equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
-                                                active=reference_data['active'],
-                                                creationDate=reference_data['creationDate'],
-                                                modificationDate=reference_data['modificationData'])
-                    new_references.append(new_reference)
-            # Almacena solo las nuevas referencias en la base de datos
-            db.session.add_all(new_references)
-            db.session.commit()
-            response_body['message'] = f'{len(new_references)} referencias nuevas aderidas con exito'
-            return response_body, 200
-        else:
-            response_body['message'] = 'Error con los datos de la referencia'
-            return response_body, 500
-    if center_id == 3:
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 3:
         payload = json.dumps({"client_id": os.getenv("CLIENT_PER"), "client_secret": os.getenv("SECRET_PER")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
-            # Almacenar las referencias de la respuesta JSON en la base de datos
-            json_data = response.json()
-            references = json_data.get("references", [])
-            new_references = []
-            for reference_data in references:
-                # Verificar si la referencia ya existe en la base de datos
-                if not References.query.filter_by(id=reference_data['id']).first():
-                    # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
-                    new_references = References(id=reference_data['id'],
-                                                name=reference_data['name'],
-                                                reference=reference_data['reference'],
-                                                categoryId=reference_data['categoryId'],
-                                                familyId=reference_data['familyId'],
-                                                typeId=reference_data['typeId'],
-                                                subtypeId=reference_data['subtypeId'],
-                                                masureUnitId=reference_data['masureUnitId'],
-                                                masurePriceLastPurchase=reference_data['masurePriceLastPurchase'],
-                                                masurePriceAverage=reference_data['masurePriceAverage'],
-                                                displayUnitId=reference_data['displayUnitId'],
-                                                equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
-                                                active=reference_data['active'],
-                                                creationDate=reference_data['creationDate'],
-                                                modificationDate=reference_data['modificationData'])
-                    new_references.append(new_reference)
-            # Almacena solo las nuevas referencias en la base de datos
-            db.session.add_all(new_references)
-            db.session.commit()
-            response_body['message'] = f'{len(new_references)} referencias nuevas aderidas con exito'
-            return response_body, 200
-        else:
-            response_body['message'] = 'Error con los datos de la referencia'
-            return response_body, 500
-    if center_id == 4:
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 4:
         payload = json.dumps({"client_id": os.getenv("CLIENT_PAR"), "client_secret": os.getenv("SECRET_PAR")})
-        response = requests.request("POST", os.getenv("URL_GS") , headers=headers, data=payload)
-        if response.status_code == 200:
-            json_response = response.json()
-            access_token = json_response.get("access_token")
-            headers = {'Authorization': f'Bearer {access_token}'}
-            response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
-            # Almacenar las referencias de la respuesta JSON en la base de datos
-            json_data = response.json()
-            references = json_data.get("references", [])
-            new_references = []
-            for reference_data in references:
-                # Verificar si la referencia ya existe en la base de datos
-                if not References.query.filter_by(id=reference_data['id']).first():
-                    # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
-                    new_references = References(id=reference_data['id'],
-                                                name=reference_data['name'],
-                                                reference=reference_data['reference'],
-                                                categoryId=reference_data['categoryId'],
-                                                familyId=reference_data['familyId'],
-                                                typeId=reference_data['typeId'],
-                                                subtypeId=reference_data['subtypeId'],
-                                                masureUnitId=reference_data['masureUnitId'],
-                                                masurePriceLastPurchase=reference_data['masurePriceLastPurchase'],
-                                                masurePriceAverage=reference_data['masurePriceAverage'],
-                                                displayUnitId=reference_data['displayUnitId'],
-                                                equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
-                                                active=reference_data['active'],
-                                                creationDate=reference_data['creationDate'],
-                                                modificationDate=reference_data['modificationData'])
-                    new_references.append(new_reference)
-            # Almacena solo las nuevas referencias en la base de datos
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+
+    if response.status_code == 200:
+        json_response = response.json()
+        access_token = json_response.get("access_token")
+        headers = {'Authorization': f'Bearer {access_token}'}
+        response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
+        # Almacenar las referencias de la respuesta JSON en una lista
+        json_data = response.json()
+        references = json_data.get("data", [])
+        # Obtener las referencias existentes en la base de datos local
+        existing_references = References.query.all()
+        existing_reference_names = {reference.name for reference in existing_references}
+        new_references = []
+        for reference_data in references:
+            # Verificar si la referencia ya existe en la base de datos local
+            if reference_data['name'] not in existing_reference_names:
+                # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
+                new_reference = References(id=reference_data['id'],
+                                            name=reference_data['name'],
+                                            reference=reference_data['reference'],
+                                            categoryId=reference_data['categoryId'],
+                                            familyId=reference_data['familyId'],
+                                            typeId=reference_data['typeId'],
+                                            subtypeId=reference_data['subtypeId'],
+                                            measureUnitId=reference_data['measureUnitId'],
+                                            measurePriceLastPurchase=reference_data['measurePriceLastPurchase'],
+                                            measurePriceAverage=reference_data['measurePriceAverage'],
+                                            displayUnitId=reference_data['displayUnitId'],
+                                            equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
+                                            active=reference_data['active'],
+                                            creationDate=reference_data['creationDate'],
+                                            modificationDate=reference_data['modificationDate'])
+                new_references.append(new_reference)   
+        # Almacena solo las nuevas referencias en la base de datos local
+        if new_references:
             db.session.add_all(new_references)
             db.session.commit()
-            response_body['message'] = f'{len(new_references)} referencias nuevas aderidas con exito'
-            return response_body, 200
+            response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
         else:
-            response_body['message'] = 'Error con los datos de la referencia'
-            return response_body, 500
+            response_body['message'] = 'No se encontraron nuevas referencias para añadir'
+            for reference_data in references:
+                print(reference_data['name'])
+            for reference in existing_references:
+                print(reference.name)
+        return response_body, 200
+    else:
+        response_body['message'] = 'Error con los datos de la referencia'
+        return response_body, 500
+
+
 
 
 if __name__ == '__main__':

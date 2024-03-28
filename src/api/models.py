@@ -75,44 +75,46 @@ class Recipes(db.Model):
 
 
 class Suppliers(db.Model):
-    id = db.Column(db.String, primary_key=True)
-    reference = db.Column(db.String(5))
-    categoryId = db.Column(db.String(5))
-    subcategoryId = db.Column(db.String(5))
-    name = db.Column(db.String(20), nullable=False)
-    nameRegistered = db.Column(db.String(20), nullable=False)
-    cif = db.Column(db.String(20))
-    address = db.Column(db.String(50))
-    addressAdditional = db.Column(db.String(50))
-    addressNumber = db.Column(db.String(50))
-    addressFloor = db.Column(db.String(50))
-    addressLetter = db.Column(db.String(50))
-    codePostal = db.Column(db.String(50))
-    cityCode = db.Column(db.String(50))
-    cityName = db.Column(db.String(50))
-    provinceCode = db.Column(db.String(50))
-    provinceName = db.Column(db.String(50))
-    phone1 = db.Column(db.String(15))
-    phone2 = db.Column(db.String(15))
-    fax = db.Column(db.String(15))
-    mobile = db.Column(db.String(15))
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    languageCode = db.Column(db.String(50))
-    active = db.Column(db.Boolean)
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String)
+    reference = db.Column(db.String(50))
+    categoryId = db.Column(db.String(50))
+    subcategoryId = db.Column(db.String(50))
+    name = db.Column(db.String, nullable=False)
+    nameRegistered = db.Column(db.String(200))
+    cif = db.Column(db.String(200))
+    address = db.Column(db.String(500))
+    addressAdditional = db.Column(db.String(500))
+    addressNumber = db.Column(db.String(500))
+    addressFloor = db.Column(db.String(500))
+    addressLetter = db.Column(db.String(500))
+    codePostal = db.Column(db.String(500))
+    cityCode = db.Column(db.String(500))
+    cityName = db.Column(db.String(500))
+    provinceCode = db.Column(db.String(500))
+    provinceName = db.Column(db.String(500))
+    phone1 = db.Column(db.String(150))
+    phone2 = db.Column(db.String(150))
+    fax = db.Column(db.String(150))
+    mobile = db.Column(db.String(150))
+    email = db.Column(db.String(120),)
+    languageCode = db.Column(db.String(500))
+    active = db.Column(db.Boolean())
     creationDate = db.Column(db.DateTime)
     modificationDate = db.Column(db.DateTime)
 
     def __repr__(self):
-        return f'<Suplier: {self.id} - {self.name}>'
+        return f'<Supplier: {self.id} - {self.name}>'
 
     def serialize(self):
-        return {'id': self.id,
+        return {'idWopr': self.idWopr,
+                'id': self.id,
                 'reference': self.reference,
                 'categoryId': self.categoryId,
                 'subcategoryId': self.subcategoryId,
                 'name': self.name,
                 'nameRegistered': self.nameRegistered,
-                'cif': self.cif,
+                'CIF': self.cif,
                 'address': self.address,
                 'addressAdditional': self.addressAdditional,
                 'addressNumber': self.addressNumber,
@@ -135,19 +137,20 @@ class Suppliers(db.Model):
 
 
 class References(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
-    reference = db.Column(db.String(50))
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+    reference = db.Column(db.String)
     categoryId = db.Column(db.Integer)
     familyId = db.Column(db.Integer)
     typeId = db.Column(db.Integer)
     subtypeId = db.Column(db.Integer)
-    masureUnitId = db.Column(db.Integer)
-    masurePriceLastPurchase = db.Column(db.Integer)
-    masurePriceAverage = db.Column(db.Integer)
+    measureUnitId = db.Column(db.Integer)
+    measurePriceLastPurchase = db.Column(db.Integer)
+    measurePriceAverage = db.Column(db.Integer)
     displayUnitId = db.Column(db.Integer)
     equivalenceBetweeenMeasureAndDisplay = db.Column(db.Integer)
-    active = db.Column(db.Boolean)
+    active = db.Column(db.Boolean())
     creationDate = db.Column(db.DateTime)
     modificationDate = db.Column(db.DateTime)
 
@@ -156,14 +159,15 @@ class References(db.Model):
 
     def serialize(self):
         return {'id': self.id,
+                'idWopr': self.idWopr,
                 'name': self.name,
                 'categoryId': self.categoryId,
                 'familyId': self.familyId,
                 'typeId': self.typeId,
                 'subtypeId': self.subtypeId,
-                'masureUnitId': self.masureUnitId,
-                'masurePriceLastPurchase': self.masurePriceLastPurchase,
-                'masurePriceAverage': self.masurePriceAverage,
+                'measureUnitId': self.measureUnitId,
+                'measurePriceLastPurchase': self.measurePriceLastPurchase,
+                'measurePriceAverage': self.measurePriceAverage,
                 'displayUnitId': self.displayUnitId,
                 'equivalenceBetweeenMeasureAndDisplay': self.equivalenceBetweeenMeasureAndDisplay,
                 'active': self.active,
@@ -287,22 +291,22 @@ class LineRecipes(db.Model):
     __tablename__ = "line_recipes"
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'))
-    reference_id = db.Column(db.Integer, db.ForeignKey('references.id'))
+    references_idWopr = db.Column(db.Integer, db.ForeignKey('references.idWopr'))
     qty = db.Column(db.Integer, nullable=False)
     cost = db.Column(db.Integer, nullable=False)
     total = db.Column(db.Integer, nullable=False)
     units = db.Column(db.Integer, nullable=False)
     cost_unit = db.Column(db.Integer, nullable=False)
-    reference_to = db.relationship('References', foreign_keys=[reference_id])
+    reference_to = db.relationship('References', foreign_keys=[references_idWopr])
     recipe_to = db.relationship('Recipes', foreign_keys=[recipe_id])
 
     def __repr__(self):
-        return f'<Line Recipe: {self.id} - Recipe ID: {self.recipe_id} - Reference ID: {self.reference_id}>'
+        return f'<Line Recipe: {self.id} - Recipe ID: {self.recipe_id} - Reference ID: {self.references_idWopr}>'
 
     def serialize(self):
         return {'id': self.id,
                 'recipe_id': self.recipe_id,
-                'reference_id': self.reference_id,
+                'references_idWopr': self.references_idWopr,
                 'qty': self.qty,
                 'cost': self.cost,
                 'total': self.total,
