@@ -18,7 +18,7 @@ import { ManufacturingOrders } from "./pages/ManufacturingOrders.jsx";
 import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
-
+import { NotFound } from "./pages/NotFound.jsx";
 
 
 // Create your first component
@@ -38,7 +38,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<NotFound />} path="*" />
                         <Route element={<Register />} path="/register" />
                         <Route element={<Recipes />} path="/recipes" />
                         <Route element={<Previsions />} path="/previsions" />

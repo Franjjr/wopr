@@ -7,9 +7,17 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
+        <div className="col-1">
         <Link to="/">
-          <span className="navbar-brand mb-0 h1">React Boilerplate</span>
+        <i className="fa-solid fa-kitchen-set fs-2 text-dark"></i>
         </Link>
+        </div>
+        <div className="col-2">
+        <Link to="/">
+        <p className="text-dark fs-5">KITCHEN CENTER</p>
+        </Link>
+        </div>
+        
         <div className="ml-auto">
         <Link to="/login">
             <button className="btn btn-primary mx-3">Sign in</button>
