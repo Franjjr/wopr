@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 6ff9b63bdbc5
+Revision ID: 0f6ca5c52e55
 Revises: 
-Create Date: 2024-03-23 09:18:01.576084
+Create Date: 2024-03-26 22:49:00.224959
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6ff9b63bdbc5'
+revision = '0f6ca5c52e55'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,52 +41,53 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('references',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(length=40), nullable=False),
-    sa.Column('reference', sa.String(length=50), nullable=True),
+    sa.Column('idWopr', sa.Integer(), nullable=False),
+    sa.Column('id', sa.String(), nullable=False),
+    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('reference', sa.String(), nullable=True),
     sa.Column('categoryId', sa.Integer(), nullable=True),
     sa.Column('familyId', sa.Integer(), nullable=True),
     sa.Column('typeId', sa.Integer(), nullable=True),
     sa.Column('subtypeId', sa.Integer(), nullable=True),
-    sa.Column('masureUnitId', sa.Integer(), nullable=True),
-    sa.Column('masurePriceLastPurchase', sa.Integer(), nullable=True),
-    sa.Column('masurePriceAverage', sa.Integer(), nullable=True),
+    sa.Column('measureUnitId', sa.Integer(), nullable=True),
+    sa.Column('measurePriceLastPurchase', sa.Integer(), nullable=True),
+    sa.Column('measurePriceAverage', sa.Integer(), nullable=True),
     sa.Column('displayUnitId', sa.Integer(), nullable=True),
     sa.Column('equivalenceBetweeenMeasureAndDisplay', sa.Integer(), nullable=True),
     sa.Column('active', sa.Boolean(), nullable=True),
     sa.Column('creationDate', sa.DateTime(), nullable=True),
     sa.Column('modificationDate', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('idWopr')
     )
     op.create_table('suppliers',
-    sa.Column('id', sa.String(), nullable=False),
-    sa.Column('reference', sa.String(length=5), nullable=True),
-    sa.Column('categoryId', sa.String(length=5), nullable=True),
-    sa.Column('subcategoryId', sa.String(length=5), nullable=True),
-    sa.Column('name', sa.String(length=20), nullable=False),
-    sa.Column('nameRegistered', sa.String(length=20), nullable=False),
-    sa.Column('cif', sa.String(length=20), nullable=True),
-    sa.Column('address', sa.String(length=50), nullable=True),
-    sa.Column('addressAdditional', sa.String(length=50), nullable=True),
-    sa.Column('addressNumber', sa.String(length=50), nullable=True),
-    sa.Column('addressFloor', sa.String(length=50), nullable=True),
-    sa.Column('addressLetter', sa.String(length=50), nullable=True),
-    sa.Column('codePostal', sa.String(length=50), nullable=True),
-    sa.Column('cityCode', sa.String(length=50), nullable=True),
-    sa.Column('cityName', sa.String(length=50), nullable=True),
-    sa.Column('provinceCode', sa.String(length=50), nullable=True),
-    sa.Column('provinceName', sa.String(length=50), nullable=True),
-    sa.Column('phone1', sa.String(length=15), nullable=True),
-    sa.Column('phone2', sa.String(length=15), nullable=True),
-    sa.Column('fax', sa.String(length=15), nullable=True),
-    sa.Column('mobile', sa.String(length=15), nullable=True),
-    sa.Column('email', sa.String(length=120), nullable=False),
-    sa.Column('languageCode', sa.String(length=50), nullable=True),
+    sa.Column('idWopr', sa.Integer(), nullable=False),
+    sa.Column('id', sa.String(), nullable=True),
+    sa.Column('reference', sa.String(length=50), nullable=True),
+    sa.Column('categoryId', sa.String(length=50), nullable=True),
+    sa.Column('subcategoryId', sa.String(length=50), nullable=True),
+    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('nameRegistered', sa.String(length=200), nullable=True),
+    sa.Column('cif', sa.String(length=200), nullable=True),
+    sa.Column('address', sa.String(length=500), nullable=True),
+    sa.Column('addressAdditional', sa.String(length=500), nullable=True),
+    sa.Column('addressNumber', sa.String(length=500), nullable=True),
+    sa.Column('addressFloor', sa.String(length=500), nullable=True),
+    sa.Column('addressLetter', sa.String(length=500), nullable=True),
+    sa.Column('codePostal', sa.String(length=500), nullable=True),
+    sa.Column('cityCode', sa.String(length=500), nullable=True),
+    sa.Column('cityName', sa.String(length=500), nullable=True),
+    sa.Column('provinceCode', sa.String(length=500), nullable=True),
+    sa.Column('provinceName', sa.String(length=500), nullable=True),
+    sa.Column('phone1', sa.String(length=150), nullable=True),
+    sa.Column('phone2', sa.String(length=150), nullable=True),
+    sa.Column('fax', sa.String(length=150), nullable=True),
+    sa.Column('mobile', sa.String(length=150), nullable=True),
+    sa.Column('email', sa.String(length=120), nullable=True),
+    sa.Column('languageCode', sa.String(length=500), nullable=True),
     sa.Column('active', sa.Boolean(), nullable=True),
     sa.Column('creationDate', sa.DateTime(), nullable=True),
     sa.Column('modificationDate', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email')
+    sa.PrimaryKeyConstraint('idWopr')
     )
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -124,14 +125,14 @@ def upgrade():
     op.create_table('line_recipes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=True),
-    sa.Column('reference_id', sa.Integer(), nullable=True),
+    sa.Column('references_idWopr', sa.Integer(), nullable=True),
     sa.Column('qty', sa.Integer(), nullable=False),
     sa.Column('cost', sa.Integer(), nullable=False),
     sa.Column('total', sa.Integer(), nullable=False),
     sa.Column('units', sa.Integer(), nullable=False),
     sa.Column('cost_unit', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
-    sa.ForeignKeyConstraint(['reference_id'], ['references.id'], ),
+    sa.ForeignKeyConstraint(['references_idWopr'], ['references.idWopr'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('manufacturing_orders',
