@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
-export const Navbar = () => {
+import "../../styles/home.css";
+import "../../styles/index.css";
+export const Sidebar = () => {
   
   return (
     <nav className="navbar navbar-light bg-light">
