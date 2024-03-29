@@ -384,6 +384,7 @@
     width: 450px;
     position: relative;
     height: 450px;
+    border-radius: 250px;
   }
   .hero-section {
     width: 1280px;
@@ -2573,4 +2574,3 @@
     color: var(--color-gray-100);
     font-family: var(--display-l);
   }
- 

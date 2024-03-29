@@ -257,7 +257,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <img className="visuals-icon" alt="" src="/visuals.svg" />
+        <img className="visuals-icon" alt="" src="https://images.pexels.com/photos/17318176/pexels-photo-17318176/free-photo-of-restaurante-trabajando-hombres-cocinando.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
       </div>
       <div className="logo-bar">
         <div className="logos">
