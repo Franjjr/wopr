@@ -931,7 +931,7 @@ export const Home = () => {
           <img className="mockup-icon1" alt="" src="/mockup-1.svg" />
         </div>
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <div className="anima-landing-page">© 2024 WOPR</div>
         <div className="social-links5">
           <img
@@ -959,7 +959,7 @@ export const Home = () => {
             onClick={onSocialIcons32Click}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
