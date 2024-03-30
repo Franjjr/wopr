@@ -2,7 +2,8 @@ import React, { useContext, useCallback  } from "react";
 import { Context } from "../store/appContext";
 /* import "../../styles/home.css"; */
 import "../../styles/landingpage.css";
-
+/* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
+import Mercedes from "../../img/IMG_8962.jpg";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -815,11 +816,8 @@ export const Home = () => {
             </div>
           </div>
           <div className="member-card1">
-            <img
-              className="profile-image-placeholder-11"
-              alt=""
-              src=""
-            />
+            <img className="profile-image-placeholder-11" src={Mercedes} />
+            
             <div className="text10">
               <div className="john-doe4">Mercedes Sánchez</div>
               <div className="lead-designer1">Full Stack</div>
