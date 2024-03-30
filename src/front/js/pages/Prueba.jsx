@@ -4,7 +4,8 @@ import "../../styles/home.css";
 import "../../styles/index.css";
 import { Link } from "react-router-dom";
 
-export const Recipes = () => {
+
+export const Prueba = () => {
   const { store, actions } = useContext(Context);
   
   return (
@@ -51,25 +52,9 @@ export const Recipes = () => {
             </a>
             <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
-                <Link to="/recipes">
-                    <a className="collapse-item" href="buttons.html">Recipes </a>
-                </Link>
-                <Link to="/suppliers">
-                    <a className="collapse-item" href="cards.html">Suppliers </a>
-                </Link>
-                <Link to="/previsions">
-                    <a className="collapse-item" href="cards.html">Previsions </a>
-                </Link>
-                <Link to="/delivery-notes">
-                    <a className="collapse-item" href="cards.html">Delivery Notes </a>
-                </Link>
-                <Link to="/manufacturing-orders">
-                    <a className="collapse-item" href="cards.html">Manufactoring Orders </a>
-                </Link>
-                <Link to="/references">
-                    <a className="collapse-item" href="cards.html">References </a>
-                </Link>
-                
+                    <h6 className="collapse-header">Custom Components:</h6>
+                    <a className="collapse-item" href="buttons.html">Buttons</a>
+                    <a className="collapse-item" href="cards.html">Cards</a>
                 </div>
             </div>
         </li>
@@ -79,28 +64,16 @@ export const Recipes = () => {
             <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i className="fas fa-fw fa-wrench"></i>
-                <span>Profile</span>
+                <span>Utilities</span>
             </a>
             <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
-                    <h6 className="collapse-header">Rol:</h6>
-                    <a className="dropdown-item" href="#">
-                                <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
+                    <h6 className="collapse-header">Custom Utilities:</h6>
+                    <a className="collapse-item" href="utilities-color.html">Colors</a>
+                    <a className="collapse-item" href="utilities-border.html">Borders</a>
+                    <a className="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a className="collapse-item" href="utilities-other.html">Other</a>
                 </div>
             </div>
         </li>
@@ -372,54 +345,9 @@ export const Recipes = () => {
 
             {/* <!-- Begin Page Content --> */}
             <div className="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Recipes <i class="fa-solid fa-bowl-food"></i> </h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
-    
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Recipes Info</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Meals</th>
-                            <th>Cost Meals</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Meals</th>
-                            <th>Cost Meals</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>Salsa Bolognesa</td>
-                            <td>500</td>
-                            <td>3400 €</td>
-                        </tr>
-                        <tr>
-                            <td>Salsa Tartufo</td>
-                            <td>300</td>
-                            <td>1200 €</td>
-                        </tr>
-                        <tr>
-                            <td>Tortilla de Patatas</td>
-                            <td>450</td>
-                            <td>1500 €</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-            
+
+                {/* <!-- Page Heading --> */}
+                <h1 className="h3 mb-4 text-gray-800">Blank Page</h1>
 
             </div>
            {/* <!-- /.container-fluid --> */}
@@ -469,5 +397,6 @@ export const Recipes = () => {
 <script src="../vendor/sb-admin-2.min.js"></script>
 
 </div>
-      );
-    };
+
+  );
+};
