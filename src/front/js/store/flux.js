@@ -3,10 +3,30 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       message: null,
       demo: [{title: "FIRST", background: "white", initial: "white"},
-             {title: "SECOND", background: "white", initial: "white"}]
+             {title: "SECOND", background: "white", initial: "white"}],
+      suppliers:[]
     },
     actions: {
       // Use getActions to call a function within a fuction
+      getSuppliers : async () => {
+        const base_url = "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/api/suppliers/";
+        const url = base_url + "2"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Barer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({suppliers:data.data});
+        console.log(data)
+      },
       exampleFunction: () => { getActions().changeColor(0, "green"); },
       getMessage: async () => {
         try {
