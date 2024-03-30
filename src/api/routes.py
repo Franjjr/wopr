@@ -802,7 +802,10 @@ def handle_supplier(center_id):
                 print(supplier_data['name'])
             for supplier in existing_suppliers:
                 print(supplier.name)
+        existing_suppliers = Suppliers.query.all()
+        response_body["data"] = [supplier.serialize() for supplier in existing_suppliers]
         return response_body, 200
+        
     else:
         response_body['message'] = 'Error con los datos del proveedor'
         return response_body, 500
