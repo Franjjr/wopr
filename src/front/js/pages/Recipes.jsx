@@ -8,7 +8,7 @@ export const Recipes = () => {
   const { store, actions } = useContext(Context);
   
   return (
-<div id="page-top">
+<div id="page-top"> 
 
 <div class="container-fluid" style={{ minHeight: '727px' }}>
 
@@ -431,6 +431,7 @@ export const Recipes = () => {
     </div>
     {/* <!-- End of Content Wrapper --> */}
 
+</div>
 </div>
 {/*<!-- End of Page Wrapper -->*/}
 
