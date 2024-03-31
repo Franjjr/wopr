@@ -1,12 +1,16 @@
 import React from "react";
-
+// import LogoSidebar from "../../img/LogoSidebar.png";
 
 export const Footer = () => (
-  <footer className="footer bg-light mt-auto py-1 text-center fixed-bottom">
+  <footer className="footer bg-gradient-primary mt-auto py-1 text-center fixed-bottom">
     <div className="container">
       <div className="row">
-        <div className="col-6 col-md-3 mb-1">
-          <h4 style={{ textDecoration: "underline" }}>Creadores:</h4>
+        {/* <img className="logoTipoSidebar" src={LogoSidebar} /> */}
+        <div className="col-12 col-md-6 d-flex flex-column flex-md-row align-items-center ml-auto">
+          <h5>© WOPR, 2024.</h5>
+        </div>
+        <div className="col-6 col-md-3 mb-1 mr-auto">
+          <h4>Creadores:</h4>
           <div className="d-flex flex-column flex-md-row">
             <ul className="nav flex-column mr-md-3">
               <li className="nav-item mb-2">
@@ -25,9 +29,6 @@ export const Footer = () => (
               </li>
             </ul>
           </div>
-        </div>
-        <div className="col-12 col-md-6 d-flex flex-column flex-md-row justify-content-md-end align-items-center">
-          <p className="mb-0">© WOPR, 2024.</p>
         </div>
       </div>
     </div>
