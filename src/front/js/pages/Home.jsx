@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import "../../styles/landingpage.css";
 /* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
 import Mercedes from "../../img/IMG_8962.jpg";
+import Fran from "../../img/IMG_8964.jpg";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -844,11 +845,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="member-card2">
-            <img
-              className="profile-image-placeholder-12"
-              alt=""
-              src="/profile-image-placeholder-1-2@2x.png"
-            />
+            <img className="profile-image-placeholder-12" src={Fran} />
             <div className="text11">
               <div className="john-doe5">Francisco Julian</div>
               <div className="lead-designer2">Full Stack</div>
