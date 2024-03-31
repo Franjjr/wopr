@@ -19,7 +19,7 @@ import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
-
+import { Prueba }  from "./pages/Prueba.jsx";
 
 // Create your first component
 const Layout = () => {
@@ -32,8 +32,8 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <Sidebar />
                     <Routes> 
+                        <Route element={<Prueba />} path="/prueba" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Home />} path="/"/>
                         <Route element={<Demo />} path="/demo" />

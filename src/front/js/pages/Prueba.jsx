@@ -3,9 +3,9 @@ import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
 import { Link } from "react-router-dom";
-import LogoSidebar from "../../img/LogoSidebar.png";
 
-export const DeliveryNotes = () => {
+
+export const Prueba = () => {
   const { store, actions } = useContext(Context);
   
   return (
@@ -19,9 +19,10 @@ export const DeliveryNotes = () => {
 
         {/*<!-- Sidebar - Brand -->*/}
         <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div className="sidebar-brand-icon">
-            <img className="logoTipoSidebar" src={LogoSidebar} />
+            <div className="sidebar-brand-icon rotate-n-15">
+                <i className="fas fa-laugh-wink"></i>
             </div>
+            <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
         </a>
 
         {/* <!-- Divider -->*/}
@@ -51,25 +52,9 @@ export const DeliveryNotes = () => {
             </a>
             <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
-                <Link to="/recipes">
-                    <a className="collapse-item" href="buttons.html">Recipes </a>
-                </Link>
-                <Link to="/suppliers">
-                    <a className="collapse-item" href="cards.html">Suppliers </a>
-                </Link>
-                <Link to="/previsions">
-                    <a className="collapse-item" href="cards.html">Previsions </a>
-                </Link>
-                <Link to="/delivery-notes">
-                    <a className="collapse-item" href="cards.html">Delivery Notes </a>
-                </Link>
-                <Link to="/manufacturing-orders">
-                    <a className="collapse-item" href="cards.html">Manufactoring Orders </a>
-                </Link>
-                <Link to="/references">
-                    <a className="collapse-item" href="cards.html">References </a>
-                </Link>
-                
+                    <h6 className="collapse-header">Custom Components:</h6>
+                    <a className="collapse-item" href="buttons.html">Buttons</a>
+                    <a className="collapse-item" href="cards.html">Cards</a>
                 </div>
             </div>
         </li>
@@ -79,28 +64,16 @@ export const DeliveryNotes = () => {
             <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i className="fas fa-fw fa-wrench"></i>
-                <span>Profile</span>
+                <span>Utilities</span>
             </a>
             <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
-                    <h6 className="collapse-header">Rol:</h6>
-                    <a className="dropdown-item" href="#">
-                                <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
+                    <h6 className="collapse-header">Custom Utilities:</h6>
+                    <a className="collapse-item" href="utilities-color.html">Colors</a>
+                    <a className="collapse-item" href="utilities-border.html">Borders</a>
+                    <a className="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a className="collapse-item" href="utilities-other.html">Other</a>
                 </div>
             </div>
         </li>
@@ -372,54 +345,9 @@ export const DeliveryNotes = () => {
 
             {/* <!-- Begin Page Content --> */}
             <div className="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Delivery Notes <i class="fa-solid fa-file-invoice-dollar"></i></h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
-    
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Delivery Notes Info</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Date</th>
-                            <th>Sum Cost</th>
-                            <th>Sum Total</th>
-                            <th>Sum Vat</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>idNumber</th>
-                            <th>03/02/2024</th>
-                            <th>00,00 €</th>
-                            <th>00,00 €</th>
-                            <th>00,00 €</th>
-                            <th> <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-  <label class="form-check-label" for="flexRadioDefault1">
-    Facturado
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
-  <label class="form-check-label" for="flexRadioDefault2">
-    Pendiente de Facturar
-  </label>
-</div> </th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-    </div>
-            
+
+                {/* <!-- Page Heading --> */}
+                <h1 className="h3 mb-4 text-gray-800">Blank Page</h1>
 
             </div>
            {/* <!-- /.container-fluid --> */}
@@ -469,5 +397,6 @@ export const DeliveryNotes = () => {
 <script src="../vendor/sb-admin-2.min.js"></script>
 
 </div>
-      );
-    };
+
+  );
+};

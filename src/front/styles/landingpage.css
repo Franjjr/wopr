@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
   body {
     margin: 0;
     line-height: normal;
@@ -2293,7 +2293,6 @@
   .john-doe5,
   .lead-designer2,
   .profile-image-placeholder-12 {
-    align-self: stretch;
     position: relative;
   }
   .john-doe5 {
@@ -2573,4 +2572,9 @@
     font-size: var(--display-m-size);
     color: var(--color-gray-100);
     font-family: var(--display-l);
+  }
+
+  .logo{
+    max-width: 35% ;
+    max-height: 35%;
   }

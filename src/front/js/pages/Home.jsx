@@ -2,104 +2,106 @@ import React, { useContext, useCallback  } from "react";
 import { Context } from "../store/appContext";
 /* import "../../styles/home.css"; */
 import "../../styles/landingpage.css";
-
-
+/* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
+import Mercedes from "../../img/IMG_8962.jpg";
+import Fran from "../../img/IMG_8964.jpg";
+import Logo from "../../img/Logo.png";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer1Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer2Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer3Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer12Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer4Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer13Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer5Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer6Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer7Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer8Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer9Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer10Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer11Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onSocialIconsClick = useCallback(() => {
-    window.open("https://www.instagram.com/animaapp/");
+    window.open("#");
   }, []);
 
   const onSocialIcons1Click = useCallback(() => {
-    window.open("https://www.youtube.com/c/Animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons2Click = useCallback(() => {
-    window.open("https://www.facebook.com/animaapp/");
+    window.open("#");
   }, []);
 
   const onSocialIcons3Click = useCallback(() => {
@@ -108,92 +110,91 @@ export const Home = () => {
 
   const onButtonContainer14Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onButtonContainer15Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onSocialIcons4Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons12Click = useCallback(() => {
-    window.open("https://www.linkedin.com/company/anima-app");
+    window.open("#");
   }, []);
 
   const onSocialIcons22Click = useCallback(() => {
-    window.open("https://github.com/AnimaApp");
+    window.open("#");
   }, []);
 
   const onSocialIcons5Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons13Click = useCallback(() => {
-    window.open("https://www.linkedin.com/company/anima-app");
+    window.open("#");
   }, []);
 
   const onSocialIcons23Click = useCallback(() => {
-    window.open("https://github.com/AnimaApp");
+    window.open("#");
   }, []);
 
   const onSocialIcons6Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons14Click = useCallback(() => {
-    window.open("https://www.linkedin.com/company/anima-app");
+    window.open("#");
   }, []);
 
   const onSocialIcons24Click = useCallback(() => {
-    window.open("https://github.com/AnimaApp");
+    window.open("#");
   }, []);
 
   const onSocialIcons7Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons15Click = useCallback(() => {
-    window.open("https://www.linkedin.com/company/anima-app");
+    window.open("#");
   }, []);
 
   const onSocialIcons25Click = useCallback(() => {
-    window.open("https://github.com/AnimaApp");
+    window.open("#");
   }, []);
 
   const onButtonContainer16Click = useCallback(() => {
     window.open(
-      "https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples"
+      "#"
     );
   }, []);
 
   const onSocialIcons8Click = useCallback(() => {
-    window.open("https://www.youtube.com/c/Animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons16Click = useCallback(() => {
-    window.open("https://www.instagram.com/animaapp/");
+    window.open("#");
   }, []);
 
   const onSocialIcons26Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
+    window.open("#");
   }, []);
 
   const onSocialIcons32Click = useCallback(() => {
-    window.open("https://www.youtube.com/c/Animaapp");
+    window.open("#");
   }, []);
 
   return (
     <div className="landing-page-v1-desktop1">
       <div className="navbar">
         <div className="logo">
-          <img className="linesegments-icon" alt="" src="/linesegments.svg" />
-          <b className="wopr">WOPR</b>
+        <img className="logo" src={Logo} />
         </div>
         <div className="navigation-menu">
           <div className="button" onClick={onButtonContainerClick}>
@@ -816,11 +817,8 @@ export const Home = () => {
             </div>
           </div>
           <div className="member-card1">
-            <img
-              className="profile-image-placeholder-11"
-              alt=""
-              src="/profile-image-placeholder-1-1@2x.png"
-            />
+            <img className="profile-image-placeholder-11" src={Mercedes} />
+            
             <div className="text10">
               <div className="john-doe4">Mercedes Sánchez</div>
               <div className="lead-designer1">Full Stack</div>
@@ -847,11 +845,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="member-card2">
-            <img
-              className="profile-image-placeholder-12"
-              alt=""
-              src="/profile-image-placeholder-1-2@2x.png"
-            />
+            <img className="profile-image-placeholder-12" src={Fran} />
             <div className="text11">
               <div className="john-doe5">Francisco Julian</div>
               <div className="lead-designer2">Full Stack</div>
@@ -918,7 +912,7 @@ export const Home = () => {
               <div className="break-the-figma-container">
                 <a
                   className="anima"
-                  href={`https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-lp-ui-kit&utm_medium=figma-samples`}
+                  href={`#`}
                   target="_blank"
                 >
                   Anima
@@ -934,7 +928,7 @@ export const Home = () => {
           <img className="mockup-icon1" alt="" src="/mockup-1.svg" />
         </div>
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <div className="anima-landing-page">© 2024 WOPR</div>
         <div className="social-links5">
           <img
@@ -962,7 +956,7 @@ export const Home = () => {
             onClick={onSocialIcons32Click}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

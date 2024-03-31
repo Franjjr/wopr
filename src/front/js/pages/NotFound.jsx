@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
-import { Link } from "react-router-dom";
+import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 export const NotFound = () => {
   const { store, actions } = useContext(Context);
