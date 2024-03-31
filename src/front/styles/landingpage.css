@@ -2573,3 +2573,8 @@
     color: var(--color-gray-100);
     font-family: var(--display-l);
   }
+
+  .logo{
+    max-width: 35% ;
+    max-height: 35%;
+  }

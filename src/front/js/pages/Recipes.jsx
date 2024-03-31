@@ -3,6 +3,7 @@ import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
 import { Link } from "react-router-dom";
+import LogoSidebar from "../../img/LogoSidebar.png";
 
 export const Recipes = () => {
   const { store, actions } = useContext(Context);
@@ -19,10 +20,9 @@ export const Recipes = () => {
 
         {/*<!-- Sidebar - Brand -->*/}
         <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div className="sidebar-brand-icon rotate-n-15">
-                <i className="fas fa-laugh-wink"></i>
+            <div className="sidebar-brand-icon">
+            <img className="logoTipoSidebar" src={LogoSidebar} />
             </div>
-            <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
         </a>
 
         {/* <!-- Divider -->*/}
