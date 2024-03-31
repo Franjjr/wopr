@@ -10,6 +10,7 @@ export const Recipes = () => {
   return (
 <div id="page-top">
 
+<div class="container-fluid" style={{ minHeight: '727px' }}>
 
 <div id="wrapper">
 
