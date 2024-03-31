@@ -11276,4 +11276,9 @@
   body.sidebar-toggled footer.sticky-footer {
     width: 100%;
   }
+
+  .logoTipoSidebar {
+      max-width: 70%;
+      max-height: 70%;
+}
   

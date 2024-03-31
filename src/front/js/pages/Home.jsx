@@ -5,6 +5,7 @@ import "../../styles/landingpage.css";
 /* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
 import Mercedes from "../../img/IMG_8962.jpg";
 import Fran from "../../img/IMG_8964.jpg";
+import Logo from "../../img/Logo.png";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -193,8 +194,7 @@ export const Home = () => {
     <div className="landing-page-v1-desktop1">
       <div className="navbar">
         <div className="logo">
-          <img className="linesegments-icon" alt="" src="/linesegments.svg" />
-          <b className="wopr">WOPR</b>
+        <img className="logo" src={Logo} />
         </div>
         <div className="navigation-menu">
           <div className="button" onClick={onButtonContainerClick}>
