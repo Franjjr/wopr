@@ -11281,4 +11281,8 @@
       max-width: 70%;
       max-height: 70%;
 }
-  
+
+.nav-link p {
+  display: inline;
+  margin-right: 5px;
+}

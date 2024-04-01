@@ -11,12 +11,11 @@ export const Recipes = () => {
   return (
 <div id="page-top"> 
 
-<div class="container-fluid" style={{ minHeight: '727px' }}>
 
 <div id="wrapper">
 
 {/* Sidebar */}
-    <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         {/*<!-- Sidebar - Brand -->*/}
         <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -373,7 +372,7 @@ export const Recipes = () => {
 
             {/* <!-- Begin Page Content --> */}
             <div className="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Recipes <i class="fa-solid fa-bowl-food"></i> </h1>
+            <h1 class="h3 mb-2 text-gray-800">Recipes  <i class="fa-solid fa-bowl-food"></i> </h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -432,7 +431,7 @@ export const Recipes = () => {
     {/* <!-- End of Content Wrapper --> */}
 
 </div>
-</div>
+
 {/*<!-- End of Page Wrapper -->*/}
 
 {/*<!-- Scroll to Top Button-->*/}

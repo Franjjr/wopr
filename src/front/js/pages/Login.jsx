@@ -2,13 +2,18 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
+import Logo from "../../img/Logo.png";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="bg-gradient-primary">
+    <div>
       <div className="container">
+        <div className="logo mt-4 mr-12">
+          <img className="logo" src={Logo} />
+        </div>
+        <hr></hr>
         <div className="row justify-content-center">
           <div className="col-xl-10 col-lg-12 col-md-9">
             <div className="card o-hidden border-0 shadow-lg my-5">
