@@ -398,8 +398,11 @@
     text-align: left;
     font-size: var(--display-xl-size);
   }
+  .logo-restauracin-icon1
+  {
+    width: 130px; 
+  }
   .logo-restauracin-icon,
-  .logo-restauracin-icon1,
   .logo-restauracin-icon2,
   .logo-restauracin-icon3,
   .logo-restauracin-icon4,
@@ -2167,7 +2170,7 @@
   .john-doe3,
   .lead-designer,
   .profile-image-placeholder-1 {
-    align-self: stretch;
+    /* align-self: stretch; */
     position: relative;
   }
   .john-doe3 {
@@ -2230,7 +2233,7 @@
   .john-doe4,
   .lead-designer1,
   .profile-image-placeholder-11 {
-    align-self: stretch;
+   /*  align-self: stretch; */
     position: relative;
   }
   .john-doe4 {
@@ -2355,7 +2358,7 @@
   .john-doe6,
   .lead-designer3,
   .profile-image-placeholder-13 {
-    align-self: stretch;
+    /* align-self: stretch; */
     position: relative;
   }
   .john-doe6 {

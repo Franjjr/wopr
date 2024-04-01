@@ -3,9 +3,23 @@ import { Context } from "../store/appContext";
 /* import "../../styles/home.css"; */
 import "../../styles/landingpage.css";
 /* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
-import Mercedes from "../../img/IMG_8962.jpg";
+import Mercedes from "../../img/IMG_8973.jpg";
 import Fran from "../../img/IMG_8964.jpg";
+import Irene from "../../img/IMG_8972.jpg";
+import Matteo from "../../img/IMG_8975.jpg";
+import Montaditos from "../../img/Montaditos.png";
+import Vicio from "../../img/Vicio.png";
+import TGB from "../../img/TGB.png";
+import Wok from "../../img/Wok.png";
+import Foster from "../../img/Foster.png";
+import LaCueva from "../../img/LaCueva.png";
+import Stock from "../../img/Stock.png";
+import Ayuda from "../../img/Ayuda.png";
+import Pedido from "../../img/Pedido.png";
+import FotoFinal from "../../img/FotoFinal.png";
+import Inteligente from "../../img/Inteligente.png";
 import Logo from "../../img/Logo.png";
+import Logo1 from "../../img/Logo1.png";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -219,11 +233,7 @@ export const Home = () => {
               <img className="arrowleft-icon3" alt="" src="/arrowright.svg" />
             </div>
             <div className="button4" onClick={onButtonContainer12Click}>
-              <img
-                className="rocketlaunch-icon"
-                alt=""
-                src="/rocketlaunch.svg"
-              />
+              <img className="rocketlaunch-icon"/>
               <div className="label4">Entrar</div>
               <img className="arrowright-icon4" alt="" src="/arrowright.svg" />
             </div>
@@ -265,32 +275,32 @@ export const Home = () => {
           <img
             className="logo-restauracin-icon"
             alt=""
-            src="/logo-restauracin@2x.png"
+            src={Montaditos}
           />
           <img
             className="logo-restauracin-icon1"
             alt=""
-            src="/logo-restauracin-1@2x.png"
+            src={Vicio}
           />
           <img
             className="logo-restauracin-icon2"
             alt=""
-            src="/logo-restauracin-2@2x.png"
+            src={TGB}
           />
           <img
             className="logo-restauracin-icon3"
             alt=""
-            src="/logo-restauracin-3@2x.png"
+            src={Wok}
           />
           <img
             className="logo-restauracin-icon4"
             alt=""
-            src="/logo-restauracin-4@2x.png"
+            src={Foster}
           />
           <img
             className="logo-restauracin-icon5"
             alt=""
-            src="/logo-restauracin-5@2x.png"
+            src={LaCueva}
           />
         </div>
       </div>
@@ -308,7 +318,7 @@ export const Home = () => {
           <div className="feature-card">
             <div className="card-info">
               <div className="icon">
-                <img className="magicwand-icon" alt="" src="/magicwand.svg" />
+                <img className="magicwand-icon" alt="" src={Stock}/>
               </div>
               <div className="text">
                 <div className="write-a-feature">Controla tu Stock</div>
@@ -330,7 +340,7 @@ export const Home = () => {
                 <img
                   className="flyingsaucer-icon"
                   alt=""
-                  src="/flyingsaucer.svg"
+                  src={Ayuda}
                 />
               </div>
               <div className="text1">
@@ -352,7 +362,7 @@ export const Home = () => {
           <div className="feature-card2">
             <div className="card-info2">
               <div className="icon2">
-                <img className="confetti-icon" alt="" src="/confetti.svg" />
+                <img className="confetti-icon" alt="" src={Pedido} />
               </div>
               <div className="text2">
                 <div className="write-a-feature2">Realiza tu pedido</div>
@@ -431,7 +441,7 @@ export const Home = () => {
           <div className="testimonial-card">
             <div className="testimonial-info">
               <div className="client-info">
-                <img className="photo-icon" alt="" src="/photo@2x.png" />
+                <img className="photo-icon" alt="" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                 <div className="person-details">
                   <div className="john-doe">Sarah K.</div>
                   <div className="vice-president">UX Designer @Brello</div>
@@ -457,7 +467,7 @@ export const Home = () => {
           <div className="testimonial-card1">
             <div className="testimonial-info1">
               <div className="client-info1">
-                <img className="photo-icon1" alt="" src="/photo-1@2x.png" />
+                <img className="photo-icon1" alt="" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                 <div className="person-details1">
                   <div className="john-doe1">Michael L.</div>
                   <div className="vice-president1">Creative Director @Yo</div>
@@ -487,7 +497,7 @@ export const Home = () => {
           <div className="testimonial-card2">
             <div className="testimonial-info2">
               <div className="client-info2">
-                <img className="photo-icon2" alt="" src="/photo-2@2x.png" />
+                <img className="photo-icon2" alt="" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                 <div className="person-details2">
                   <div className="john-doe2">Lauren M.</div>
                   <div className="vice-president2">UI Designer @Boo</div>
@@ -756,7 +766,7 @@ export const Home = () => {
         </div>
       </div>
       <div className="highlighted-cta2">
-        <img className="visuals-icon1" alt="" src="/visuals-1.svg" />
+        <img className="visuals-icon1" alt="" src={Inteligente} />
         <div className="header5">
           <div className="header6">
             <b className="get-landing-page1">
@@ -786,11 +796,7 @@ export const Home = () => {
         </div>
         <div className="cards-row4">
           <div className="member-card">
-            <img
-              className="profile-image-placeholder-1"
-              alt=""
-              src="/profile-image-placeholder-1@2x.png"
-            />
+            <img className="profile-image-placeholder-1" src={Irene}/>
             <div className="text9">
               <div className="john-doe3">Irene Vazquez</div>
               <div className="lead-designer">Full Stack</div>
@@ -872,13 +878,10 @@ export const Home = () => {
             </div>
           </div>
           <div className="member-card3">
-            <img
-              className="profile-image-placeholder-13"
-              alt=""
-              src="/profile-image-placeholder-1-3@2x.png"
+            <img className="profile-image-placeholder-13" src={Matteo}
             />
             <div className="text12">
-              <div className="john-doe6">Mateo Escilieri</div>
+              <div className="john-doe6">Mateo Scilleri</div>
               <div className="lead-designer3">Full Stack</div>
             </div>
             <div className="social-links4">
@@ -925,7 +928,7 @@ export const Home = () => {
               <img className="arrowleft-icon11" alt="" src="/arrowright.svg" />
             </div>
           </div>
-          <img className="mockup-icon1" alt="" src="/mockup-1.svg" />
+          <img className="mockup-icon1" alt="" src={FotoFinal} />
         </div>
       </div>
       {/* <div className="footer">
