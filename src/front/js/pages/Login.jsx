@@ -1,11 +1,46 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext.js";
-import "../../styles/home.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../img/Logo.png";
+import "../../styles/home.css";
+
 
 export const Login = () => {
-  const { store, actions } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify( {email, password} ),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        // Guardar el token de acceso en el Local Storage
+        console.log(data)
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("rol", data.user.rol);
+        localStorage.setItem('name', data.user.name)
+        // Redirigir a la página principal
+        navigate('/recipes');
+      } else {
+        // Manejar el caso en que la respuesta no sea exitosa
+        console.error("Error al iniciar sesión", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+  };
 
   return (
     <div>
@@ -23,16 +58,18 @@ export const Login = () => {
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                        <h1 className="h4 text-gray-900 mb-4">Bienvenido!</h1>
                       </div>
-                      <form className="user">
+                      <form className="user" onSubmit={handleLogin}>
                         <div className="form-group">
                           <input
                             type="email"
                             className="form-control form-control-user"
                             id="exampleInputEmail"
                             aria-describedby="emailHelp"
-                            placeholder="Enter Email Address..."
+                            placeholder="Direccion de mails..."
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
                         <div className="form-group">
@@ -41,6 +78,8 @@ export const Login = () => {
                             className="form-control form-control-user"
                             id="exampleInputPassword"
                             placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
                         <div className="form-group">
@@ -54,29 +93,26 @@ export const Login = () => {
                               className="custom-control-label"
                               for="customCheck"
                             >
-                              Remember Me
+                              Recuerdame
                             </label>
                           </div>
                         </div>
-                        <a
-                          href="index.html"
+                        <button
+                          type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
                           Login
-                        </a>
+                        </button>
                       </form>
                       <hr></hr>
                       <div className="text-center">
-                        <a className="small" href="forgot-password.html">
-                          Forgot Password?
-                        </a>
+                        <Link className="small" to="//">
+                          Perdiste la clave?
+                        </Link>
                       </div>
-
                       <div className="text-center">
                         <Link to="/register">
-                          <a className="small" href="register.html">
-                            Create a New Register!
-                          </a>
+                          Crear Cuenta
                         </Link>
                       </div>
                     </div>
