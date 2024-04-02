@@ -33,7 +33,7 @@ def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
     rol = request.json.get("rol", None)
-    user = db.session.query(Users).filter(Users.email==email, Users.password==password, Users.rol==rol).first()
+    user = db.session.query(Users).filter(Users.email==email, Users.password==password ).first()
     if user is None:
         response_body['message'] = "Access denied"
         return response_body, 401

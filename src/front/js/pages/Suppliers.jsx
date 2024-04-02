@@ -12,7 +12,7 @@ export function Suppliers() {
   const base_url = "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/admin/suppliers/";
 
   const getSuppliers = async () => {
-    const url = base_url + "1"
+    const url = base_url + "2"
     const options = {
       method: 'GET',
       headers: {

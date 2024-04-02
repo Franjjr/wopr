@@ -1,4 +1,4 @@
-import React, { useContext, useCallback  } from "react";
+import React, { useContext, useCallback } from "react";
 import { Context } from "../store/appContext";
 /* import "../../styles/home.css"; */
 import "../../styles/landingpage.css";
@@ -48,13 +48,13 @@ export const Home = () => {
 
   const onButtonContainer12Click = useCallback(() => {
     window.open(
-      "#"
+      "/login"
     );
   }, []);
 
   const onButtonContainer4Click = useCallback(() => {
     window.open(
-      "#"
+      "/login"
     );
   }, []);
 
@@ -208,7 +208,7 @@ export const Home = () => {
     <div className="landing-page-v1-desktop1">
       <div className="navbar">
         <div className="logo">
-        <img className="logo" src={Logo} />
+          <img className="logo" src={Logo} />
         </div>
         <div className="navigation-menu">
           <div className="button" onClick={onButtonContainerClick}>
@@ -230,7 +230,7 @@ export const Home = () => {
             </div>
             <div className="button4" onClick={onButtonContainer12Click}>
               <i class="fa-solid fa-rocket"></i>
-              <div className="label4">Entrar</div>
+              <div className="label4" src="/login">Entrar</div>
             </div>
           </div>
         </div>
@@ -307,7 +307,7 @@ export const Home = () => {
           <div className="feature-card">
             <div className="card-info">
               <div className="icon">
-                <img className="magicwand-icon" alt="" src={Stock}/>
+                <img className="magicwand-icon" alt="" src={Stock} />
               </div>
               <div className="text">
                 <div className="write-a-feature">Controla tu Stock</div>
@@ -735,7 +735,7 @@ export const Home = () => {
         </div>
         <div className="cards-row4">
           <div className="member-card">
-            <img className="profile-image-placeholder-1" src={Irene}/>
+            <img className="profile-image-placeholder-1" src={Irene} />
             <div className="text9">
               <div className="john-doe3">Irene Vazquez</div>
               <div className="lead-designer">Full Stack</div>
@@ -748,7 +748,7 @@ export const Home = () => {
           </div>
           <div className="member-card1">
             <img className="profile-image-placeholder-11" src={Mercedes} />
-            
+
             <div className="text10">
               <div className="john-doe4">Mercedes Sánchez</div>
               <div className="lead-designer1">Full Stack</div>
@@ -810,6 +810,7 @@ export const Home = () => {
           <img className="mockup-icon1" alt="" src={FotoFinal} />
         </div>
       </div> */}
+
       {/* <div className="footer">
         <div className="anima-landing-page">© 2024 WOPR</div>
         <div className="social-links5">
@@ -839,6 +840,19 @@ export const Home = () => {
           />
         </div>
       </div> */}
+       <div className="container-fluid">
+        <footer className="footer bg-light mt-auto py-1 text-center text-dark">
+          <div className="container">
+            <hr></hr>
+            <div className="row">
+              <div>
+                <h6><b>© WOPR, 2024.</b></h6>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
+    
   );
 };
