@@ -957,6 +957,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: var(--gap-8xs);
+    color: #FFD43B;
   }
   .testimonial-card {
     flex: 1;
@@ -1045,6 +1046,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: var(--gap-8xs);
+    color: #FFD43B;
   }
   .testimonial-card1 {
     align-self: stretch;
@@ -1133,6 +1135,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: var(--gap-8xs);
+    color:#FFD43B;
   }
   .testimonial-card2 {
     align-self: stretch;
@@ -1846,6 +1849,8 @@
     align-items: center;
     justify-content: flex-start;
     gap: var(--gap-base);
+    color: rgb(71, 71, 222); 
+    
   }
   .contact-details,
   .social-media {
@@ -2211,6 +2216,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: var(--gap-base);
+    color: rgb(71, 71, 222); 
   }
   .member-card {
     flex: 1;
@@ -2274,6 +2280,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: var(--gap-base);
+    color: rgb(71, 71, 222); 
   }
   .member-card1 {
     flex: 1;
@@ -2335,6 +2342,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: var(--gap-base);
+    color: rgb(71, 71, 222); 
   }
   .member-card2 {
     flex: 1;
@@ -2399,6 +2407,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: var(--gap-base);
+    color: rgb(71, 71, 222); 
   }
   .member-card3 {
     flex: 1;

@@ -214,28 +214,23 @@ export const Home = () => {
           <div className="button" onClick={onButtonContainerClick}>
             <img className="arrowright-icon" alt="" src="/arrowright.svg" />
             <div className="label">How it works</div>
-            <img className="arrowleft-icon" alt="" src="/arrowright.svg" />
           </div>
           <div className="button1" onClick={onButtonContainer1Click}>
             <img className="arrowright-icon1" alt="" src="/arrowright.svg" />
             <div className="label1">Menu 2</div>
-            <img className="arrowleft-icon1" alt="" src="/arrowright.svg" />
           </div>
           <div className="button2" onClick={onButtonContainer2Click}>
             <img className="arrowright-icon2" alt="" src="/arrowright.svg" />
             <div className="label2">Contacto</div>
-            <img className="arrowleft-icon2" alt="" src="/arrowright.svg" />
           </div>
           <div className="highlighted-ctas">
             <div className="button3" onClick={onButtonContainer3Click}>
               <img className="arrowright-icon3" alt="" src="/arrowright.svg" />
               <div className="label3">Crear cuenta</div>
-              <img className="arrowleft-icon3" alt="" src="/arrowright.svg" />
             </div>
             <div className="button4" onClick={onButtonContainer12Click}>
-              <img className="rocketlaunch-icon" />
-              <div className="label4">Entrar</div>
-              <img className="arrowright-icon4" alt="" src="/login" />
+              <i class="fa-solid fa-rocket"></i>
+              <div className="label4" src="/login">Entrar</div>
             </div>
           </div>
         </div>
@@ -253,18 +248,12 @@ export const Home = () => {
           </div>
           <div className="ctas">
             <div className="button5" onClick={onButtonContainer4Click}>
-              <img
-                className="rocketlaunch-icon1"
-                alt=""
-                src="/rocketlaunch-1.svg"
-              />
+              <i class="fa-solid fa-rocket"></i>
               <div className="label5">Entrar</div>
-              <img className="arrowleft-icon4" alt="" src="/login" />
             </div>
             <div className="button6" onClick={onButtonContainer13Click}>
-              <img className="arrowright-icon5" alt="" src="/arrowright.svg" />
+              <img className="arrowright-icon5" alt="" src="" />
               <div className="label6">Crear cuenta</div>
-              <img className="arrowleft-icon5" alt="" src="/arrowright.svg" />
             </div>
           </div>
         </div>
@@ -329,9 +318,8 @@ export const Home = () => {
               </div>
             </div>
             <div className="button7" onClick={onButtonContainer5Click}>
-              <img className="arrowright-icon6" alt="" src="/arrowright.svg" />
               <div className="label7">Learn More</div>
-              <img className="arrowright-icon7" alt="" src="/arrowright.svg" />
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
           <div className="feature-card1">
@@ -354,9 +342,8 @@ export const Home = () => {
               </div>
             </div>
             <div className="button8" onClick={onButtonContainer6Click}>
-              <img className="arrowright-icon8" alt="" src="/arrowright.svg" />
               <div className="label8">Learn More</div>
-              <img className="arrowright-icon9" alt="" src="/arrowright.svg" />
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
           <div className="feature-card2">
@@ -373,9 +360,8 @@ export const Home = () => {
               </div>
             </div>
             <div className="button9" onClick={onButtonContainer7Click}>
-              <img className="arrowright-icon10" alt="" src="/arrowright.svg" />
               <div className="label9">Learn More</div>
-              <img className="arrowright-icon11" alt="" src="/arrowright.svg" />
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -417,13 +403,8 @@ export const Home = () => {
           <div className="ctas1">
             <div className="ctas2">
               <div className="button10" onClick={onButtonContainer8Click}>
-                <img
-                  className="rocketlaunch-icon2"
-                  alt=""
-                  src="/rocketlaunch-2.svg"
-                />
+                <i class="fa-solid fa-rocket"></i>
                 <div className="label10">Crear cuenta</div>
-                <img className="arrowleft-icon6" alt="" src="/arrowright.svg" />
               </div>
             </div>
           </div>
@@ -457,11 +438,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating">
-              <img className="star-icon" alt="" src="/star-icon.svg" />
-              <img className="star-icon1" alt="" src="/star-icon.svg" />
-              <img className="star-icon2" alt="" src="/star-icon.svg" />
-              <img className="star-icon3" alt="" src="/star-icon.svg" />
-              <img className="star-icon4" alt="" src="/star-icon.svg" />
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>  
             </div>
           </div>
           <div className="testimonial-card1">
@@ -483,15 +464,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating1">
-              <img className="star-icon5" alt="" src="/star-icon.svg" />
-              <img className="star-icon6" alt="" src="/star-icon.svg" />
-              <img className="star-icon7" alt="" src="/star-icon.svg" />
-              <img className="star-icon8" alt="" src="/star-icon.svg" />
-              <img
-                className="empty-star-icon"
-                alt=""
-                src="/empty-star-icon.svg"
-              />
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i> 
+              <i class="fa-regular fa-star"></i>
             </div>
           </div>
           <div className="testimonial-card2">
@@ -513,11 +490,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating2">
-              <img className="star-icon9" alt="" src="/star-icon.svg" />
-              <img className="star-icon10" alt="" src="/star-icon.svg" />
-              <img className="star-icon11" alt="" src="/star-icon.svg" />
-              <img className="star-icon12" alt="" src="/star-icon.svg" />
-              <img className="star-icon13" alt="" src="/star-icon.svg" />
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>  
             </div>
           </div>
         </div>
@@ -547,33 +524,31 @@ export const Home = () => {
               </div>
               <div className="pricing-features">
                 <div className="pricing-feature">
-                  <img className="check-icon" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature1">
-                  <img className="check-icon1" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in1">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature2">
-                  <img className="check-icon2" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in2">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature3">
-                  <img className="check-icon3" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in3">Feature Details in plan</b>
                 </div>
               </div>
             </div>
             <div className="button11" onClick={onButtonContainer9Click}>
-              <img className="arrowright-icon12" alt="" src="/arrowright.svg" />
               <div className="label11">Get Started</div>
-              <img className="arrowleft-icon7" alt="" src="/arrowright.svg" />
             </div>
           </div>
           <div className="pricing-card1">
@@ -590,19 +565,19 @@ export const Home = () => {
               </div>
               <div className="pricing-features1">
                 <div className="pricing-feature4">
-                  <img className="check-icon4" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in4">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature5">
-                  <img className="check-icon5" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in5">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature6">
-                  <img className="check-icon6" alt="" src="/check.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in6">
                     Write feature details here
                   </b>
@@ -614,9 +589,7 @@ export const Home = () => {
               </div>
             </div>
             <div className="button12" onClick={onButtonContainer10Click}>
-              <img className="arrowright-icon13" alt="" src="/arrowright.svg" />
               <div className="label12">Get Started</div>
-              <img className="arrowleft-icon8" alt="" src="/arrowright.svg" />
             </div>
           </div>
           <div className="pricing-card2">
@@ -633,13 +606,13 @@ export const Home = () => {
               </div>
               <div className="pricing-features2">
                 <div className="pricing-feature8">
-                  <img className="check-icon8" alt="" src="/check-10.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in8">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature9">
-                  <img className="check-icon9" alt="" src="/check-10.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in9">
                     Write feature details here
                   </b>
@@ -651,7 +624,7 @@ export const Home = () => {
                   </b>
                 </div>
                 <div className="pricing-feature11">
-                  <img className="check-icon11" alt="" src="/check-10.svg" />
+                  <i class="fa-solid fa-check"></i>
                   <b className="feature-details-in11">
                     Write feature details here
                   </b>
@@ -659,13 +632,8 @@ export const Home = () => {
               </div>
             </div>
             <div className="button13" onClick={onButtonContainer11Click}>
-              <img className="arrowright-icon14" alt="" src="/arrowright.svg" />
               <div className="label13">Get Started</div>
-              <img
-                className="arrowright-icon15"
-                alt=""
-                src="/arrowright-3.svg"
-              />
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -682,45 +650,21 @@ export const Home = () => {
             <div className="contact-details">
               <div className="contact-details1">
                 <div className="phone">
-                  <img className="phonecall-icon" alt="" src="/phonecall.svg" />
+                  <i class="fa-solid fa-phone-volume"></i>
                   <div className="div">+012 345 6789</div>
                 </div>
                 <div className="mail">
-                  <img
-                    className="envelopesimple-icon"
-                    alt=""
-                    src="/envelopesimple.svg"
-                  />
+                  <i class="fa-regular fa-envelope"></i>
                   <div className="hellowoprcom">Hello@wopr.com</div>
                 </div>
               </div>
               <div className="social-media">
                 <div className="encuntranos-tambin">Encuéntranos también</div>
                 <div className="social-links">
-                  <img
-                    className="social-icons"
-                    alt=""
-                    src="/social-icons.svg"
-                    onClick={onSocialIconsClick}
-                  />
-                  <img
-                    className="social-icons1"
-                    alt=""
-                    src="/social-icons-1.svg"
-                    onClick={onSocialIcons1Click}
-                  />
-                  <img
-                    className="social-icons2"
-                    alt=""
-                    src="/social-icons-2.svg"
-                    onClick={onSocialIcons2Click}
-                  />
-                  <img
-                    className="social-icons3"
-                    alt=""
-                    src="/social-icons-3.svg"
-                    onClick={onSocialIcons3Click}
-                  />
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
                 </div>
               </div>
             </div>
@@ -728,18 +672,14 @@ export const Home = () => {
               <div className="input-fields">
                 <div className="input-field">
                   <div className="icon3">
-                    <img className="user-icon" alt="" src="/user.svg" />
+                    <i class="fa-regular fa-user"></i>
                     <div className="divider" />
                   </div>
                   <div className="nombre">Nombre</div>
                 </div>
                 <div className="input-field1">
                   <div className="icon4">
-                    <img
-                      className="envelopesimple-icon1"
-                      alt=""
-                      src="/envelopesimple-1.svg"
-                    />
+                    <i class="fa-regular fa-envelope"></i>
                     <div className="divider1" />
                   </div>
                   <div className="mail1">Mail</div>
@@ -779,9 +719,8 @@ export const Home = () => {
           </div>
           <div className="ctas3">
             <div className="button15" onClick={onButtonContainer15Click}>
-              <img className="arrowright-icon17" alt="" src="/arrowleft.svg" />
               <div className="label15">Get Started</div>
-              <img className="arrowleft-icon10" alt="" src="/arrowleft.svg" />
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -802,24 +741,9 @@ export const Home = () => {
               <div className="lead-designer">Full Stack</div>
             </div>
             <div className="social-links1">
-              <img
-                className="social-icons4"
-                alt=""
-                src="/social-icons-3.svg"
-                onClick={onSocialIcons4Click}
-              />
-              <img
-                className="social-icons5"
-                alt=""
-                src="/social-icons-5.svg"
-                onClick={onSocialIcons12Click}
-              />
-              <img
-                className="social-icons6"
-                alt=""
-                src="/social-icons-6.svg"
-                onClick={onSocialIcons22Click}
-              />
+                <i class="fa-brands fa-twitter" onClick={onSocialIcons4Click}></i>
+                <i class="fa-brands fa-linkedin" onClick={onSocialIcons12Click}></i>
+                <i class="fa-brands fa-github" onClick={onSocialIcons22Click}></i>
             </div>
           </div>
           <div className="member-card1">
@@ -830,24 +754,9 @@ export const Home = () => {
               <div className="lead-designer1">Full Stack</div>
             </div>
             <div className="social-links2">
-              <img
-                className="social-icons7"
-                alt=""
-                src="/social-icons-3.svg"
-                onClick={onSocialIcons5Click}
-              />
-              <img
-                className="social-icons8"
-                alt=""
-                src="/social-icons-5.svg"
-                onClick={onSocialIcons13Click}
-              />
-              <img
-                className="social-icons9"
-                alt=""
-                src="/social-icons-6.svg"
-                onClick={onSocialIcons23Click}
-              />
+            <i class="fa-brands fa-twitter" onClick={onSocialIcons5Click}></i>
+                <i class="fa-brands fa-linkedin" onClick={onSocialIcons13Click}></i>
+                <i class="fa-brands fa-github" onClick={onSocialIcons23Click}></i>
             </div>
           </div>
           <div className="member-card2">
@@ -857,24 +766,9 @@ export const Home = () => {
               <div className="lead-designer2">Full Stack</div>
             </div>
             <div className="social-links3">
-              <img
-                className="social-icons10"
-                alt=""
-                src="/social-icons-3.svg"
-                onClick={onSocialIcons6Click}
-              />
-              <img
-                className="social-icons11"
-                alt=""
-                src="/social-icons-5.svg"
-                onClick={onSocialIcons14Click}
-              />
-              <img
-                className="social-icons12"
-                alt=""
-                src="/social-icons-6.svg"
-                onClick={onSocialIcons24Click}
-              />
+                <i class="fa-brands fa-twitter" onClick={onSocialIcons6Click}></i>
+                <i class="fa-brands fa-linkedin" onClick={onSocialIcons14Click}></i>
+                <i class="fa-brands fa-github" onClick={onSocialIcons24Click}></i>
             </div>
           </div>
           <div className="member-card3">
@@ -885,29 +779,14 @@ export const Home = () => {
               <div className="lead-designer3">Full Stack</div>
             </div>
             <div className="social-links4">
-              <img
-                className="social-icons13"
-                alt=""
-                src="/social-icons-3.svg"
-                onClick={onSocialIcons7Click}
-              />
-              <img
-                className="social-icons14"
-                alt=""
-                src="/social-icons-5.svg"
-                onClick={onSocialIcons15Click}
-              />
-              <img
-                className="social-icons15"
-                alt=""
-                src="/social-icons-6.svg"
-                onClick={onSocialIcons25Click}
-              />
+                <i class="fa-brands fa-twitter" onClick={onSocialIcons7Click}></i>
+                <i class="fa-brands fa-linkedin" onClick={onSocialIcons15Click}></i>
+                <i class="fa-brands fa-github" onClick={onSocialIcons25Click}></i>
             </div>
           </div>
         </div>
       </div>
-      <div className="highlighted-cta3">
+      {/* <div className="highlighted-cta3">
         <div className="highlighted-cta4">
           <div className="content">
             <div className="text13">
@@ -930,10 +809,8 @@ export const Home = () => {
           </div>
           <img className="mockup-icon1" alt="" src={FotoFinal} />
         </div>
-      </div>
-     
-      
-      
+      </div> */}
+
       {/* <div className="footer">
         <div className="anima-landing-page">© 2024 WOPR</div>
         <div className="social-links5">
