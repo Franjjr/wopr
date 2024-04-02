@@ -47,7 +47,6 @@ const Layout = () => {
                         <Route element={<References />} path="/references" />
                         <Route element={<Suppliers />} path="/suppliers" />
                     </Routes>
-                    <Footer />
                 </ScrollToTop>
             </BrowserRouter>
         </div>

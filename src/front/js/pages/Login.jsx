@@ -20,7 +20,7 @@ export const Login = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify( {email, password} ),
+          body: JSON.stringify({ email, password }),
         }
       );
 
@@ -122,6 +122,18 @@ export const Login = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="container-fluid">
+        <footer className="footer bg-white mt-auto py-1 text-center fixed-bottom text-dark">
+          <div className="container">
+            <hr></hr>
+            <div className="row">
+              <div>
+                <h6><b>© WOPR, 2024.</b></h6>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
