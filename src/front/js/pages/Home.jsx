@@ -48,13 +48,13 @@ export const Home = () => {
 
   const onButtonContainer12Click = useCallback(() => {
     window.open(
-      "#"
+      "/login"
     );
   }, []);
 
   const onButtonContainer4Click = useCallback(() => {
     window.open(
-      "#"
+      "/login"
     );
   }, []);
 
@@ -235,7 +235,7 @@ export const Home = () => {
             <div className="button4" onClick={onButtonContainer12Click}>
               <img className="rocketlaunch-icon"/>
               <div className="label4">Entrar</div>
-              <img className="arrowright-icon4" alt="" src="/arrowright.svg" />
+              <img className="arrowright-icon4" alt="" src="/login" />
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@ export const Home = () => {
                 src="/rocketlaunch-1.svg"
               />
               <div className="label5">Entrar</div>
-              <img className="arrowleft-icon4" alt="" src="/arrowleft.svg" />
+              <img className="arrowleft-icon4" alt="" src="/login" />
             </div>
             <div className="button6" onClick={onButtonContainer13Click}>
               <img className="arrowright-icon5" alt="" src="/arrowright.svg" />
