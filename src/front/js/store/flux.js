@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const options = {
           method: 'GET',
           headers: {
-            'Authorization': "Barer " + localStorage.getItem("token"),
+            'Authorization': "Bearer " + localStorage.getItem("token"),
             "Content-Type": "application/json"
           },
         };

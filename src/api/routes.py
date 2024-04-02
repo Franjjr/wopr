@@ -748,67 +748,67 @@ def handle_supplier(center_id):
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
     
-    if response.status_code == 200:
-        json_response = response.json()
-        access_token = json_response.get("access_token")
-        headers = {'Authorization': f'Bearer {access_token}'}
-        response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
-        # Almacenar los proveedores de la respuesta JSON en la base de datos
-        json_data = response.json()
-        suppliers = json_data.get("data", [])
-        # Obtener los proveedores existentes en la Base de datos
-        existing_suppliers = Suppliers.query.all()
-        existing_suppliers_names = {supplier.name for supplier in existing_suppliers}
-        new_suppliers = []
-        for supplier_data in suppliers:
-            # Verificar si el proveedor ya existe en la base de datos
-            if supplier_data['name'] not in existing_suppliers_names:
-                # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
-                new_supplier = Suppliers   (id=supplier_data['id'],
-                                            reference=supplier_data['reference'],
-                                            categoryId=supplier_data['categoryId'],
-                                            subcategoryId=supplier_data['subcategoryId'],
-                                            name=supplier_data['name'],
-                                            nameRegistered=supplier_data['nameRegistered'],
-                                            cif=supplier_data['CIF'],
-                                            address=supplier_data['address'],
-                                            addressAdditional=supplier_data['addressAdditional'],
-                                            addressNumber=supplier_data['addressNumber'],
-                                            addressFloor=supplier_data['addressFloor'],
-                                            addressLetter=supplier_data['addressLetter'],
-                                            codePostal=supplier_data['codePostal'],
-                                            cityCode=supplier_data['cityCode'],
-                                            cityName=supplier_data['cityName'],
-                                            provinceCode=supplier_data['provinceCode'],
-                                            provinceName=supplier_data['provinceName'],
-                                            phone1=supplier_data['phone1'],
-                                            phone2=supplier_data['phone2'],
-                                            fax=supplier_data['fax'],
-                                            mobile=supplier_data['mobile'],
-                                            email=supplier_data['email'],
-                                            languageCode=supplier_data['languageCode'],
-                                            active=supplier_data['active'],
-                                            creationDate=supplier_data['creationDate'],
-                                            modificationDate=supplier_data['modificationDate'])
-                new_suppliers.append(new_supplier)
-        # Almacena solo los nuevos proveedores en la base de datos
-        if new_suppliers:
-            db.session.add_all(new_suppliers)
-            db.session.commit()
-            response_body['message'] = f'{len(new_suppliers)} proveedores nuevos añadidos con éxito'
-        else:
-            response_body['message'] = 'No se encontraron nuevos proveedores para añadir'
-            for supplier_data in suppliers:
-                print(supplier_data['name'])
-            for supplier in existing_suppliers:
-                print(supplier.name)
-        existing_suppliers = Suppliers.query.all()
-        response_body["data"] = [supplier.serialize() for supplier in existing_suppliers]
-        return response_body, 200
-        
-    else:
+    if response.status_code != 200:
         response_body['message'] = 'Error con los datos del proveedor'
         return response_body, 500
+    json_response = response.json()
+    access_token = json_response.get("access_token")
+    headers = {'Authorization': f'Bearer {access_token}'}
+    response = requests.get(os.getenv("URL_GS_BS") + 'v1/suppliers', headers=headers)
+    # Almacenar los proveedores de la respuesta JSON en la base de datos
+    json_data = response.json()
+    suppliers = json_data.get("data", [])
+    # Obtener los proveedores existentes en la Base de datos
+    existing_suppliers = Suppliers.query.all()
+    existing_suppliers_names = {supplier.name for supplier in existing_suppliers}
+    new_suppliers = []
+    for supplier_data in suppliers:
+        # Verificar si el proveedor ya existe en la base de datos
+        if supplier_data['name'] not in existing_suppliers_names:
+            # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
+            new_supplier = Suppliers   (id=supplier_data['id'],
+                                        reference=supplier_data['reference'],
+                                        categoryId=supplier_data['categoryId'],
+                                        subcategoryId=supplier_data['subcategoryId'],
+                                        name=supplier_data['name'],
+                                        nameRegistered=supplier_data['nameRegistered'],
+                                        cif=supplier_data['CIF'],
+                                        address=supplier_data['address'],
+                                        addressAdditional=supplier_data['addressAdditional'],
+                                        addressNumber=supplier_data['addressNumber'],
+                                        addressFloor=supplier_data['addressFloor'],
+                                        addressLetter=supplier_data['addressLetter'],
+                                        codePostal=supplier_data['codePostal'],
+                                        cityCode=supplier_data['cityCode'],
+                                        cityName=supplier_data['cityName'],
+                                        provinceCode=supplier_data['provinceCode'],
+                                        provinceName=supplier_data['provinceName'],
+                                        phone1=supplier_data['phone1'],
+                                        phone2=supplier_data['phone2'],
+                                        fax=supplier_data['fax'],
+                                        mobile=supplier_data['mobile'],
+                                        email=supplier_data['email'],
+                                        languageCode=supplier_data['languageCode'],
+                                        active=supplier_data['active'],
+                                        creationDate=supplier_data['creationDate'],
+                                        modificationDate=supplier_data['modificationDate'])
+            new_suppliers.append(new_supplier)
+    # Almacena solo los nuevos proveedores en la base de datos
+    if new_suppliers:
+        db.session.add_all(new_suppliers)
+        db.session.commit()
+        response_body['message'] = f'{len(new_suppliers)} proveedores nuevos añadidos con éxito'
+    else:
+        response_body['message'] = 'No se encontraron nuevos proveedores para añadir'
+        for supplier_data in suppliers:
+            print(supplier_data['name'])
+        for supplier in existing_suppliers:
+            print(supplier.name)
+    existing_suppliers = Suppliers.query.all()
+    response_body["data"] = [supplier.serialize() for supplier in existing_suppliers]
+    return response_body, 200
+        
+    
 
 
 

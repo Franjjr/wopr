@@ -7,30 +7,10 @@ import { Link } from "react-router-dom";
 import LogoSidebar from "../../img/LogoSidebar.png";
 
 export function Suppliers() {
-  const { store, actions } = useContext(Context);
-  const [supplier, setSupplier] = useState([]);
-  const base_url = "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/admin/suppliers/";
-
-  const getSuppliers = async () => {
-    const url = base_url + "2"
-    const options = {
-      method: 'GET',
-      headers: {
-        "Content-Type": "application/json"
-      },
-    };
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      console.log('Error', response.status, response.statusText);
-      return response.status;
-    }
-    const data = await response.json();
-    setSupplier(data);
-  }
+    const { store, actions } = useContext(Context);
 
     return (
         <div id="page-top">
-
 
 <div id="wrapper">
 
@@ -38,20 +18,20 @@ export function Suppliers() {
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         {/*<!-- Sidebar - Brand -->*/}
-        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="index.html">
             <div className="sidebar-brand-icon">
             <img className="logoTipoSidebar" src={LogoSidebar} />
             </div>
-        </a>
+        </Link>
 
         {/* <!-- Divider -->*/}
         <hr className="sidebar-divider my-0"></hr>
 
         {/*<!-- Nav Item - Dashboard -- */}
         <li className="nav-item">
-            <a className="nav-link" href="index.html">
+            <Link className="nav-link" to="index.html">
                 <i className="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Dashboard</span></Link>
         </li>
 
         {/* <!-- Divider -->  */}
@@ -64,109 +44,83 @@ export function Suppliers() {
 
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-            <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i className="fas fa-fw fa-file"></i>
                 <span>Views</span>
-            </a>
+            </Link>
             <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
-                <Link to="/recipes">
-                    <a className="collapse-item" href="buttons.html">Recipes </a>
-                </Link>
-                <Link to="/suppliers">
-                    <a className="collapse-item" href="cards.html">Suppliers </a>
-                </Link>
-                <Link to="/previsions">
-                    <a className="collapse-item" href="cards.html">Previsions </a>
-                </Link>
-                <Link to="/delivery-notes">
-                    <a className="collapse-item" href="cards.html">Delivery Notes </a>
-                </Link>
-                <Link to="/manufacturing-orders">
-                    <a className="collapse-item" href="cards.html">Manufactoring Orders </a>
-                </Link>
-                <Link to="/references">
-                    <a className="collapse-item" href="cards.html">References </a>
-                </Link>
-                
+                <Link to="/recipes" className="collapse-item">Recipes</Link>
+                <Link to="/suppliers" className="collapse-item">Suppliers</Link>
+                <Link to="/previsions" className="collapse-item">Previsions</Link>
+                <Link to="/delivery-notes" className="collapse-item">Delivery Notes</Link>
+                <Link to="/manufacturing-orders"className="collapse-item">Manufactoring Orders</Link>
+                <Link to="/references" className="collapse-item">References</Link>
                 </div>
             </div>
         </li>
-
         {/* <!-- Nav Item - Utilities Collapse Menu -->  */}
         <li className="nav-item">
-            <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i className="fas fa-fw fa-wrench"></i>
                 <span>Profile</span>
-            </a>
+            </Link>
             <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
                     <h6 className="collapse-header">Rol:</h6>
-                    <a className="dropdown-item" href="#">
-                                <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a className="dropdown-item" href="#">
-                                <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
+                    <Link className="dropdown-item" to="#">
+                                <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile</Link>
+                            <Link className="dropdown-item" to="#">
+                                <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings</Link>
+                            <Link className="dropdown-item" to="#">
+                                <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log</Link>
+                            <Link className="dropdown-item" to="#" data-toggle="modal" data-target="#logoutModal">
+                                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</Link>
                 </div>
             </div>
         </li>
-
         {/*  <!-- Divider --> */}
         <hr className="sidebar-divider"></hr>
-
         {/* <!-- Heading --> */}
         <div className="sidebar-heading">
             Addons
         </div>
-
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item active">
-            <a className="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            <Link className="nav-link" to="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                 aria-controls="collapsePages">
                 <i className="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
-            </a>
+                <span>Pages</span></Link>
             <div id="collapsePages" className="collapse" aria-labelledby="headingPages"
                 data-parent="#accordionSidebar">
                 <div className="bg-white py-2 collapse-inner rounded">
                     <h6 className="collapse-header">Login Screens:</h6>
-                    <a className="collapse-item" href="login.html">Login</a>
-                    <a className="collapse-item" href="register.html">Register</a>
-                    <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
+                    <Link className="collapse-item" to="login.html">Login</Link>
+                    <Link className="collapse-item" to="register.html">Register</Link>
+                    <Link className="collapse-item" to="forgot-password.html">Forgot Password</Link>
                     <div className="collapse-divider"></div>
                     <h6 className="collapse-header">Other Pages:</h6>
-                    <a className="collapse-item" href="404.html">404 Page</a>
-                    <a className="collapse-item active" href="blank.html">Blank Page</a>
+                    <Link className="collapse-item" to="404.html">404 Page</Link>
+                    <Link className="collapse-item active" to="blank.html">Blank Page</Link>
                 </div>
             </div>
         </li>
 
         {/*  <!-- Nav Item - Charts -->  */}
         <li className="nav-item">
-            <a className="nav-link" href="charts.html">
+            <Link className="nav-link" to="charts.html">
                 <i className="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
+                <span>Charts</span></Link>
         </li>
 
         {/*<!-- Nav Item - Tables -->  */}
         <li className="nav-item">
-            <a className="nav-link" href="tables.html">
+            <Link className="nav-link" to="tables.html">
                 <i className="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+                <span>Tables</span></Link>
         </li>
 
         {/* <!-- Divider -->  */}
@@ -362,7 +316,7 @@ export function Suppliers() {
                             <img className="img-profile rounded-circle"
                                 src="img/undraw_profile.svg"/>
                         </a>
-                       {/*  <!-- Dropdown - User Information -->*/}
+                    {/*  <!-- Dropdown - User Information -->*/}
                         <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                             aria-labelledby="userDropdown">
                             <a className="dropdown-item" href="#">
@@ -388,12 +342,12 @@ export function Suppliers() {
                 </ul>
 
             </nav>
-           {/*  <!-- End of Topbar -->*/}
+            {/*  <!-- End of Topbar -->*/}
 
             {/* <!-- Begin Page Content --> */}
             <div className="container-fluid">
 
-        <h1 className="h3 mb-2 text-gray-800">Proveedores <i class="fa-solid fa-truck-field"></i> </h1>
+        <h1 className="h3 mb-2 text-gray-800">Proveedores <i className="fa-solid fa-truck-field"></i> </h1>
         <p className="mb-4">Lista de todos los proveedores en sistema, recuerde que WOPR solo muestra los proveedores que se han dado de alta en Gstock, para modificar o sumar un proveedor es necesario que lo haga desde Gstock.</p>
         
         <div className="card shadow mb-4">
@@ -465,7 +419,7 @@ export function Suppliers() {
                         </tfoot>
                         <tbody>
                         {/* Mapea sobre los datos para renderizar cada fila */}
-                        {supplier.map((row, idWopr) => (
+                        {store.suppliers.map((row, idWopr) => (
                             <tr key={idWopr}>
                             <td>{row.idWopr}</td>
                             <td>{row.id}</td>
@@ -512,12 +466,12 @@ export function Suppliers() {
 {/*<!-- End of Page Wrapper -->*/}
 
 {/*<!-- Scroll to Top Button-->*/}
-<a className="scroll-to-top rounded" href="#page-top">
+<Link className="scroll-to-top rounded" to="#page-top">
     <i className="fas fa-angle-up"></i>
-</a>
+</Link>
 
 {/* <!-- Logout Modal--> */}
-<div className="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div className="modal fade" id="logoutModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div className="modal-dialog" role="document">
         <div className="modal-content">
