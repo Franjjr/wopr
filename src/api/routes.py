@@ -285,7 +285,7 @@ def modify_center(center_id):
 
 
 @api.route('/compositions', methods=['GET', 'POST'])
-@jwt_required()  # Esto lo puede hacer cualquiera de los 3.
+@jwt_required()  
 def handle_compositions():
     response_body = {}
     results = []
@@ -455,6 +455,7 @@ def modify_recipes(recipes_id):
 
 
 @api.route('/line_recipes', methods=['POST'])
+@jwt_required()
 def handle_line_recipe():
     response_body = {}
     results = []
@@ -476,6 +477,7 @@ def handle_line_recipe():
 
 
 @api.route('/line_recipes/<int:line_recipes_id>', methods=['PUT', 'DELETE'])
+@jwt_required()
 def modify_line_recipes(line_recipes_id):
     response_body = {}
     results = []
