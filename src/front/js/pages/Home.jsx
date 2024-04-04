@@ -19,7 +19,6 @@ import Pedido from "../../img/Pedido.png";
 import FotoFinal from "../../img/FotoFinal.png";
 import Inteligente from "../../img/Inteligente.png";
 import Logo from "../../img/Logo.png";
-import Logo1 from "../../img/Logo1.png";
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
