@@ -4,9 +4,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       demo: [{title: "FIRST", background: "white", initial: "white"},
             {title: "SECOND", background: "white", initial: "white"}],
-      suppliers:[]
+      suppliers:[], 
+      isLogin:false
     },
     actions: {
+      login: () => {
+        setStore({ isLogin: true});
+      },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
         const base_url = process.env.BACKEND_URL;

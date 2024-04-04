@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../img/Logo.png";
 import "../../styles/home.css";
+import { Context } from "../store/appContext.js";
 
 
 export const Login = () => {
+  const {store, actions} = useContext(Context)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -30,7 +32,8 @@ export const Login = () => {
         console.log(data)
         localStorage.setItem("token", data.token);
         localStorage.setItem("rol", data.user.rol);
-        localStorage.setItem('name', data.user.name)
+        localStorage.setItem('name', data.user.name);
+        actions.login();
         // Redirigir a la página principal
         navigate('/recipes');
       } else {

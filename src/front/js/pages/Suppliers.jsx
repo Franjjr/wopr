@@ -6,10 +6,12 @@ import "../../styles/index.css";
 import { Link } from "react-router-dom";
 import LogoSidebar from "../../img/LogoSidebar.png";
 
+// importar useNavigate para luego utilzarlo en el return
 export function Suppliers() {
     const { store, actions } = useContext(Context);
 
     return (
+    
         <div id="page-top">
 
 <div id="wrapper">
@@ -345,6 +347,7 @@ export function Suppliers() {
             {/*  <!-- End of Topbar -->*/}
 
             {/* <!-- Begin Page Content --> */}
+            { !store.isLogin ? <h1>FORBIDEN</h1>:
             <div className="container-fluid">
 
         <h1 className="h3 mb-2 text-gray-800">Proveedores <i className="fa-solid fa-truck-field"></i> </h1>
@@ -453,7 +456,7 @@ export function Suppliers() {
                 </div>
             </div>
         </div>
-    </div>
+    </div>}
            {/* <!-- /.container-fluid --> */}
 
         </div>
@@ -501,5 +504,5 @@ export function Suppliers() {
 <script src="../vendor/sb-admin-2.min.js"></script>
 
 </div>
-        );
+    );
     }
