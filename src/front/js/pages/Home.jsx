@@ -20,6 +20,8 @@ import FotoFinal from "../../img/FotoFinal.png";
 import Inteligente from "../../img/Inteligente.png";
 import Logo from "../../img/Logo.png";
 import Logo1 from "../../img/Logo1.png";
+import { BtnLogin } from "../component/BtnLogin.jsx";
+
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -206,35 +208,7 @@ export const Home = () => {
 
   return (
     <div className="landing-page-v1-desktop1">
-      <div className="navbar">
-        <div className="logo">
-          <img className="logo" src={Logo} />
-        </div>
-        <div className="navigation-menu">
-          <div className="button" onClick={onButtonContainerClick}>
-            <img className="arrowright-icon" alt="" src="/arrowright.svg" />
-            <div className="label">How it works</div>
-          </div>
-          <div className="button1" onClick={onButtonContainer1Click}>
-            <img className="arrowright-icon1" alt="" src="/arrowright.svg" />
-            <div className="label1">Menu 2</div>
-          </div>
-          <div className="button2" onClick={onButtonContainer2Click}>
-            <img className="arrowright-icon2" alt="" src="/arrowright.svg" />
-            <div className="label2">Contacto</div>
-          </div>
-          <div className="highlighted-ctas">
-            <div className="button3" onClick={onButtonContainer3Click}>
-              <img className="arrowright-icon3" alt="" src="/arrowright.svg" />
-              <div className="label3">Crear cuenta</div>
-            </div>
-            <div className="button4" onClick={onButtonContainer12Click}>
-              <i class="fa-solid fa-rocket"></i>
-              <div className="label4" src="/login">Entrar</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div className="hero-section">
         <div className="header">
           <div className="header1">
@@ -247,10 +221,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="ctas">
-            <div className="button5" onClick={onButtonContainer4Click}>
-              <i class="fa-solid fa-rocket"></i>
-              <div className="label5">Entrar</div>
-            </div>
+            <BtnLogin />
             <div className="button6" onClick={onButtonContainer13Click}>
               <img className="arrowright-icon5" alt="" src="" />
               <div className="label6">Crear cuenta</div>
