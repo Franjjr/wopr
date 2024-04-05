@@ -19,6 +19,11 @@ import Pedido from "../../img/Pedido.png";
 import FotoFinal from "../../img/FotoFinal.png";
 import Inteligente from "../../img/Inteligente.png";
 import Logo from "../../img/Logo.png";
+// import Logo1 from "../../img/Logo1.png";
+import { BtnLogin } from "../component/BtnLogin.jsx";
+import { BtnRegister } from "../component/BtnRegister.jsx";
+import { ContactForm } from "../component/ContactForm.jsx";
+
 
 export const Home = () => {
   const onButtonContainerClick = useCallback(() => {
@@ -205,35 +210,7 @@ export const Home = () => {
 
   return (
     <div className="landing-page-v1-desktop1">
-      <div className="navbar">
-        <div className="logo">
-          <img className="logo" src={Logo} />
-        </div>
-        <div className="navigation-menu">
-          <div className="button" onClick={onButtonContainerClick}>
-            <img className="arrowright-icon" alt="" src="/arrowright.svg" />
-            <div className="label">How it works</div>
-          </div>
-          <div className="button1" onClick={onButtonContainer1Click}>
-            <img className="arrowright-icon1" alt="" src="/arrowright.svg" />
-            <div className="label1">Menu 2</div>
-          </div>
-          <div className="button2" onClick={onButtonContainer2Click}>
-            <img className="arrowright-icon2" alt="" src="/arrowright.svg" />
-            <div className="label2">Contacto</div>
-          </div>
-          <div className="highlighted-ctas">
-            <div className="button3" onClick={onButtonContainer3Click}>
-              <img className="arrowright-icon3" alt="" src="/arrowright.svg" />
-              <div className="label3">Crear cuenta</div>
-            </div>
-            <div className="button4" onClick={onButtonContainer12Click}>
-              <i class="fa-solid fa-rocket"></i>
-              <div className="label4" src="/login">Entrar</div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div className="hero-section">
         <div className="header">
           <div className="header1">
@@ -246,14 +223,8 @@ export const Home = () => {
             </div>
           </div>
           <div className="ctas">
-            <div className="button5" onClick={onButtonContainer4Click}>
-              <i class="fa-solid fa-rocket"></i>
-              <div className="label5">Entrar</div>
-            </div>
-            <div className="button6" onClick={onButtonContainer13Click}>
-              <img className="arrowright-icon5" alt="" src="" />
-              <div className="label6">Crear cuenta</div>
-            </div>
+            <BtnLogin />
+            <BtnRegister />
           </div>
         </div>
         <img className="visuals-icon" alt="" src="https://images.pexels.com/photos/17318176/pexels-photo-17318176/free-photo-of-restaurante-trabajando-hombres-cocinando.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
@@ -318,7 +289,7 @@ export const Home = () => {
             </div>
             <div className="button7" onClick={onButtonContainer5Click}>
               <div className="label7">Learn More</div>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
           <div className="feature-card1">
@@ -342,7 +313,7 @@ export const Home = () => {
             </div>
             <div className="button8" onClick={onButtonContainer6Click}>
               <div className="label8">Learn More</div>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
           <div className="feature-card2">
@@ -360,7 +331,7 @@ export const Home = () => {
             </div>
             <div className="button9" onClick={onButtonContainer7Click}>
               <div className="label9">Learn More</div>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -402,7 +373,7 @@ export const Home = () => {
           <div className="ctas1">
             <div className="ctas2">
               <div className="button10" onClick={onButtonContainer8Click}>
-                <i class="fa-solid fa-rocket"></i>
+                <i className="fa-solid fa-rocket"></i>
                 <div className="label10">Crear cuenta</div>
               </div>
             </div>
@@ -437,11 +408,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>  
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
             </div>
           </div>
           <div className="testimonial-card1">
@@ -463,11 +434,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating1">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i> 
-              <i class="fa-regular fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-regular fa-star"></i>
             </div>
           </div>
           <div className="testimonial-card2">
@@ -489,11 +460,11 @@ export const Home = () => {
               </div>
             </div>
             <div className="star-rating2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>  
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
             </div>
           </div>
         </div>
@@ -523,25 +494,25 @@ export const Home = () => {
               </div>
               <div className="pricing-features">
                 <div className="pricing-feature">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature1">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in1">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature2">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in2">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature3">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in3">Feature Details in plan</b>
                 </div>
               </div>
@@ -564,19 +535,19 @@ export const Home = () => {
               </div>
               <div className="pricing-features1">
                 <div className="pricing-feature4">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in4">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature5">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in5">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature6">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in6">
                     Write feature details here
                   </b>
@@ -605,13 +576,13 @@ export const Home = () => {
               </div>
               <div className="pricing-features2">
                 <div className="pricing-feature8">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in8">
                     Write feature details here
                   </b>
                 </div>
                 <div className="pricing-feature9">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in9">
                     Write feature details here
                   </b>
@@ -623,7 +594,7 @@ export const Home = () => {
                   </b>
                 </div>
                 <div className="pricing-feature11">
-                  <i class="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check"></i>
                   <b className="feature-details-in11">
                     Write feature details here
                   </b>
@@ -632,78 +603,12 @@ export const Home = () => {
             </div>
             <div className="button13" onClick={onButtonContainer11Click}>
               <div className="label13">Get Started</div>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
       </div>
-      <div className="contact-form">
-        <div className="contact-form1">
-          <div className="header3">
-            <div className="headline-subhead4">
-              <b className="contacta-con-nosotros">Contacta con nosotros</b>
-              <div className="got-questions-about">{`¿Quieres más información? ¡Preguntamos lo que quieras! `}</div>
-            </div>
-          </div>
-          <div className="header4">
-            <div className="contact-details">
-              <div className="contact-details1">
-                <div className="phone">
-                  <i class="fa-solid fa-phone-volume"></i>
-                  <div className="div">+012 345 6789</div>
-                </div>
-                <div className="mail">
-                  <i class="fa-regular fa-envelope"></i>
-                  <div className="hellowoprcom">Hello@wopr.com</div>
-                </div>
-              </div>
-              <div className="social-media">
-                <div className="encuntranos-tambin">Encuéntranos también</div>
-                <div className="social-links">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                </div>
-              </div>
-            </div>
-            <div className="input-fields-button">
-              <div className="input-fields">
-                <div className="input-field">
-                  <div className="icon3">
-                    <i class="fa-regular fa-user"></i>
-                    <div className="divider" />
-                  </div>
-                  <div className="nombre">Nombre</div>
-                </div>
-                <div className="input-field1">
-                  <div className="icon4">
-                    <i class="fa-regular fa-envelope"></i>
-                    <div className="divider1" />
-                  </div>
-                  <div className="mail1">Mail</div>
-                </div>
-                <div className="input-field2">
-                  <div className="icon5">
-                    <img className="lockkey-icon" alt="" src="/lockkey.svg" />
-                    <div className="divider2" />
-                  </div>
-                  <div className="escribe-aqu">Escribe aquí</div>
-                </div>
-              </div>
-              <div className="button14" onClick={onButtonContainer14Click}>
-                <img
-                  className="arrowright-icon16"
-                  alt=""
-                  src="/arrowleft.svg"
-                />
-                <div className="label14">Envíar</div>
-                <img className="arrowleft-icon9" alt="" src="/arrowleft.svg" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContactForm />
       <div className="highlighted-cta2">
         <img className="visuals-icon1" alt="" src={Inteligente} />
         <div className="header5">
@@ -719,7 +624,7 @@ export const Home = () => {
           <div className="ctas3">
             <div className="button15" onClick={onButtonContainer15Click}>
               <div className="label15">Get Started</div>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -740,9 +645,9 @@ export const Home = () => {
               <div className="lead-designer">Full Stack</div>
             </div>
             <div className="social-links1">
-                <i class="fa-brands fa-twitter" onClick={onSocialIcons4Click}></i>
-                <i class="fa-brands fa-linkedin" onClick={onSocialIcons12Click}></i>
-                <i class="fa-brands fa-github" onClick={onSocialIcons22Click}></i>
+              <i className="fa-brands fa-twitter" onClick={onSocialIcons4Click}></i>
+              <i className="fa-brands fa-linkedin" onClick={onSocialIcons12Click}></i>
+              <i className="fa-brands fa-github" onClick={onSocialIcons22Click}></i>
             </div>
           </div>
           <div className="member-card1">
@@ -753,9 +658,9 @@ export const Home = () => {
               <div className="lead-designer1">Full Stack</div>
             </div>
             <div className="social-links2">
-            <i class="fa-brands fa-twitter" onClick={onSocialIcons5Click}></i>
-                <i class="fa-brands fa-linkedin" onClick={onSocialIcons13Click}></i>
-                <i class="fa-brands fa-github" onClick={onSocialIcons23Click}></i>
+              <i className="fa-brands fa-twitter" onClick={onSocialIcons5Click}></i>
+              <i className="fa-brands fa-linkedin" onClick={onSocialIcons13Click}></i>
+              <i className="fa-brands fa-github" onClick={onSocialIcons23Click}></i>
             </div>
           </div>
           <div className="member-card2">
@@ -765,9 +670,9 @@ export const Home = () => {
               <div className="lead-designer2">Full Stack</div>
             </div>
             <div className="social-links3">
-                <i class="fa-brands fa-twitter" onClick={onSocialIcons6Click}></i>
-                <i class="fa-brands fa-linkedin" onClick={onSocialIcons14Click}></i>
-                <i class="fa-brands fa-github" onClick={onSocialIcons24Click}></i>
+              <i className="fa-brands fa-twitter" onClick={onSocialIcons6Click}></i>
+              <i className="fa-brands fa-linkedin" onClick={onSocialIcons14Click}></i>
+              <i className="fa-brands fa-github" onClick={onSocialIcons24Click}></i>
             </div>
           </div>
           <div className="member-card3">
@@ -778,9 +683,9 @@ export const Home = () => {
               <div className="lead-designer3">Full Stack</div>
             </div>
             <div className="social-links4">
-                <i class="fa-brands fa-twitter" onClick={onSocialIcons7Click}></i>
-                <i class="fa-brands fa-linkedin" onClick={onSocialIcons15Click}></i>
-                <i class="fa-brands fa-github" onClick={onSocialIcons25Click}></i>
+              <i className="fa-brands fa-twitter" onClick={onSocialIcons7Click}></i>
+              <i className="fa-brands fa-linkedin" onClick={onSocialIcons15Click}></i>
+              <i className="fa-brands fa-github" onClick={onSocialIcons25Click}></i>
             </div>
           </div>
         </div>
@@ -839,7 +744,7 @@ export const Home = () => {
           />
         </div>
       </div> */}
-       <div className="container-fluid">
+      <div className="container-fluid">
         <footer className="footer bg-light mt-auto py-1 text-center text-dark">
           <div className="container">
             <hr></hr>
@@ -852,6 +757,6 @@ export const Home = () => {
         </footer>
       </div>
     </div>
-    
+
   );
 };

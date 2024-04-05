@@ -110,7 +110,7 @@ export const Login = () => {
                       <hr></hr>
                       <div className="text-center">
                         <Link className="small" to="//">
-                          Contraseña olvidada
+                          Perdiste la clave?
                         </Link>
                       </div>
                       <div className="text-center">
