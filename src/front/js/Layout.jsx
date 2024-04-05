@@ -51,10 +51,10 @@ const Layout = () => {
                         </Routes>
                     :
                         <div className="row">
-                            <div className="col-3">
+                            <div className="col-2">
                                 <Sidebar />
                             </div>
-                            <div className="col-9">
+                            <div className="col-9 mt-4">
                                 <Routes>
                                     <Route element={<Dashboard />} path="/dashboard" />
                                     <Route element={<Recipes />} path="/recipes" />

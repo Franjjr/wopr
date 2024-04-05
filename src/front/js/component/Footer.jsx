@@ -1,13 +1,14 @@
 import React from "react";
 import "../../styles/landingpage.css";
-
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
-  <footer className="footer bg-gradient-primary mt-auto py-1 text-center">
+  <footer className="footer bg-white mt-auto py-1 text-center fixed-bottom text-dark">
     <div className="container">
-      <div className="row mt-2">
+      <hr></hr>
+      <div className="row">
         <div>
-          <p>© WOPR, 2024.</p>
+          <h6><b>© WOPR, 2024.</b></h6>
         </div>
       </div>
     </div>
