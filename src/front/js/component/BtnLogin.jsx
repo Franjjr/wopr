@@ -6,7 +6,7 @@ export const BtnLogin = () => {
 
   return (
     <Link className="button4" to="/login">
-      <i class="fa-solid fa-rocket"></i>
+      <i className="fa-solid fa-rocket"></i>
       <div className="label4">Entrar</div>
     </Link>
   )

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
+import { Link } from "react-router-dom";
 
 export const NotFound = () => {
   const { store, actions } = useContext(Context);
@@ -11,14 +12,18 @@ export const NotFound = () => {
       <p>
         <img src={rigoImageUrl} />
       </p>
-      <div class="error mx-auto" data-text="404">
+      <div className="error mx-auto" data-text="404">
         404
       </div>
-      <p class="lead text-gray-800 mb-5">Page Not Found</p>
-      <p class="text-gray-500 mb-0">
+      <p className="lead text-gray-800 mb-5">Page Not Found</p>
+      <p className="text-gray-500 mb-0">
         It looks like you found a glitch in the matrix...
       </p>
-      <a href="index.html">&larr; Back to Dashboard</a>
+      {store.isLogin ? 
+        <Link to="/dashboard">&larr; Back to Dashboard</Link>
+      : 
+        <Link to="/">&larr; Back to Home</Link>
+      }
     </div>
   );
 };

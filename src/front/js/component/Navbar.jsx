@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-
 import Logo from "../../img/Logo.png";
+import "../../styles/landingpage.css";
 import { BtnLogin } from "./BtnLogin.jsx";
+import { BtnRegister } from "./BtnRegister.jsx";
+import { BtnContact } from "./BtnContact.jsx";
 
 
 export const Navbar = () => {
@@ -11,44 +13,29 @@ export const Navbar = () => {
 
   return !store.isLogin ?
     <div className="navbar">
-      <div className="logo">
+      {/* Menu Principal sin Logeo */}
+      <div className="logo mt-4 mr-12" >
         <img className="logo" src={Logo} />
       </div>
       <div className="navigation-menu">
-        {/* <div className="button" onClick={onButtonContainerClick}>
-          <img className="arrowright-icon" alt="" src="/arrowright.svg" />
-          <div className="label">How it works</div>
-        </div> */}
-        {/* <div className="button1" onClick={onButtonContainer1Click}>
-          <img className="arrowright-icon1" alt="" src="/arrowright.svg" />
-          <div className="label1">Menu 2</div>
-        </div> */}
-        <Link className="button2" to="/">
-          <img className="arrowright-icon2" alt="" src="/arrowright.svg" />
-          <div className="label2">Contacto</div>
-        </Link>
+        <BtnContact />
         <div className="highlighted-ctas">
-          <Link className="button3" to="/register">
-            <img className="arrowright-icon3" alt="" src="/arrowright.svg" />
-            <div className="label3">Crear cuenta</div>
-          </Link>
+          <BtnRegister />
           <BtnLogin />
         </div>
       </div>
     </div>
 
-
     :
 
     <div id="content-wrapper" className="d-flex flex-column">
-
-      {/* <!-- Main Content --> */}
+      {/* Menu Principal sin Logeo */}
       <div id="content">
         {/*<!-- Topbar --> */}
-        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        <div className="logo">
-          <img className="logo" src={Logo} />
-        </div>
+        <nav className="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+          <div className="logo">
+            <img className="logo" src={Logo} />
+          </div>
           {/*  <!-- Sidebar Toggle (Topbar) -->*/}
           <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
             <i className="fa fa-bars"></i>
@@ -70,8 +57,6 @@ export const Navbar = () => {
           {/* <!-- Topbar Navbar --> */}
           <ul className="navbar-nav ml-auto">
 
-            <div className="topbar-divider d-none d-sm-block"></div>
-
             {/*<!-- Nav Item - User Information --> */}
             <li className="nav-item dropdown no-arrow">
               <Link className="nav-link dropdown-toggle" to="/recipes" id="userDropdown" role="button"
@@ -80,9 +65,9 @@ export const Navbar = () => {
                 <img className="img-profile rounded-circle"
                   src="img/undraw_profile.svg" />
               </Link>
+
               {/*  <!-- Dropdown - User Information -->*/}
-              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="userDropdown">
+              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <Link className="dropdown-item" to="#">
                   <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
@@ -102,7 +87,16 @@ export const Navbar = () => {
                 </Link>
               </div>
             </li>
+            <div className="topbar-divider d-none d-sm-block"></div>
 
+            <li className="nav-item dropdown no-arrow">
+              <Link className="nav-link dropdown-toggle" to="#" data-toggle="modal" data-target="#logoutModal">
+                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                <span className="mr-2 d-none d-lg-inline text-gray-600 small">
+                  Logout
+                </span>
+              </Link>
+            </li>
           </ul>
         </nav>
         {/*  <!-- End of Topbar -->*/}
