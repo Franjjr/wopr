@@ -35,7 +35,7 @@ export const Login = () => {
         localStorage.setItem('name', data.user.name);
         actions.login();
         // Redirigir a la página principal
-        navigate('/recipes');
+        navigate('/dashboard');
       } else {
         // Manejar el caso en que la respuesta no sea exitosa
         console.error("Error al iniciar sesión", response.status, response.statusText);

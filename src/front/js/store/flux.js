@@ -4,12 +4,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       demo: [{title: "FIRST", background: "white", initial: "white"},
             {title: "SECOND", background: "white", initial: "white"}],
-      suppliers:[], 
-      isLogin:false
+      suppliers:[],
+      references:[],
+      formats:[],
+      isLogin:false,
+      rol:[],
+      name:[],
     },
     actions: {
       login: () => {
         setStore({ isLogin: true});
+        setStore({ rol:localStorage.getItem("rol")});
+        setStore({ name:localStorage.getItem('name')});
       },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
