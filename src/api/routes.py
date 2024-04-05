@@ -853,27 +853,27 @@ def handle_formate(center_id):
         # Verificar si el proveedor ya existe en la base de datos
         if formate_data['name'] not in existing_formats_names:
             # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
-            new_formate = ProductsFormats(id=formate_data['id'],
-                                        productPurchaseId=formate_data['productPurchaseId'],
-                                        reference=formate_data['reference'],
-                                        name=formate_data['name'],
-                                        storageUnit=formate_data['storageUnit'],
-                                        orderUnit=formate_data['orderUnit'],
-                                        equivalenceBetweenMeasureAndStorage=formate_data['equivalenceBetweenMeasureAndStorage'],
-                                        equivalenceBetweenStorageAndOrder=formate_data['equivalenceBetweenStorageAndOrder'],
-                                        storageBarcode=formate_data['storageBarcode'],
-                                        orderBarcode=formate_data['orderBarcode'],
-                                        storageWeight=formate_data['storageWeight'],
-                                        orderWeight=formate_data['orderWeight'],
-                                        conservationState=formate_data['conservationState'],
-                                        measurePriceLastPurchase=formate_data['measurePriceLastPurchase'],
-                                        measurePriceAverage=formate_data['measurePriceAverage'],
-                                        storagePrice=formate_data['storagePrice'],
-                                        storagePriceAverage=formate_data['storagePriceAverage'],
-                                        orderPrice=formate_data['orderPrice'],
-                                        orderPriceAverage=formate_data['orderPriceAverage'],
-                                        creationDate=formate_data['creationDate'],
-                                        modificationDate=formate_data['modificationDate'])
+            new_formate = ProductsFormats(  id=formate_data['id'],
+                                            productPurchaseId=formate_data['productPurchaseId'],
+                                            reference=formate_data['reference'],
+                                            name=formate_data['name'],
+                                            storageUnit=formate_data['storageUnit'],
+                                            orderUnit=formate_data['orderUnit'],
+                                            equivalenceBetweenMeasureAndStorage=formate_data['equivalenceBetweenMeasureAndStorage'],
+                                            equivalenceBetweenStorageAndOrder=formate_data['equivalenceBetweenStorageAndOrder'],
+                                            storageBarcode=formate_data['storageBarcode'],
+                                            orderBarcode=formate_data['orderBarcode'],
+                                            storageWeight=formate_data['storageWeight'],
+                                            orderWeight=formate_data['orderWeight'],
+                                            conservationState=formate_data['conservationState'],
+                                            measurePriceLastPurchase=formate_data['measurePriceLastPurchase'],
+                                            measurePriceAverage=formate_data['measurePriceAverage'],
+                                            storagePrice=formate_data['storagePrice'],
+                                            storagePriceAverage=formate_data['storagePriceAverage'],
+                                            orderPrice=formate_data['orderPrice'],
+                                            orderPriceAverage=formate_data['orderPriceAverage'],
+                                            creationDate=formate_data['creationDate'],
+                                            modificationDate=formate_data['modificationDate'])
             new_formats.append(new_formate)
     # Almacena solo los nuevos proveedores en la base de datos
     if new_formats:

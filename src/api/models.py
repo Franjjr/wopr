@@ -225,8 +225,6 @@ class ProductsFormats(db.Model):
                 'storagePriceAverage': self.storagePriceAverage,
                 'orderPrice': self.orderPrice,
                 'orderPriceAverage': self.orderPriceAverage,
-                'orderPrice': self.orderPrice,
-                'orderPriceAverage': self.orderPriceAverage,
                 'creationDate': self.creationDate,
                 'modificationDate': self.modificationDate}
 
