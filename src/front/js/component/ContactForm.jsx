@@ -9,6 +9,7 @@ export const ContactForm = () => {
   };
 
   return (
+    <div className="container justify-content-center">
     <div className="contact-form">
       <div className="contact-form1">
         <div className="header3">
@@ -71,6 +72,7 @@ export const ContactForm = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 };

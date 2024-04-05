@@ -48,10 +48,6 @@ export const Login = () => {
   return (
     <div>
       <div className="container">
-        <div className="logo mt-4 mr-12">
-          <img className="logo" src={Logo} />
-        </div>
-        <hr></hr>
         <div className="row justify-content-center">
           <div className="col-xl-10 col-lg-12 col-md-9">
             <div className="card o-hidden border-0 shadow-lg my-5">
@@ -125,18 +121,6 @@ export const Login = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container-fluid">
-        <footer className="footer bg-white mt-auto py-1 text-center fixed-bottom text-dark">
-          <div className="container">
-            <hr></hr>
-            <div className="row">
-              <div>
-                <h6><b>© WOPR, 2024.</b></h6>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );
