@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
-  
   return (
     <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <hr className="sidebar-divider"></hr>

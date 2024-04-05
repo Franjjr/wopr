@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Logo from "../../img/Logo.png";
 import "../../styles/landingpage.css";
+// Componentes
 import { BtnLogin } from "./BtnLogin.jsx";
 import { BtnRegister } from "./BtnRegister.jsx";
 import { BtnContact } from "./BtnContact.jsx";
