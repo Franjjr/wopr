@@ -9,32 +9,32 @@ export const Sidebar = () => {
         {/* Pages */}
         <li className="nav-item">
             <Link className="nav-link" to="/recipes">
-                <i className="fas fa-fw fa-chart-area"></i><span>Recipes</span>
+            <i class="fa-solid fa-plate-wheat"></i><span>Recetas</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/suppliers">
-                <i className="fas fa-fw fa-list"></i><span>Suppliers</span>
+            <i className="fa-solid fa-truck-field"></i><span>Proveedores</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/previsions">
-                <i className="fas fa-fw fa-table"></i><span>Previsions</span>
+            <i class="fa-regular fa-clipboard"></i><span>Previsiones</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/delivery-notes">
-                <i className="fas fa-fw fa-folder"></i><span>Delivery Notes</span>
+            <i class="fa-solid fa-file-invoice-dollar"></i><span>Albaranes</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/manufacturing-orders">
-                <i className="fas fa-fw fa-wrench"></i><span>Manufacturing Orders</span>
+            <i class="fa-regular fa-paper-plane"></i><span>Manufacturación</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/references">
-                <i className="fas fa-fw fa-file"></i><span>Referens</span>
+                <i className="fas fa-fw fa-file"></i><span>Referencias</span>
             </Link>
         </li>
         {/* <!-- Divider -->  */}
