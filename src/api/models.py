@@ -175,6 +175,62 @@ class References(db.Model):
                 'modificationDate': self.modificationDate}
 
 
+class ProductsFormats(db.Model):
+    __tablename__ = "products_formats"
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, nullable=False)
+    productPurchaseId = db.Column(db.String)
+    reference = db.Column(db.Integer, db.ForeignKey('references.idWopr'))
+    name = db.Column(db.String)
+    storageUnit = db.Column(db.String)
+    orderUnit = db.Column(db.String)
+    equivalenceBetweenMeasureAndStorage = db.Column(db.Integer)
+    equivalenceBetweenStorageAndOrder = db.Column(db.Integer)
+    storageBarcode = db.Column(db.String)
+    orderBarcode = db.Column(db.String)
+    storageWeight = db.Column(db.Integer)
+    orderWeight = db.Column(db.Integer)
+    conservationState = db.Column(db.Integer)
+    measurePriceLastPurchase = db.Column(db.Integer)
+    measurePriceAverage = db.Column(db.Integer)
+    storagePrice = db.Column(db.Integer)
+    storagePriceAverage = db.Column(db.Integer)
+    orderPrice = db.Column(db.Integer)
+    orderPriceAverage = db.Column(db.Integer)
+    creationDate = db.Column(db.DateTime)
+    modificationDate = db.Column(db.DateTime)
+    # reference_to = db.relationship('References', foreign_keys=[references_idWopr]) 
+
+    def __repr__(self):
+        return f'<Formato: {self.id} - {self.name}>'
+
+    def serialize(self):
+        return {'id': self.id,
+                'idWopr': self.idWopr,
+                'productPurchaseId': self.productPurchaseId,
+                'reference': self.reference,
+                'name': self.name,
+                'storageUnit': self.storageUnit,
+                'orderUnit': self.orderUnit,
+                'equivalenceBetweenMeasureAndStorage': self.equivalenceBetweenMeasureAndStorage,
+                'equivalenceBetweenStorageAndOrder': self.equivalenceBetweenStorageAndOrder,
+                'storageBarcode': self.storageBarcode,
+                'orderBarcode': self.orderBarcode,
+                'storageWeight':self.storageWeight,
+                'orderWeight': self.orderWeight,
+                'conservationState': self.conservationState,
+                'measurePriceLastPurchase': self.measurePriceLastPurchase,
+                'measurePriceAverage': self.measurePriceAverage,
+                'storagePrice': self.storagePrice,
+                'storagePriceAverage': self.storagePriceAverage,
+                'orderPrice': self.orderPrice,
+                'orderPriceAverage': self.orderPriceAverage,
+                'orderPrice': self.orderPrice,
+                'orderPriceAverage': self.orderPriceAverage,
+                'creationDate': self.creationDate,
+                'modificationDate': self.modificationDate}
+
+
 class Previsions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False)

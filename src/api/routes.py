@@ -4,7 +4,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from api.models import db, Users, Centers, Compositions, Recipes, References, Previsions, DeliveryNotes, DeliveryNoteLines, CompositionLines, LineRecipes, ManufacturingOrders, Suppliers, References
+from api.models import db, Users, Centers, Compositions, Recipes, References, Previsions, DeliveryNotes, DeliveryNoteLines, CompositionLines, LineRecipes, ManufacturingOrders, Suppliers, References, ProductsFormats
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
@@ -811,7 +811,84 @@ def handle_supplier(center_id):
     return response_body, 200
         
     
-
+@api.route("/products_formats/<int:center_id>", methods=['GET'])
+@jwt_required()
+def handle_formate(center_id):
+    response_body = {}
+    current_user = get_jwt_identity()
+    user_id = current_user['user_id']
+    
+    if user_id is None:
+        response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
+        return response_body, 400
+    
+    if center_id == 2:
+        payload = json.dumps({"client_id": os.getenv("CLIENT_COB"), "client_secret": os.getenv("SECRET_COB")})
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 3:
+        payload = json.dumps({"client_id": os.getenv("CLIENT_PER"), "client_secret": os.getenv("SECRET_PER")})
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    elif center_id == 4:
+        payload = json.dumps({"client_id": os.getenv("CLIENT_PAR"), "client_secret": os.getenv("SECRET_PAR")})
+        headers = {'Content-Type': 'application/json'}
+        response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
+    
+    if response.status_code != 200:
+        response_body['message'] = 'Error con los datos de los formatos de compra'
+        return response_body, 500
+    json_response = response.json()
+    access_token = json_response.get("access_token")
+    headers = {'Authorization': f'Bearer {access_token}'}
+    response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases/formats', headers=headers)
+    # Almacenar los proveedores de la respuesta JSON en la base de datos
+    json_data = response.json()
+    formats = json_data.get("data", [])
+    # Obtener los proveedores existentes en la Base de datos
+    existing_formats = ProductsFormats.query.all()
+    existing_formats_names = {formats.name for formats in existing_formats}
+    new_formats = []
+    for formate_data in formats:
+        # Verificar si el proveedor ya existe en la base de datos
+        if formate_data['name'] not in existing_formats_names:
+            # Si no existe, crea una nueva instancia de proveedor y agrégala a la lista de nuevos proveedores
+            new_formate = ProductsFormats(id=formate_data['id'],
+                                        productPurchaseId=formate_data['productPurchaseId'],
+                                        reference=formate_data['reference'],
+                                        name=formate_data['name'],
+                                        storageUnit=formate_data['storageUnit'],
+                                        orderUnit=formate_data['orderUnit'],
+                                        equivalenceBetweenMeasureAndStorage=formate_data['equivalenceBetweenMeasureAndStorage'],
+                                        equivalenceBetweenStorageAndOrder=formate_data['equivalenceBetweenStorageAndOrder'],
+                                        storageBarcode=formate_data['storageBarcode'],
+                                        orderBarcode=formate_data['orderBarcode'],
+                                        storageWeight=formate_data['storageWeight'],
+                                        orderWeight=formate_data['orderWeight'],
+                                        conservationState=formate_data['conservationState'],
+                                        measurePriceLastPurchase=formate_data['measurePriceLastPurchase'],
+                                        measurePriceAverage=formate_data['measurePriceAverage'],
+                                        storagePrice=formate_data['storagePrice'],
+                                        storagePriceAverage=formate_data['storagePriceAverage'],
+                                        orderPrice=formate_data['orderPrice'],
+                                        orderPriceAverage=formate_data['orderPriceAverage'],
+                                        creationDate=formate_data['creationDate'],
+                                        modificationDate=formate_data['modificationDate'])
+            new_formats.append(new_formate)
+    # Almacena solo los nuevos proveedores en la base de datos
+    if new_formats:
+        db.session.add_all(new_formats)
+        db.session.commit()
+        response_body['message'] = f'{len(new_formats)} formatos de compra nuevos añadidos con éxito'
+    else:
+        response_body['message'] = 'No se encontraron nuevos formatos de compra para añadir'
+        for formate_data in formats:
+            print(formate_data['name'])
+        for formate in existing_formats:
+            print(formate.name)
+    existing_formats = ProductsFormats.query.all()
+    response_body["data"] = [formate.serialize() for formate in existing_formats]
+    return response_body, 200
 
 
 @api.route("/references/<int:center_id>", methods=['GET'])

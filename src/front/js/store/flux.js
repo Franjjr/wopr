@@ -31,6 +31,47 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({suppliers:data.data});
         console.log(data);
       },
+
+      getReferences : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/references/2"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({references:data.data});
+        console.log(data);
+      },
+
+      getFormats : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/products_formats/2"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({formats:data.data});
+        console.log(data);
+      },
+
       exampleFunction: () => { getActions().changeColor(0, "green"); },
       getMessage: async () => {
         try {
