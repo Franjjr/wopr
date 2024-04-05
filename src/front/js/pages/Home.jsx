@@ -608,7 +608,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <ContactForm />
+      {/* <ContactForm /> */}
       <div className="highlighted-cta2">
         <img className="visuals-icon1" alt="" src={Inteligente} />
         <div className="header5">
@@ -641,7 +641,7 @@ export const Home = () => {
           <div className="member-card">
             <img className="profile-image-placeholder-1" src={Irene} />
             <div className="text9">
-              <div className="john-doe3">Irene Vazquez</div>
+              <div className="john-doe3">Irene Vázquez</div>
               <div className="lead-designer">Full Stack</div>
             </div>
             <div className="social-links1">
@@ -744,7 +744,7 @@ export const Home = () => {
           />
         </div>
       </div> */}
-      <div className="container-fluid">
+      {/* <div className="container-fluid">
         <footer className="footer bg-light mt-auto py-1 text-center text-dark">
           <div className="container">
             <hr></hr>
@@ -755,7 +755,7 @@ export const Home = () => {
             </div>
           </div>
         </footer>
-      </div>
+      </div> */}
     </div>
 
   );
