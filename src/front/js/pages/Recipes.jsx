@@ -11,26 +11,26 @@ export const Recipes = () => {
     // Falta poner el BtnCreate dentro de la tabla.
 
 
+
     return (
         <div id="page-top">
             {!store.isLogin ? <h1>FORBIDEN</h1> :
                 <div className="container-fluid">
 
-                    <h1 class="h3 mb-2 text-gray-800">Recetas  <i class="fa-solid fa-plate-wheat"></i> </h1>
+                    <h1 className="h3 mb-2 text-gray-800">Recetas  <i className="fa-solid fa-plate-wheat"></i> </h1>
                     <div className="text-right">
                         <Link to="/new-recipes">
                             <button type="button" className="btn btn-primary">Crear receta</button>
                         </Link>
                     </div>
                     <p className="mb-4">Recetas disponibles:</p>
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Recetas disponibles</h6>
+                    <div className="card shadow mb-4">
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-primary">Recetas disponibles</h6>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                                     <thead>
                                         <tr>
                                             <th>Id</th>

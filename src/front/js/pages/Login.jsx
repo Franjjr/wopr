@@ -69,7 +69,7 @@ export const Login = () => {
                             placeholder="Direccion de mails..."
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                          />
+                          />place
                         </div>
                         <div className="form-group">
                           <input
@@ -90,7 +90,7 @@ export const Login = () => {
                             />
                             <label
                               className="custom-control-label"
-                              for="customCheck"
+                              htmlFor="customCheck"
                             >
                               Recuerdame
                             </label>

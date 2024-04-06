@@ -15,7 +15,7 @@ export const Dashboard = () => {
       <p>
         <img src={logo} />
       </p>
-      <p><h3>Warehouse and Operations Planning & Reporting</h3></p>
+      <h3><p>Warehouse and Operations Planning & Reporting</p></h3>
     </div>
   );
 };
