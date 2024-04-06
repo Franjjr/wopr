@@ -45,16 +45,17 @@ const Layout = () => {
                             <Route element={<Register />} path="/register" />
                             <Route element={<ContactForm />} path="/contact" />
                             <Route element={<NotFound />} path="*" />
+                            {/* <Route element={<Forbiden />} path ="forbiden" /> */}
                             {/* <Route element={<Demo />} path="/demo" /> */}
                             {/* <Route element={<Single />} path="/single/:theid" /> */}
                             {/* <Route element={<Prueba />} path="/prueba" /> */}
                         </Routes>
                     :
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-2 col-md-3">
                                 <Sidebar />
                             </div>
-                            <div className="col-9 mt-4">
+                            <div className="col-10 col-md-9 mt-4">
                                 <Routes>
                                     <Route element={<Dashboard />} path="/dashboard" />
                                     <Route element={<Recipes />} path="/recipes" />

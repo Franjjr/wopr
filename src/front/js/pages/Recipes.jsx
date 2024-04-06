@@ -7,12 +7,15 @@ import LogoSidebar from "../../img/LogoSidebar.png";
 
 export const Recipes = () => {
   const { store, actions } = useContext(Context);
-  
+
+  // Falta poner el BtnCreate dentro de la tabla.
+
+
   return (
 <div id="page-top"> 
 { !store.isLogin ? <h1>FORBIDEN</h1>:
             <div className="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Recipes  <i class="fa-solid fa-bowl-food"></i> </h1>
+            <h1 class="h3 mb-2 text-gray-800">Recetas  <i class="fa-solid fa-plate-wheat"></i> </h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p>

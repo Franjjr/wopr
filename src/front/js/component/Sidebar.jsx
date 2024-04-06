@@ -14,7 +14,7 @@ export const Sidebar = () => {
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/suppliers">
-                <i className="fas fa-fw fa-list"></i><span>Proveedores</span>
+            <i className="fa-solid fa-truck-field"></i><span>Proveedores</span>
             </Link>
         </li>
         <li className="nav-item">
