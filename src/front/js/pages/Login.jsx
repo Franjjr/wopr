@@ -16,7 +16,7 @@ export const Login = () => {
 
     try {
       const response = await fetch(
-        "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/api/login",
+        "https://orange-tribble-wr76jp5p76r5295px-3001.app.github.dev/api/login/",
         {
           method: "POST",
           headers: {

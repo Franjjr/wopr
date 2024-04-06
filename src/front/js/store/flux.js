@@ -78,6 +78,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data);
       },
 
+      getRecipes : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/recipes"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({recipes:data.data});
+        console.log(data);
+      },
+
       exampleFunction: () => { getActions().changeColor(0, "green"); },
       getMessage: async () => {
         try {

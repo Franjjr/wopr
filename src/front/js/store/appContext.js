@@ -33,6 +33,8 @@ const injectContext = (PassedComponent) => {
       state.actions.getSuppliers();
       state.actions.getReferences();
       state.actions.getFormats();
+      state.actions.getRecipes();
+
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,
