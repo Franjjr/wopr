@@ -112,6 +112,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: var(--gap-7xs);
+    width: 25%;
   }
   .arrowright-icon {
     width: 20px;
