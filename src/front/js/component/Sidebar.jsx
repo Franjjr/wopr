@@ -5,11 +5,11 @@ export const Sidebar = () => {
   return (
     <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <hr className="sidebar-divider"></hr>
-        <div className="sidebar-heading">Interface</div>
+        <div className="sidebar-heading">Menu</div>
         {/* Pages */}
         <li className="nav-item">
             <Link className="nav-link" to="/recipes">
-            <i class="fa-solid fa-plate-wheat"></i><span>Recetas</span>
+                <i className="fas fa-fw fa-chart-area"></i><span>Recetas</span>
             </Link>
         </li>
         <li className="nav-item">
@@ -19,17 +19,17 @@ export const Sidebar = () => {
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/previsions">
-            <i class="fa-regular fa-clipboard"></i><span>Previsiones</span>
+                <i className="fas fa-fw fa-table"></i><span>Previsiones</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/delivery-notes">
-            <i class="fa-solid fa-file-invoice-dollar"></i><span>Albaranes</span>
+                <i className="fas fa-fw fa-folder"></i><span>Ordenes de Compra</span>
             </Link>
         </li>
         <li className="nav-item">
             <Link className="nav-link" to="/manufacturing-orders">
-            <i class="fa-regular fa-paper-plane"></i><span>Manufacturación</span>
+                <i className="fas fa-fw fa-wrench"></i><span>Ordenes de Fabricacion</span>
             </Link>
         </li>
         <li className="nav-item">
