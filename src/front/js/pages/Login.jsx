@@ -11,12 +11,11 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const url_login = process.env.API_LOGIN;
+  const url_login = process.env.BACKEND_URL + '/api/login';
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    
       const response = await fetch(
         url_login,
         {
