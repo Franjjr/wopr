@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../img/Logo.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 
@@ -67,7 +66,7 @@ export const Login = () => {
                             placeholder="Direccion de mails..."
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                          />place
+                          />
                         </div>
                         <div className="form-group">
                           <input
