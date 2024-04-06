@@ -915,52 +915,54 @@ def handle_references(center_id):
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
 
-    if response.status_code == 200:
-        json_response = response.json()
-        access_token = json_response.get("access_token")
-        headers = {'Authorization': f'Bearer {access_token}'}
-        response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
-        # Almacenar las referencias de la respuesta JSON en una lista
-        json_data = response.json()
-        references = json_data.get("data", [])
-        # Obtener las referencias existentes en la base de datos local
-        existing_references = References.query.all()
-        existing_reference_names = {reference.name for reference in existing_references}
-        new_references = []
+    if response.status_code != 200:
+        response_body['message'] = 'Error con los datos del proveedor'
+        return response_body, 500
+    json_response = response.json()
+    access_token = json_response.get("access_token")
+    headers = {'Authorization': f'Bearer {access_token}'}
+    response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
+    # Almacenar las referencias de la respuesta JSON en una lista
+    json_data = response.json()
+    references = json_data.get("data", [])
+    # Obtener las referencias existentes en la base de datos local
+    existing_references = References.query.all()
+    existing_reference_names = {reference.name for reference in existing_references}
+    new_references = []
+    for reference_data in references:
+        # Verificar si la referencia ya existe en la base de datos local
+        if reference_data['name'] not in existing_reference_names:
+            # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
+            new_reference = References(id=reference_data['id'],
+                                        name=reference_data['name'],
+                                        reference=reference_data['reference'],
+                                        categoryId=reference_data['categoryId'],
+                                        familyId=reference_data['familyId'],
+                                        typeId=reference_data['typeId'],
+                                        subtypeId=reference_data['subtypeId'],
+                                        measureUnitId=reference_data['measureUnitId'],
+                                        measurePriceLastPurchase=reference_data['measurePriceLastPurchase'],
+                                        measurePriceAverage=reference_data['measurePriceAverage'],
+                                        displayUnitId=reference_data['displayUnitId'],
+                                        equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
+                                        active=reference_data['active'],
+                                        creationDate=reference_data['creationDate'],
+                                        modificationDate=reference_data['modificationDate'])
+            new_references.append(new_reference)   
+    # Almacena solo las nuevas referencias en la base de datos local
+    if new_references:
+        db.session.add_all(new_references)
+        db.session.commit()
+        response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
+    else:
+        response_body['message'] = 'No se encontraron nuevas referencias para añadir'
         for reference_data in references:
-            # Verificar si la referencia ya existe en la base de datos local
-            if reference_data['name'] not in existing_reference_names:
-                # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
-                new_reference = References(id=reference_data['id'],
-                                            name=reference_data['name'],
-                                            reference=reference_data['reference'],
-                                            categoryId=reference_data['categoryId'],
-                                            familyId=reference_data['familyId'],
-                                            typeId=reference_data['typeId'],
-                                            subtypeId=reference_data['subtypeId'],
-                                            measureUnitId=reference_data['measureUnitId'],
-                                            measurePriceLastPurchase=reference_data['measurePriceLastPurchase'],
-                                            measurePriceAverage=reference_data['measurePriceAverage'],
-                                            displayUnitId=reference_data['displayUnitId'],
-                                            equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
-                                            active=reference_data['active'],
-                                            creationDate=reference_data['creationDate'],
-                                            modificationDate=reference_data['modificationDate'])
-                new_references.append(new_reference)   
-        # Almacena solo las nuevas referencias en la base de datos local
-        if new_references:
-            db.session.add_all(new_references)
-            db.session.commit()
-            response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
-        else:
-            response_body['message'] = 'No se encontraron nuevas referencias para añadir'
-            for reference_data in references:
-                print(reference_data['name'])
-            for reference in existing_references:
-                print(reference.name)
-        existing_references = References.query.all()
-        response_body["data"] = [references.serialize() for reference in existing_references]
-        return response_body, 200
+            print(reference_data['name'])
+        for reference in existing_references:
+            print(reference.name)
+    existing_references = References.query.all()
+    response_body["data"] = [reference.serialize() for reference in existing_references]
+    return response_body, 200
 
 
 
