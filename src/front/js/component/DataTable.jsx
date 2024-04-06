@@ -1,35 +1,18 @@
 
-import "../../styles/home.css";
+import "../../styles/home.css"
 import React, { useState, useEffect } from "react";
+import load_dotenv from dotenv
+
+load_dotenv()
 
 export function DataTable() {
-  // const [supplier, setSupplier] = useState([]);
-  // const base_url = "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/admin/suppliers/";
-
-  // const getSuppliers = async () => {
-  //   const url = base_url + "1"
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //   };
-  //   const response = await fetch(url, options);
-  //   if (!response.ok) {
-  //     console.log('Error', response.status, response.statusText);
-  //     return response.status;
-  //   }
-  //   const data = await response.json();
-  //   setSupplier(data);
-  // }
-
-
+  const supplier_url = process.env.SUPLIERS_URL;
   // Estado para almacenar los datos de la base de datos
   const [datos, setDatos] = useState([]);
   // Efecto para cargar los datos cuando el componente se monta
   useEffect(() => {
   // Aquí puedes realizar la llamada a la API o a la base de datos para recuperar los datos
-  fetch("https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/admin/suppliers/")
+  fetch(supplier_url)
       .then((response) => response.json())
       .then((data) => {
       // Almacena los datos recuperados en el estado
