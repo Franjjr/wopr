@@ -5,18 +5,20 @@ import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 
 
+
 export const Login = () => {
   const {store, actions} = useContext(Context)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const url_login = process.env.API_LOGIN;
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        "https://ominous-spoon-pjrrxgvv64p726gqw-3001.app.github.dev/api/login",
+        url_login,
         {
           method: "POST",
           headers: {
