@@ -12,10 +12,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       name:[],
     },
     actions: {
-      login: () => {
+      login: async () => {
         setStore({ isLogin: true});
         setStore({ rol:localStorage.getItem("rol")});
         setStore({ name:localStorage.getItem('name')});
+        await getActions().getSuppliers();
+        await getActions().getReferences();
+        await getActions().getFormats();
       },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
@@ -30,12 +33,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error Suppliers', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({suppliers:data.data});
-        console.log(data);
+        console.log('supplier',data);
       },
 
       getReferences : async () => {
@@ -50,12 +53,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error References', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({references:data.data});
-        console.log(data);
+        console.log('Reference', data);
       },
 
       getFormats : async () => {
@@ -70,12 +73,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error Format', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({formats:data.data});
-        console.log(data);
+        console.log('Format', data);
       },
 
       exampleFunction: () => { getActions().changeColor(0, "green"); },

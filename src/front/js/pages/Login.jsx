@@ -16,7 +16,7 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
+    
       const response = await fetch(
         url_login,
         {
@@ -42,9 +42,6 @@ export const Login = () => {
         // Manejar el caso en que la respuesta no sea exitosa
         console.error("Error al iniciar sesión", response.status, response.statusText);
       }
-    } catch (error) {
-      console.error("Error de red:", error);
-    }
   };
 
   return (
