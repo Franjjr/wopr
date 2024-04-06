@@ -13,7 +13,7 @@ export const References = () => {
       ) : (
         <div className="container-fluid">
           <h1 class="h3 mb-2 text-gray-800">
-            Referencias <i class="fa-solid fa-magnifying-glass"></i>{" "}
+            Referencias <i className="fas fa-fw fa-file"></i>{" "}
           </h1>
           <p class="mb-4">
             Tabla con las referencias actualizadas importadas de Gstock, recuerde que WOPR solo muestra las referenias que existen en Gstock, si quiere modificar, eliminar o dar de alta es necesario hacerlo desde la app de Gstock.
