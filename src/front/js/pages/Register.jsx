@@ -51,7 +51,7 @@ export const Register = () => {
                                         <hr></hr>
                                         <div className="text-center">
                                             <Link to="/login">
-                                                <a className="small" href="register.html">Already have an account? Login!</a>
+                                                <a className="small" to="register.html">Already have an account? Login!</a>
                                             </Link>
                                         </div>
                                     </div>

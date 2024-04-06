@@ -887,7 +887,7 @@ def handle_formate(center_id):
         for formate in existing_formats:
             print(formate.name)
     existing_formats = ProductsFormats.query.all()
-    response_body["data"] = [formate.serialize() for formate in existing_formats]
+    response_body["data"] = [formats.serialize() for formats in existing_formats]
     return response_body, 200
 
 
@@ -958,10 +958,9 @@ def handle_references(center_id):
                 print(reference_data['name'])
             for reference in existing_references:
                 print(reference.name)
+        existing_references = References.query.all()
+        response_body["data"] = [references.serialize() for reference in existing_references]
         return response_body, 200
-    else:
-        response_body['message'] = 'Error con los datos de la referencia'
-        return response_body, 500
 
 
 

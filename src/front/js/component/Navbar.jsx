@@ -11,7 +11,7 @@ import { BtnContact } from "./BtnContact.jsx";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  const rol = localStorage.getItem('rol')
+  const rol = store.rol
   const icon = () => {
     if (rol == "Admin") {
       return <i className="fa-solid fa-user-tie"></i>;
@@ -61,7 +61,7 @@ export const Navbar = () => {
             <li className="nav-item dropdown no-arrow">
               <Link className="nav-link dropdown-toggle" to="/dashboard" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{localStorage.getItem('name')}</span>
+                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{store.name}</span>
                 {icon()}
               </Link>
 
