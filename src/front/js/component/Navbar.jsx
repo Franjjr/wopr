@@ -25,8 +25,8 @@ export const Navbar = () => {
   return !store.isLogin ?
     <div className="navbar">
       {/* Menu Principal sin Logeo */}
-      <div className="logo mt-4 mr-12" >
-        <img className="logo" src={Logo} />
+      <div className="logo mt-0" >
+        <img className="logotipo" src={Logo} />
       </div>
       <div className="navigation-menu">
         <BtnContact />

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../img/Logo.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 
@@ -11,7 +10,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const url_login = process.env.API_LOGIN;
+  const url_login = "https://curly-potato-r4g54g69qjqxhx6p7-3001.app.github.dev/api/login"
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -68,7 +67,7 @@ export const Login = () => {
                             placeholder="Direccion de mails..."
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                          />place
+                          />
                         </div>
                         <div className="form-group">
                           <input

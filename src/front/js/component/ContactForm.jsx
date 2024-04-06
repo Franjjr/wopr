@@ -19,7 +19,7 @@ export const ContactForm = () => {
                         <div className="card-body p-0">
 
                             <div className="row">
-                                <div className="col-lg-6 d-none d-lg-block"></div>
+                            <div className="col-lg-6 d-none d-lg-block bg-contact-image"></div>
                                 <div className="col-lg-6">
                                     <div className="p-5">
                                         <div className="text-center">
