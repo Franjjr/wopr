@@ -11,7 +11,7 @@ import { BtnContact } from "./BtnContact.jsx";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  const {rol} = localStorage.getItem('rol')
+  const rol = localStorage.getItem('rol')
   const icon = () => {
     if (rol == "Admin") {
       return <i className="fa-solid fa-user-tie"></i>;
