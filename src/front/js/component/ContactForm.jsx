@@ -40,9 +40,9 @@ export const ContactForm = () => {
                                                 <input type="help" className="form-control form-control-user"
                                                     id="exampleInputHelp" placeholder="¿En que podemos ayudarte?" />
                                             </div>
-                                            <a href="index.html" className="btn btn-primary btn-user btn-block">
+                                            <Link to="index.html" className="btn btn-primary btn-user btn-block">
                                                 Enviar
-                                            </a>
+                                            </Link>
                                         </form>
                                         <hr></hr>
                                     </div>

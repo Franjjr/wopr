@@ -9,9 +9,6 @@ export const Recipes = () => {
     const { store, actions } = useContext(Context);
 
     // Falta poner el BtnCreate dentro de la tabla.
-
-
-
     return (
         <div id="page-top">
             {!store.isLogin ? <h1>FORBIDEN</h1> :

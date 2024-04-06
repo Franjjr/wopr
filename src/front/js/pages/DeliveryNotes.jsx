@@ -12,18 +12,18 @@ export const DeliveryNotes = () => {
 <div>
 { !store.isLogin ? <h1>FORBIDEN</h1>:
             <div className="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800">Albaranes <i class="fa-solid fa-file-invoice-dollar"></i></h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+            <h1 className="h3 mb-2 text-gray-800">Albaranes <i className="fa-solid fa-file-invoice-dollar"></i></h1>
+    <p className="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <Link target="_blank"
+            to="https://datatables.net">official DataTables documentation</Link>.</p>
     
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Delivery Notes Info</h6>
+    <div className="card shadow mb-4">
+        <div className="card-header py-3">
+            <h6 className="m-0 font-weight-bold text-primary">Delivery Notes Info</h6>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div className="card-body">
+            <div className="table-responsive">
+                <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -41,15 +41,15 @@ export const DeliveryNotes = () => {
                             <th>00,00 €</th>
                             <th>00,00 €</th>
                             <th>00,00 €</th>
-                            <th> <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-  <label class="form-check-label" for="flexRadioDefault1">
+                            <th> <div className="form-check">
+  <input clasName="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+  <label className="form-check-label" htmlFor="flexRadioDefault1">
     Facturado
   </label>
 </div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
-  <label class="form-check-label" for="flexRadioDefault2">
+<div className="form-check">
+  <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
+  <label className="form-check-label" htmlFor="flexRadioDefault2">
     Pendiente de Facturar
   </label>
 </div> </th>
