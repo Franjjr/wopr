@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 8e241efaf0f7
+Revision ID: 486a12606af2
 Revises: 
-Create Date: 2024-04-05 09:25:40.572487
+Create Date: 2024-04-06 23:17:30.448888
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8e241efaf0f7'
+revision = '486a12606af2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,7 +44,7 @@ def upgrade():
     sa.Column('idWopr', sa.Integer(), nullable=False),
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
-    sa.Column('reference', sa.String(), nullable=True),
+    sa.Column('reference', sa.Integer(), nullable=True),
     sa.Column('categoryId', sa.Integer(), nullable=True),
     sa.Column('familyId', sa.Integer(), nullable=True),
     sa.Column('typeId', sa.Integer(), nullable=True),
@@ -57,7 +57,8 @@ def upgrade():
     sa.Column('active', sa.Boolean(), nullable=True),
     sa.Column('creationDate', sa.DateTime(), nullable=True),
     sa.Column('modificationDate', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('idWopr')
+    sa.PrimaryKeyConstraint('idWopr'),
+    sa.UniqueConstraint('reference')
     )
     op.create_table('suppliers',
     sa.Column('idWopr', sa.Integer(), nullable=False),
@@ -176,7 +177,7 @@ def upgrade():
     sa.Column('orderPriceAverage', sa.Integer(), nullable=True),
     sa.Column('creationDate', sa.DateTime(), nullable=True),
     sa.Column('modificationDate', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['reference'], ['references.idWopr'], ),
+    sa.ForeignKeyConstraint(['reference'], ['references.reference'], ),
     sa.PrimaryKeyConstraint('idWopr')
     )
     op.create_table('delivery_note_lines',

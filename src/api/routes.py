@@ -813,7 +813,7 @@ def handle_supplier(center_id):
     
 @api.route("/products_formats/<int:center_id>", methods=['GET'])
 @jwt_required()
-def handle_formate(center_id):
+def handle_format(center_id):
     response_body = {}
     current_user = get_jwt_identity()
     user_id = current_user['user_id']
@@ -887,7 +887,7 @@ def handle_formate(center_id):
         for formate in existing_formats:
             print(formate.name)
     existing_formats = ProductsFormats.query.all()
-    response_body["data"] = [formats.serialize() for formats in existing_formats]
+    response_body["data"] = [format.serialize() for format in existing_formats]
     return response_body, 200
 
 

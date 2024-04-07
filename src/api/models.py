@@ -140,7 +140,7 @@ class References(db.Model):
     idWopr = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
-    reference = db.Column(db.String)
+    reference = db.Column(db.Integer, unique=True)
     categoryId = db.Column(db.Integer)
     familyId = db.Column(db.Integer)
     typeId = db.Column(db.Integer)
@@ -180,7 +180,7 @@ class ProductsFormats(db.Model):
     idWopr = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.String, nullable=False)
     productPurchaseId = db.Column(db.String)
-    reference = db.Column(db.Integer, db.ForeignKey('references.idWopr'))
+    reference = db.Column(db.Integer, db.ForeignKey('references.reference'))
     name = db.Column(db.String)
     storageUnit = db.Column(db.String)
     orderUnit = db.Column(db.String)
@@ -199,7 +199,6 @@ class ProductsFormats(db.Model):
     orderPriceAverage = db.Column(db.Integer)
     creationDate = db.Column(db.DateTime)
     modificationDate = db.Column(db.DateTime)
-    # reference_to = db.relationship('References', foreign_keys=[references_idWopr]) 
 
     def __repr__(self):
         return f'<Formato: {self.id} - {self.name}>'
