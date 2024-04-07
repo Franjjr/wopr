@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Logo from "../../img/Logo.png";
 import "../../styles/landingpage.css";
@@ -7,6 +7,7 @@ import "../../styles/landingpage.css";
 import { BtnLogin } from "./BtnLogin.jsx";
 import { BtnRegister } from "./BtnRegister.jsx";
 import { BtnContact } from "./BtnContact.jsx";
+import getState from "../store/flux.js";
 
 
 export const Navbar = () => {
@@ -21,6 +22,18 @@ export const Navbar = () => {
       return <i className="fa-solid fa-spoon"></i>;
     }
   };
+
+  const logout = async() =>{
+    setStore({isLogin:false});
+    setStore({rol:[]});
+    setStore({name:[]});
+    setStore({token:[]});
+    setStore({suppliers:[]});
+    setStore({references:[]});
+    setStore({formats:[]});
+    localStorage.clear();
+    Navigate('/')
+  }
 
   return !store.isLogin ?
     <div className="navbar">
@@ -76,7 +89,7 @@ export const Navbar = () => {
                   Configuracion
                 </Link>
                 <div className="dropdown-divider"></div>
-                <Link className="dropdown-item" to="#" data-toggle="modal" data-target="#logoutModal">
+                <Link className="dropdown-item" onClick={logout()} to="/" data-toggle="modal" data-target="#logoutModal">
                   <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </Link>
@@ -85,7 +98,7 @@ export const Navbar = () => {
             <div className="topbar-divider d-none d-sm-block"></div>
 
             <li className="nav-item dropdown no-arrow">
-              <Link className="nav-link dropdown-toggle" to="#" data-toggle="modal" data-target="#logoutModal">
+              <Link className="nav-link dropdown-toggle" onClick={logout()} to="/" data-toggle="modal" data-target="#logoutModal">
                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 <span className="mr-2 d-none d-lg-inline text-gray-600 small">
                   Logout

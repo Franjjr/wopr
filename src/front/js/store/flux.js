@@ -20,6 +20,17 @@ const getState = ({ getStore, getActions, setStore }) => {
         await getActions().getReferences();
         await getActions().getFormats();
       },
+      // Logica del Logout
+      // logout: async () => {
+      //   setStore({isLogin:false});
+      //   setStore({rol:[]});
+      //   setStore({name:[]});
+      //   setStore({token:[]});
+      //   setStore({suppliers:[]});
+      //   setStore({references:[]});
+      //   setStore({formats:[]});
+      //   localStorage.clear();
+      // },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
         const base_url = process.env.BACKEND_URL;
