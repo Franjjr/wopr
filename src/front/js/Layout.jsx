@@ -24,6 +24,7 @@ import { Prueba } from "./pages/Prueba.jsx";
 import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
+import { Logout } from "./pages/Logout.jsx";
 
 // Create your first component
 const Layout = () => {
@@ -66,6 +67,7 @@ const Layout = () => {
                                     <Route element={<ManufacturingOrders />} path="/manufacturing-orders" />
                                     <Route element={<References />} path="/references" />
                                     <Route element={<Suppliers />} path="/suppliers" />
+                                    <Route element={<Logout />} path="/logout" />
                                     <Route element={<NotFound />} path="*" />
                                 </Routes>
                             </div>

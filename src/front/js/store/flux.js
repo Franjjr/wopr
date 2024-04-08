@@ -7,9 +7,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       suppliers:[],
       references:[],
       formats:[],
-      isLogin:false,
-      rol:[],
-      name:[],
+      isLogin: false,
+      rol: null,
+      name: null
     },
     actions: {
       login: async () => {
@@ -21,16 +21,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         await getActions().getFormats();
       },
       // Logica del Logout
-      // logout: async () => {
-      //   setStore({isLogin:false});
-      //   setStore({rol:[]});
-      //   setStore({name:[]});
-      //   setStore({token:[]});
-      //   setStore({suppliers:[]});
-      //   setStore({references:[]});
-      //   setStore({formats:[]});
-      //   localStorage.clear();
-      // },
+      logout: () => {
+        setStore({ isLogin: false});
+        setStore({ rol: null});
+        setStore({ name:null});
+        setStore({ suppliers: []});
+        setStore({ references: []});
+        setStore({ formats: []});
+      },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
         const base_url = process.env.BACKEND_URL;
