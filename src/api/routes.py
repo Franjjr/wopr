@@ -521,7 +521,7 @@ def handle_previsions():
             response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
             return response_body, 400
         plan = db.session.execute(db.select(Previsions).where(Prevision.user_id == user_id)).scalars()
-        response_body['results'] = [row.serialize() for row in plan]
+        response_body['data'] = [row.serialize() for row in plan]
         response_body['message'] = 'GET Method Previsions'
         return response_body, 200
     if request.method == 'POST':
@@ -665,7 +665,7 @@ def handle_manufacturing():
             response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
             return response_body, 400
         data = db.session.execute(db.select(ManufacturingOrders).where(ManufacturingOrders.user_id == user_id)).scalars()
-        response_body['results'] = [row.serialize() for row in data]
+        response_body['data'] = [row.serialize() for row in data]
         response_body['message'] = 'GET Method Prevision_Lines'
         return response_body, 200
     if request.method == 'POST':

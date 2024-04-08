@@ -10,6 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       references:[],
       formats:[],
       recipes:[],
+      manufacturing:[],
+      previsions:[],
       isLogin: false,
       rol: null,
       name: null
@@ -114,6 +116,46 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await response.json();
         setStore({recipes:data.data});
         console.log('Recipes: ', data);
+      },
+
+      getManufacturing : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/manufacturing_ord"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({manufacturing:data.data});
+        console.log('Ordenes de Fabricacion: ', data);
+      },
+
+      getPrevisions : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/previsions"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({previsions:data.data});
+        console.log('Previsiones: ', data);
       },
 
       exampleFunction: () => { getActions().changeColor(0, "green"); },
