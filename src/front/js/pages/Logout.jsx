@@ -32,7 +32,7 @@ export const Logout = () => {
                       </div>
                       <form className="user" onSubmit={handleLogin}>
                         <button type="submit" className="btn btn-primary btn-user btn-block">
-                          Salir de XOPR
+                          Salir de WOPR
                         </button>
                         <Link to='/dashboard' className="btn btn-secondary btn-user btn-block">
                           Cancelar

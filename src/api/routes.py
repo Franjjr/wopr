@@ -399,9 +399,8 @@ def handle_recipes():
     response_body = {}
     results = []
     if request.method == 'GET':
-        # TODO: agreaga las lineas del recipe
         recipes = db.session.query(Recipes).all()
-        response_body['results'] = [row.serialize()for row in recipes]
+        response_body['data'] = [row.serialize()for row in recipes]
         response_body['message'] = 'GET Recipes'
         return response_body, 200
     if request.method == 'POST':
@@ -412,7 +411,7 @@ def handle_recipes():
                         cost_meals = data ['cost_meals'],)
         db.session.add(line)
         db.session.commit()
-        response_body['results'] = line.serialize()
+        response_body['data'] = line.serialize()
         response_body['message'] = 'POST Method Recipes'
         return response_body, 201
 

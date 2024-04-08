@@ -1,3 +1,5 @@
+// import { get } from "jquery";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -7,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       suppliers:[],
       references:[],
       formats:[],
+      recipes:[],
       isLogin: false,
       rol: null,
       name: null
@@ -19,6 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         await getActions().getSuppliers();
         await getActions().getReferences();
         await getActions().getFormats();
+        await getActions().getRecipes();
+
       },
       // Logica del Logout
       logout: () => {
@@ -28,6 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ suppliers: []});
         setStore({ references: []});
         setStore({ formats: []});
+        setStore({ recipes: []});
       },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
@@ -107,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         const data = await response.json();
         setStore({recipes:data.data});
-        console.log(data);
+        console.log('Recipes: ', data);
       },
 
       exampleFunction: () => { getActions().changeColor(0, "green"); },
