@@ -25,7 +25,6 @@ export const Login = () => {
           body: JSON.stringify({ email, password }),
         }
       );
-
       if (response.ok) {
         const data = await response.json();
         // Guardar el token de acceso en el Local Storage

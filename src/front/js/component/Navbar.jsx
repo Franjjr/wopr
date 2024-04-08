@@ -14,13 +14,14 @@ export const Navbar = () => {
   const rol = store.rol
   const icon = () => {
     if (rol == "Admin") {
-      return <i className="fa-solid fa-user-tie"></i>;
+      return <i className="fa-solid fa-user-tie fa-sm fa-fw mr-2 text-gray-400"></i>;
     } else if (rol == "Jefe de Compras") {
-      return <i className="fa-solid fa-user-pen"></i>;
+      return <i className="fa-solid fa-user-pen fa-sm fa-fw mr-2 text-gray-400"></i>;
     } else if (rol == "Cocinero") {
-      return <i className="fa-solid fa-spoon"></i>;
+      return <i className="fa-solid fa-spoon fa-sm fa-fw mr-2 text-gray-400"></i>;
     }
   };
+
 
   return !store.isLogin ?
     <div className="navbar">
@@ -29,8 +30,8 @@ export const Navbar = () => {
         <img className="logotipo" src={Logo} />
       </div>
       <div className="navigation-menu">
-        <BtnContact />
         <div className="highlighted-ctas">
+          <BtnContact />
           <BtnRegister />
           <BtnLogin />
         </div>
@@ -39,64 +40,28 @@ export const Navbar = () => {
 
     :
 
-    <div id="content-wrapper" className="d-flex flex-column">
-      {/* Menu Principal sin Logeo */}
-      <div id="content">
-        {/*<!-- Topbar --> */}
-        <nav className="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-          <div className="logo">
-            <img className="logo" src={Logo} />
-          </div>
-          {/*  <!-- Sidebar Toggle (Topbar) -->*/}
-          <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
-            <i className="fa-bars"></i>
-          </button>
-
-          {/*  <!-- Topbar Search --> */}
-
-          {/* <!-- Topbar Navbar --> */}
-          <ul className="navbar-nav ml-auto">
-
-            {/*<!-- Nav Item - User Information --> */}
-            <li className="nav-item dropdown no-arrow">
-              <Link className="nav-link dropdown-toggle" to="/dashboard" id="userDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{store.name}</span>
+    <nav className="navbar navbar-expand navbar-light bg-white">
+      <div className="container-fluid d-flex justify-beetween">
+        <div className="logo mt-0">
+          <img className="logo" src={Logo} />
+        </div>
+        
+        <div>
+          <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard">
                 {icon()}
+                <span className="me-2 text-gray-600 small">{store.name}</span>
               </Link>
-
-              {/*  <!-- Dropdown - User Information -->*/}
-              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <Link className="dropdown-item" to="#">
-                  <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </Link>
-                <Link className="dropdown-item" to="#">
-                  <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configuracion
-                </Link>
-                <div className="dropdown-divider"></div>
-                <Link className="dropdown-item" to="#" data-toggle="modal" data-target="#logoutModal">
-                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </Link>
-              </div>
             </li>
-            <div className="topbar-divider d-none d-sm-block"></div>
-
-            <li className="nav-item dropdown no-arrow">
-              <Link className="nav-link dropdown-toggle" to="#" data-toggle="modal" data-target="#logoutModal">
+            <li className="nav-item">
+              <Link className="nav-link" to="/logout">
                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                  Logout
-                </span>
+                <span className="mr-2 text-gray-600 small">Logout</span>
               </Link>
             </li>
           </ul>
-        </nav>
-        {/*  <!-- End of Topbar -->*/}
+        </div>
       </div>
-      {/*<!-- End of Main Content --> */}
-    </div>
-
+    </nav>
 }

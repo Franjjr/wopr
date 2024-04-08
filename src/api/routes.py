@@ -66,7 +66,7 @@ def register_user():
         response_body['message'] = "The email already exist"
         return response_body, 400
     if data['rol'] != 'Admin' and data['rol'] != 'Cocinero' and data['rol'] != 'Jefe de Compras':
-        response_body['message'] = "Rol is invalid"
+        response_body['message'] = "Rol invalido"
         return response_body, 400
     # Crear un nuevo usuario
     new_user = Users   (email = data['email'],

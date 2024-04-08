@@ -7,9 +7,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       suppliers:[],
       references:[],
       formats:[],
-      isLogin:false,
-      rol:[],
-      name:[],
+      isLogin: false,
+      rol: null,
+      name: null
     },
     actions: {
       login: async () => {
@@ -19,6 +19,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         await getActions().getSuppliers();
         await getActions().getReferences();
         await getActions().getFormats();
+      },
+      // Logica del Logout
+      logout: () => {
+        setStore({ isLogin: false});
+        setStore({ rol: null});
+        setStore({ name:null});
+        setStore({ suppliers: []});
+        setStore({ references: []});
+        setStore({ formats: []});
       },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
