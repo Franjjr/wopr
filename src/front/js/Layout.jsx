@@ -25,6 +25,7 @@ import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
 import { Logout } from "./pages/Logout.jsx";
+import { BtnName } from "./component/BtnName.jsx";
 
 // Create your first component
 const Layout = () => {
@@ -58,6 +59,7 @@ const Layout = () => {
                                     <Route element={<Dashboard />} path="/dashboard" />
                                     <Route element={<Recipes />} path="/recipes" />
                                     <Route element={<NewRecipes />} path="/new-recipes" />
+                                    <Route element={<BtnName />} path="/btn-name" />
                                     <Route element={<Previsions />} path="/previsions" />
                                     <Route element={<DeliveryNotes />} path="/delivery-notes" />
                                     <Route element={<ManufacturingOrders />} path="/manufacturing-orders" />

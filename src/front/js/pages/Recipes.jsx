@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import "../../styles/index.css";
 import { Link } from "react-router-dom";
 import LogoSidebar from "../../img/LogoSidebar.png";
+import {BtnName } from "../component/BtnName.jsx";
 
 export const Recipes = () => {
   const { store, actions } = useContext(Context);
@@ -64,6 +65,7 @@ export const Recipes = () => {
                       <tr key={id}>
                         <td>{row.id}</td>
                         <td>{row.name}</td>
+                        {/* <td>{BtnName}</td> */}
                         <td>{row.is_active}</td>
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
