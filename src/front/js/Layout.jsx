@@ -47,10 +47,6 @@ const Layout = () => {
                             <Route element={<Register />} path="/register" />
                             <Route element={<ContactForm />} path="/contact" />
                             <Route element={<NotFound />} path="*" />
-                            {/* <Route element={<Forbiden />} path ="forbiden" /> */}
-                            {/* <Route element={<Demo />} path="/demo" /> */}
-                            {/* <Route element={<Single />} path="/single/:theid" /> */}
-                            {/* <Route element={<Prueba />} path="/prueba" /> */}
                         </Routes>
                     :
                         <div className="row">
