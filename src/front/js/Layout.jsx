@@ -24,6 +24,7 @@ import { Prueba } from "./pages/Prueba.jsx";
 import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
+import { Logout } from "./pages/Logout.jsx";
 
 // Create your first component
 const Layout = () => {
@@ -46,17 +47,13 @@ const Layout = () => {
                             <Route element={<Register />} path="/register" />
                             <Route element={<ContactForm />} path="/contact" />
                             <Route element={<NotFound />} path="*" />
-                            {/* <Route element={<Forbiden />} path ="forbiden" /> */}
-                            {/* <Route element={<Demo />} path="/demo" /> */}
-                            {/* <Route element={<Single />} path="/single/:theid" /> */}
-                            {/* <Route element={<Prueba />} path="/prueba" /> */}
                         </Routes>
                     :
                         <div className="row">
-                            <div className="col-2 col-md-3">
+                            <div className="col-2">
                                 <Sidebar />
                             </div>
-                            <div className="col-10 col-md-9 mt-4">
+                            <div className="col-10 mt-4">
                                 <Routes>
                                     <Route element={<Dashboard />} path="/dashboard" />
                                     <Route element={<Recipes />} path="/recipes" />
@@ -66,6 +63,7 @@ const Layout = () => {
                                     <Route element={<ManufacturingOrders />} path="/manufacturing-orders" />
                                     <Route element={<References />} path="/references" />
                                     <Route element={<Suppliers />} path="/suppliers" />
+                                    <Route element={<Logout />} path="/logout" />
                                     <Route element={<NotFound />} path="*" />
                                 </Routes>
                             </div>

@@ -66,7 +66,7 @@ def register_user():
         response_body['message'] = "The email already exist"
         return response_body, 400
     if data['rol'] != 'Admin' and data['rol'] != 'Cocinero' and data['rol'] != 'Jefe de Compras':
-        response_body['message'] = "Rol is invalid"
+        response_body['message'] = "Rol invalido"
         return response_body, 400
     # Crear un nuevo usuario
     new_user = Users   (email = data['email'],
@@ -399,9 +399,8 @@ def handle_recipes():
     response_body = {}
     results = []
     if request.method == 'GET':
-        # TODO: agreaga las lineas del recipe
         recipes = db.session.query(Recipes).all()
-        response_body['results'] = [row.serialize()for row in recipes]
+        response_body['data'] = [row.serialize()for row in recipes]
         response_body['message'] = 'GET Recipes'
         return response_body, 200
     if request.method == 'POST':
@@ -412,7 +411,7 @@ def handle_recipes():
                         cost_meals = data ['cost_meals'],)
         db.session.add(line)
         db.session.commit()
-        response_body['results'] = line.serialize()
+        response_body['data'] = line.serialize()
         response_body['message'] = 'POST Method Recipes'
         return response_body, 201
 
@@ -522,7 +521,7 @@ def handle_previsions():
             response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
             return response_body, 400
         plan = db.session.execute(db.select(Previsions).where(Prevision.user_id == user_id)).scalars()
-        response_body['results'] = [row.serialize() for row in plan]
+        response_body['data'] = [row.serialize() for row in plan]
         response_body['message'] = 'GET Method Previsions'
         return response_body, 200
     if request.method == 'POST':
@@ -666,7 +665,7 @@ def handle_manufacturing():
             response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
             return response_body, 400
         data = db.session.execute(db.select(ManufacturingOrders).where(ManufacturingOrders.user_id == user_id)).scalars()
-        response_body['results'] = [row.serialize() for row in data]
+        response_body['data'] = [row.serialize() for row in data]
         response_body['message'] = 'GET Method Prevision_Lines'
         return response_body, 200
     if request.method == 'POST':
@@ -813,7 +812,7 @@ def handle_supplier(center_id):
     
 @api.route("/products_formats/<int:center_id>", methods=['GET'])
 @jwt_required()
-def handle_formate(center_id):
+def handle_format(center_id):
     response_body = {}
     current_user = get_jwt_identity()
     user_id = current_user['user_id']
@@ -887,7 +886,7 @@ def handle_formate(center_id):
         for formate in existing_formats:
             print(formate.name)
     existing_formats = ProductsFormats.query.all()
-    response_body["data"] = [formats.serialize() for formats in existing_formats]
+    response_body["data"] = [format.serialize() for format in existing_formats]
     return response_body, 200
 
 
@@ -915,52 +914,54 @@ def handle_references(center_id):
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", os.getenv("URL_GS"), headers=headers, data=payload)
 
-    if response.status_code == 200:
-        json_response = response.json()
-        access_token = json_response.get("access_token")
-        headers = {'Authorization': f'Bearer {access_token}'}
-        response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
-        # Almacenar las referencias de la respuesta JSON en una lista
-        json_data = response.json()
-        references = json_data.get("data", [])
-        # Obtener las referencias existentes en la base de datos local
-        existing_references = References.query.all()
-        existing_reference_names = {reference.name for reference in existing_references}
-        new_references = []
+    if response.status_code != 200:
+        response_body['message'] = 'Error con los datos del proveedor'
+        return response_body, 500
+    json_response = response.json()
+    access_token = json_response.get("access_token")
+    headers = {'Authorization': f'Bearer {access_token}'}
+    response = requests.get(os.getenv("URL_GS_BS") + 'v1/product/purchases', headers=headers)
+    # Almacenar las referencias de la respuesta JSON en una lista
+    json_data = response.json()
+    references = json_data.get("data", [])
+    # Obtener las referencias existentes en la base de datos local
+    existing_references = References.query.all()
+    existing_reference_names = {reference.name for reference in existing_references}
+    new_references = []
+    for reference_data in references:
+        # Verificar si la referencia ya existe en la base de datos local
+        if reference_data['name'] not in existing_reference_names:
+            # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
+            new_reference = References(id=reference_data['id'],
+                                        name=reference_data['name'],
+                                        reference=reference_data['reference'],
+                                        categoryId=reference_data['categoryId'],
+                                        familyId=reference_data['familyId'],
+                                        typeId=reference_data['typeId'],
+                                        subtypeId=reference_data['subtypeId'],
+                                        measureUnitId=reference_data['measureUnitId'],
+                                        measurePriceLastPurchase=reference_data['measurePriceLastPurchase'],
+                                        measurePriceAverage=reference_data['measurePriceAverage'],
+                                        displayUnitId=reference_data['displayUnitId'],
+                                        equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
+                                        active=reference_data['active'],
+                                        creationDate=reference_data['creationDate'],
+                                        modificationDate=reference_data['modificationDate'])
+            new_references.append(new_reference)   
+    # Almacena solo las nuevas referencias en la base de datos local
+    if new_references:
+        db.session.add_all(new_references)
+        db.session.commit()
+        response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
+    else:
+        response_body['message'] = 'No se encontraron nuevas referencias para añadir'
         for reference_data in references:
-            # Verificar si la referencia ya existe en la base de datos local
-            if reference_data['name'] not in existing_reference_names:
-                # Si no existe, crea una nueva referencia y agrégala a la lista de nuevas referencias
-                new_reference = References(id=reference_data['id'],
-                                            name=reference_data['name'],
-                                            reference=reference_data['reference'],
-                                            categoryId=reference_data['categoryId'],
-                                            familyId=reference_data['familyId'],
-                                            typeId=reference_data['typeId'],
-                                            subtypeId=reference_data['subtypeId'],
-                                            measureUnitId=reference_data['measureUnitId'],
-                                            measurePriceLastPurchase=reference_data['measurePriceLastPurchase'],
-                                            measurePriceAverage=reference_data['measurePriceAverage'],
-                                            displayUnitId=reference_data['displayUnitId'],
-                                            equivalenceBetweeenMeasureAndDisplay=reference_data['equivalenceBetweeenMeasureAndDisplay'],
-                                            active=reference_data['active'],
-                                            creationDate=reference_data['creationDate'],
-                                            modificationDate=reference_data['modificationDate'])
-                new_references.append(new_reference)   
-        # Almacena solo las nuevas referencias en la base de datos local
-        if new_references:
-            db.session.add_all(new_references)
-            db.session.commit()
-            response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
-        else:
-            response_body['message'] = 'No se encontraron nuevas referencias para añadir'
-            for reference_data in references:
-                print(reference_data['name'])
-            for reference in existing_references:
-                print(reference.name)
-        existing_references = References.query.all()
-        response_body["data"] = [references.serialize() for reference in existing_references]
-        return response_body, 200
+            print(reference_data['name'])
+        for reference in existing_references:
+            print(reference.name)
+    existing_references = References.query.all()
+    response_body["data"] = [reference.serialize() for reference in existing_references]
+    return response_body, 200
 
 
 

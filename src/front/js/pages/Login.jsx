@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../img/Logo.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 
@@ -12,10 +11,10 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const url_login = process.env.BACKEND_URL + "/api/login";
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
       const response = await fetch(
         url_login,
         {
@@ -26,7 +25,6 @@ export const Login = () => {
           body: JSON.stringify({ email, password }),
         }
       );
-
       if (response.ok) {
         const data = await response.json();
         // Guardar el token de acceso en el Local Storage
@@ -41,9 +39,6 @@ export const Login = () => {
         // Manejar el caso en que la respuesta no sea exitosa
         console.error("Error al iniciar sesión", response.status, response.statusText);
       }
-    } catch (error) {
-      console.error("Error de red:", error);
-    }
   };
 
   return (

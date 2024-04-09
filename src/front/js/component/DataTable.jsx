@@ -6,7 +6,7 @@ import load_dotenv from dotenv
 load_dotenv()
 
 export function DataTable() {
-  const supplier_url = process.env.SUPLIERS_URL;
+  const supplier_url = process.env.BACKEND_URL + '/api/suppliers/';
   // Estado para almacenar los datos de la base de datos
   const [datos, setDatos] = useState([]);
   // Efecto para cargar los datos cuando el componente se monta

@@ -1,3 +1,5 @@
+// import { get } from "jquery";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -7,15 +9,33 @@ const getState = ({ getStore, getActions, setStore }) => {
       suppliers:[],
       references:[],
       formats:[],
-      isLogin:false,
-      rol:[],
-      name:[],
+      recipes:[],
+      manufacturing:[],
+      previsions:[],
+      isLogin: false,
+      rol: null,
+      name: null
     },
     actions: {
-      login: () => {
+      login: async () => {
         setStore({ isLogin: true});
         setStore({ rol:localStorage.getItem("rol")});
         setStore({ name:localStorage.getItem('name')});
+        await getActions().getSuppliers();
+        await getActions().getReferences();
+        await getActions().getFormats();
+        await getActions().getRecipes();
+
+      },
+      // Logica del Logout
+      logout: () => {
+        setStore({ isLogin: false});
+        setStore({ rol: null});
+        setStore({ name:null});
+        setStore({ suppliers: []});
+        setStore({ references: []});
+        setStore({ formats: []});
+        setStore({ recipes: []});
       },
       // Use getActions to call a function within a fuction
       getSuppliers : async () => {
@@ -30,12 +50,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error Suppliers', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({suppliers:data.data});
-        console.log(data);
+        console.log('supplier',data);
       },
 
       getReferences : async () => {
@@ -50,12 +70,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error References', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({references:data.data});
-        console.log(data);
+        console.log('Reference', data);
       },
 
       getFormats : async () => {
@@ -70,12 +90,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         const response = await fetch(url, options);
         if (!response.ok) {
-          console.log('Error', response.status, response.statusText);
+          console.log('Error Format', response.status, response.statusText);
           return response.status;
         }
         const data = await response.json();
         setStore({formats:data.data});
-        console.log(data);
+        console.log('Format', data);
       },
 
       getRecipes : async () => {
@@ -95,7 +115,47 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         const data = await response.json();
         setStore({recipes:data.data});
-        console.log(data);
+        console.log('Recipes: ', data);
+      },
+
+      getManufacturing : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/manufacturing_ord"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({manufacturing:data.data});
+        console.log('Ordenes de Fabricacion: ', data);
+      },
+
+      getPrevisions : async () => {
+        const base_url = process.env.BACKEND_URL;
+        const url = base_url + "/api/previsions"
+        const options = {
+          method: 'GET',
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          },
+        };
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          console.log('Error', response.status, response.statusText);
+          return response.status;
+        }
+        const data = await response.json();
+        setStore({previsions:data.data});
+        console.log('Previsiones: ', data);
       },
 
       exampleFunction: () => { getActions().changeColor(0, "green"); },
