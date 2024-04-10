@@ -3,18 +3,16 @@ import { Context } from "../store/appContext.js";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-
 export const Logout = () => {
-  const { store, actions } = useContext(Context)
+  const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const handleLogin =  (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     actions.logout();
     localStorage.clear();
-    navigate('/');
+    navigate("/");
   };
-
 
   return (
     <div>
@@ -28,13 +26,21 @@ export const Logout = () => {
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">Confirma salir de WOPR!</h1>
+                        <h1 className="h4 text-gray-900 mb-4">
+                          Confirma salir de WOPR!
+                        </h1>
                       </div>
                       <form className="user" onSubmit={handleLogin}>
-                        <button type="submit" className="btn btn-primary btn-user btn-block">
+                        <button
+                          type="submit"
+                          className="btn btn-primary btn-user btn-block"
+                        >
                           Salir de WOPR
                         </button>
-                        <Link to='/dashboard' className="btn btn-secondary btn-user btn-block">
+                        <Link
+                          to="/dashboard"
+                          className="btn btn-secondary btn-user btn-block"
+                        >
                           Cancelar
                         </Link>
                       </form>

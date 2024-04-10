@@ -2,13 +2,19 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
-import { Link } from "react-router-dom";
-import LogoSidebar from "../../img/LogoSidebar.png";
-import {BtnName } from "../component/BtnName.jsx";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export const Recipes = () => {
   const { store, actions } = useContext(Context);
-
+  const navigate = useNavigate();
+  // mandamos la informacion del row al localStorage
+  const editBtn = (row) => {
+    // 1. Tengo que mandar row al store 1.0
+    actions.selectRecipes(row);
+    // 2. Ir al componente editRecipes
+    navigate("/edit-recipes");
+  } 
   // Falta poner el BtnCreate dentro de la tabla.
   return (
     <div id="page-top">
@@ -48,6 +54,7 @@ export const Recipes = () => {
                       <th>Is Active</th>
                       <th>Cantidad</th>
                       <th>Coste</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -57,6 +64,7 @@ export const Recipes = () => {
                       <th>Is Active</th>
                       <th>Cantidad</th>
                       <th>Coste</th>
+                      <th>Acciones</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -65,10 +73,10 @@ export const Recipes = () => {
                       <tr key={id}>
                         <td>{row.id}</td>
                         <td>{row.name}</td>
-                        {/* <td>{BtnName}</td> */}
                         <td>{row.is_active}</td>
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
+                        <td><i className="fa-solid fa-pen-to-square" onClick={()=>editBtn(row)}></i></td>
                       </tr>
                     ))}
                   </tbody>
