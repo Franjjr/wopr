@@ -10,11 +10,16 @@ export const Recipes = () => {
   const navigate = useNavigate();
   // mandamos la informacion del row al localStorage
   const editBtn = (row) => {
-    // 1. Tengo que mandar row al store 1.0
+    // 1. Tengo que mandar row al store
     actions.selectRecipes(row);
     // 2. Ir al componente editRecipes
     navigate("/edit-recipes");
   } 
+
+  const delBtn = (row) => {
+    actions.selectRecipes(row);
+    navigate("/del-recipes")
+  }
   // Falta poner el BtnCreate dentro de la tabla.
   return (
     <div id="page-top">
@@ -76,7 +81,7 @@ export const Recipes = () => {
                         <td>{row.is_active}</td>
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
-                        <td><i className="fa-solid fa-pen-to-square" onClick={()=>editBtn(row)}></i></td>
+                        <td><i className="fa-solid fa-pen-to-square" onClick={() => editBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i className="fa-solid fa-trash" onClick={() => delBtn(row)}></i></td>
                       </tr>
                     ))}
                   </tbody>

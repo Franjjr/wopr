@@ -1,17 +1,30 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext.js";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../../styles/home.css";
+import { Context } from "../store/appContext";
 
-export const Logout = () => {
-  const { store, actions } = useContext(Context);
+export const DeleteRecipe = () => {
+  const { store, actions } = useContext(Context)
   const navigate = useNavigate();
+  const url_del =
+    process.env.BACKEND_URL + "/api/recipes/" + store.currentRecipes.id;
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    actions.logout();
-    localStorage.clear();
-    navigate("/");
+  const submitDel = async () => {
+    const response = await fetch(url_del, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+      
+    });
+    if (response.ok) {
+      const data = await response.json();
+      // Redirigir a la página recetas
+      navigate("/recipes");
+    } else {
+      // Manejar el caso en que la respuesta no sea exitosa
+      console.error("Acceso denegado", response.status, response.statusText);
+    }
   };
 
   return (
@@ -26,16 +39,14 @@ export const Logout = () => {
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">
-                          De verdad te quieres ir de WOPR!
-                        </h1>
+                        <h1 className="h4 text-gray-900 mb-4">Estas seguro?</h1>
                       </div>
-                      <form className="user" onSubmit={handleLogin}>
+                      <form className="user" onSubmit={submitDel}>
                         <button
                           type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
-                          Salir de WOPR
+                          Estoy Seguro
                         </button>
                         <Link
                           to="/dashboard"
