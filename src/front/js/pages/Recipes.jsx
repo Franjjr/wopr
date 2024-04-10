@@ -57,6 +57,7 @@ export const Recipes = () => {
                       <th>Acciones</th>
                     </tr>
                   </thead>
+                  
                   <tfoot>
                     <tr>
                       <th>Id</th>
