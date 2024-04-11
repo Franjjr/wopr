@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export const Recipes = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  
   // mandamos la informacion del row al localStorage
   const editBtn = (row) => {
     // 1. Tengo que mandar row al store

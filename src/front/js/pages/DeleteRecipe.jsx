@@ -18,8 +18,6 @@ export const DeleteRecipe = () => {
       
     });
     if (response.ok) {
-      const data = await response.json();
-      // Redirigir a la página recetas
       navigate("/recipes");
     } else {
       // Manejar el caso en que la respuesta no sea exitosa
@@ -46,7 +44,7 @@ export const DeleteRecipe = () => {
                           type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
-                          Estoy Seguro
+                          Eliminar
                         </button>
                         <Link
                           to="/dashboard"
