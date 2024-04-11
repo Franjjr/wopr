@@ -53,7 +53,7 @@ export const EditRecipes = () => {
                   <div className="p-5">
                     <div className="text-center">
                       <h1 className="h4 text-gray-900 mb-4">
-                        Actualizar Receta {store.currentRecipes.name}
+                        Actualizar Receta:" {store.currentRecipes.name} "
                       </h1>
                     </div>
                     <form className="user" onSubmit={submitEdit}>
@@ -73,7 +73,7 @@ export const EditRecipes = () => {
                           checked={isActive}
                           onChange={(e) => setIsActive(e.target.checked)}
                           required
-                        /> esta Activo
+                        /> Receta Activa ?
                       </div>
                       <div className="form-group">
                         <input

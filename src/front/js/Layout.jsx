@@ -27,6 +27,7 @@ import { NewRecipes } from "./pages/NewRecipes.jsx";
 import { Logout } from "./pages/Logout.jsx";
 import { BtnName } from "./component/BtnName.jsx";
 import { EditRecipes } from "./pages/EditRecipes.jsx"
+import { DeleteRecipe } from "./pages/DeleteRecipe.jsx"
 
 // Create your first component
 const Layout = () => {
@@ -69,6 +70,7 @@ const Layout = () => {
                                     <Route element={<Logout />} path="/logout" />
                                     <Route element={<NotFound />} path="*" />
                                     <Route element ={<EditRecipes />} path="/edit-recipes" />
+                                    <Route element ={<DeleteRecipe />} path="/del-recipes" />
                                 </Routes>
                             </div>
                         </div>
