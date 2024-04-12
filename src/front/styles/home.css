@@ -286,7 +286,8 @@
     padding: 0;
     border-style: none;
   }
-  
+
+
   input[type="radio"],
   input[type="checkbox"] {
     box-sizing: border-box;
@@ -10880,6 +10881,12 @@
     background-position: center;
     background-size: cover;
   }
+
+  .portada {
+    width: 400px;
+    height: 400px;
+    border-color: #1cc88a;
+  }
   
   form.user .custom-checkbox.small label {
     line-height: 1.5rem;
@@ -11284,11 +11291,16 @@
   }
 
   .logotipo {
-      max-width: 50%;
-      max-height: 50%;
+      max-width: 14%;
+      max-height: 14%;
 }
 
 .nav-link p {
   display: inline;
   margin-right: 5px;
+}
+
+.imgc2{
+  width: 240px;
+  height: 240px ;
 }

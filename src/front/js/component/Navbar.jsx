@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Logo from "../../img/Logo.png";
-import "../../styles/landingpage.css";
+
 // Componentes
 import { BtnLogin } from "./BtnLogin.jsx";
 import { BtnRegister } from "./BtnRegister.jsx";
@@ -24,19 +24,19 @@ export const Navbar = () => {
 
 
   return !store.isLogin ?
-    <div className="navbar">
-      {/* Menu Principal sin Logeo */}
-      <div className="logo mt-0" >
-        <img className="logotipo" src={Logo} />
-      </div>
-      <div className="navigation-menu">
-        <div className="highlighted-ctas">
-          <BtnContact />
-          <BtnRegister />
-          <BtnLogin />
-        </div>
-      </div>
+
+<nav className="navbar navbar-expand bg-body-tertiary">
+  <div className="container">
+    <a className="navbar-brand" href="#">
+    <img src={Logo} alt="Bootstrap" width="161" height="40"/>
+    </a>
+    <div className="d-flex">
+      <BtnContact />
+      <BtnRegister />
+      <BtnLogin />
     </div>
+  </div>
+</nav>
 
     :
 
