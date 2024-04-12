@@ -1,696 +1,98 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react"
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-/* import "../../styles/home.css"; */
-import "../../styles/landingpage.css";
-/* import {IMG_8962} from  "../../../front/img/IMG_8962.jpg" */
-import Mercedes from "../../img/IMG_8973.jpg";
-import Fran from "../../img/IMG_8964.jpg";
-import Irene from "../../img/IMG_8972.jpg";
-import Matteo from "../../img/IMG_8975.jpg";
-import Montaditos from "../../img/Montaditos.png";
-import Vicio from "../../img/Vicio.png";
-import TGB from "../../img/TGB.png";
-import Wok from "../../img/Wok.png";
-import Foster from "../../img/Foster.png";
-import LaCueva from "../../img/LaCueva.png";
-import Stock from "../../img/Stock.png";
-import Ayuda from "../../img/Ayuda.png";
-import Pedido from "../../img/Pedido.png";
-import FotoFinal from "../../img/FotoFinal.png";
-import Inteligente from "../../img/Inteligente.png";
 import Logo from "../../img/Logo.png";
-// import Logo1 from "../../img/Logo1.png";
-import { BtnLogin } from "../component/BtnLogin.jsx";
-import { BtnRegister } from "../component/BtnRegister.jsx";
-import { ContactForm } from "../component/ContactForm.jsx";
-
+import "../../styles/home.css";
 
 export const Home = () => {
-  const onButtonContainerClick = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer1Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer2Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer3Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer12Click = useCallback(() => {
-    window.open(
-      "/login"
-    );
-  }, []);
-
-  const onButtonContainer4Click = useCallback(() => {
-    window.open(
-      "/login"
-    );
-  }, []);
-
-  const onButtonContainer13Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer5Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer6Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer7Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer8Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer9Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer10Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer11Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onSocialIconsClick = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons1Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons2Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons3Click = useCallback(() => {
-    window.open("https://twitter.com/animaapp");
-  }, []);
-
-  const onButtonContainer14Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onButtonContainer15Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onSocialIcons4Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons12Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons22Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons5Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons13Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons23Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons6Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons14Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons24Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons7Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons15Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons25Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onButtonContainer16Click = useCallback(() => {
-    window.open(
-      "#"
-    );
-  }, []);
-
-  const onSocialIcons8Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons16Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons26Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  const onSocialIcons32Click = useCallback(() => {
-    window.open("#");
-  }, []);
-
-  return (
-    <div className="landing-page-v1-desktop1">
-
-      <div className="hero-section">
-        <div className="header">
-          <div className="header1">
-            <b className="create-engaging-landing">
-              Gestiona el stock de tu restaurante de forma fácil
-            </b>
-            <div className="build-beautiful-landing">
-              ¡Olvídate de contar croquetas! Comparte el stock con la comunidad
-              y siente el apoyo de otros restaurantes y bares.
-            </div>
-          </div>
-          <div className="ctas">
-            <BtnLogin />
-            <BtnRegister />
-          </div>
-        </div>
-        <img className="visuals-icon" alt="" src="https://images.pexels.com/photos/17318176/pexels-photo-17318176/free-photo-of-restaurante-trabajando-hombres-cocinando.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-      </div>
-      <div className="logo-bar">
-        <div className="logos">
-          <img
-            className="logo-restauracin-icon"
-            alt=""
-            src={Montaditos}
-          />
-          <img
-            className="logo-restauracin-icon1"
-            alt=""
-            src={Vicio}
-          />
-          <img
-            className="logo-restauracin-icon2"
-            alt=""
-            src={TGB}
-          />
-          <img
-            className="logo-restauracin-icon3"
-            alt=""
-            src={Wok}
-          />
-          <img
-            className="logo-restauracin-icon4"
-            alt=""
-            src={Foster}
-          />
-          <img
-            className="logo-restauracin-icon5"
-            alt=""
-            src={LaCueva}
-          />
-        </div>
-      </div>
-      <div className="features">
-        <div className="headline-subhead">
-          <b className="features1">
-            Descripción y 3 funcionalidades destacadas
-          </b>
-          <div className="few-good-reasons">
-            Few good reasons why you should use Anima Landing Page Ui Kit to
-            make your own pages.
-          </div>
-        </div>
-        <div className="cards-row">
-          <div className="feature-card">
-            <div className="card-info">
-              <div className="icon">
-                <img className="magicwand-icon" alt="" src={Stock} />
-              </div>
-              <div className="text">
-                <div className="write-a-feature">Controla tu Stock</div>
-                <div className="write-benefits-focused-clear">
-                  Tailor Anima's Landing Page UI Kit to your unique style and
-                  brand with customisable components, in no time!
-                </div>
-              </div>
-            </div>
-            <div className="button7" onClick={onButtonContainer5Click}>
-              <div className="label7">Learn More</div>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-          <div className="feature-card1">
-            <div className="card-info1">
-              <div className="icon1">
-                <img
-                  className="flyingsaucer-icon"
-                  alt=""
-                  src={Ayuda}
-                />
-              </div>
-              <div className="text1">
-                <div className="write-a-feature1">
-                  Pide ayuda a la comunidad
-                </div>
-                <div className="write-benefits-focused-clear1">
-                  No need to worry about screen size. Anima's Landing Page UI
-                  Kit adapts to any screen size, from desktop to mobile.
-                </div>
-              </div>
-            </div>
-            <div className="button8" onClick={onButtonContainer6Click}>
-              <div className="label8">Learn More</div>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-          <div className="feature-card2">
-            <div className="card-info2">
-              <div className="icon2">
-                <img className="confetti-icon" alt="" src={Pedido} />
-              </div>
-              <div className="text2">
-                <div className="write-a-feature2">Realiza tu pedido</div>
-                <div className="write-benefits-focused-clear2">
-                  Zero coding skills required, Anima's Landing Page UI Kit
-                  empowers you to create stunning landing pages with ease.
-                </div>
-              </div>
-            </div>
-            <div className="button9" onClick={onButtonContainer7Click}>
-              <div className="label9">Learn More</div>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="projects">
-        <div className="headline-subhead1">
-          <b className="discover-our-latest">Imágenes</b>
-          <div className="explore-our-portfolio">
-            Explore our portfolio and see the latest and greatest projects that
-            we've brought to life.
-          </div>
-        </div>
-        <div className="cards-row1">
-          <img
-            className="project-card-icon"
-            alt=""
-            src="/project-card@2x.png"
-          />
-          <img
-            className="project-card-icon1"
-            alt=""
-            src="/project-card@2x.png"
-          />
-          <img
-            className="project-card-icon2"
-            alt=""
-            src="/project-card@2x.png"
-          />
-        </div>
-      </div>
-      <div className="highlighted-cta">
-        <div className="highlighted-cta1">
-          <div className="header2">
-            <b className="get-landing-page">
-              Lema guay con mockup de la plataforma
-            </b>
-            <div className="break-figma-limits">Contar algo más</div>
-          </div>
-          <div className="ctas1">
-            <div className="ctas2">
-              <div className="button10" onClick={onButtonContainer8Click}>
-                <i className="fa-solid fa-rocket"></i>
-                <div className="label10">Crear cuenta</div>
-              </div>
-            </div>
-          </div>
-          <img className="mockup-icon" alt="" src="/mockup@2x.png" />
-        </div>
-      </div>
-      <div className="testimonials">
-        <div className="headline-subhead2">
-          <b className="real-stories-from">Testimonio de clientes</b>
-          <div className="see-how-our">
-            See how our landing page ui kit is making an impact.
-          </div>
-        </div>
-        <div className="cards-row2">
-          <div className="testimonial-card">
-            <div className="testimonial-info">
-              <div className="client-info">
-                <img className="photo-icon" alt="" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <div className="person-details">
-                  <div className="john-doe">Sarah K.</div>
-                  <div className="vice-president">UX Designer @Brello</div>
-                </div>
-              </div>
-              <div className="text3">
-                <div className="write-short-specific">
-                  "I was looking for a way to streamline my design process and
-                  the Anima’s Landing Page UI Kit was a lifesaver! The intuitive
-                  design and ease of customisation have saved me hours of time
-                  and effort. Highly recommend!"
-                </div>
-              </div>
-            </div>
-            <div className="star-rating">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-            </div>
-          </div>
-          <div className="testimonial-card1">
-            <div className="testimonial-info1">
-              <div className="client-info1">
-                <img className="photo-icon1" alt="" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <div className="person-details1">
-                  <div className="john-doe1">Michael L.</div>
-                  <div className="vice-president1">Creative Director @Yo</div>
-                </div>
-              </div>
-              <div className="text4">
-                <div className="write-short-specific1">
-                  “The Landing Page UI Kit has been a game changer for my
-                  agency. The pre-designed components and templates have helped
-                  us deliver projects faster and with more consistency. Great
-                  job!"
-                </div>
-              </div>
-            </div>
-            <div className="star-rating1">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-regular fa-star"></i>
-            </div>
-          </div>
-          <div className="testimonial-card2">
-            <div className="testimonial-info2">
-              <div className="client-info2">
-                <img className="photo-icon2" alt="" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <div className="person-details2">
-                  <div className="john-doe2">Lauren M.</div>
-                  <div className="vice-president2">UI Designer @Boo</div>
-                </div>
-              </div>
-              <div className="text5">
-                <div className="write-short-specific2">
-                  "Anima’s Landing Page UI Kit has become a staple in my design
-                  toolkit. Whether I'm working on a new project or need to make
-                  updates to an existing one, this kit has everything I need to
-                  get the job done quickly and efficiently."
-                </div>
-              </div>
-            </div>
-            <div className="star-rating2">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="pricing">
-        <div className="headline-subhead3">
-          <b className="pick-your-perfect">
-            Precios adaptados a toda la hostelería
-          </b>
-          <div className="find-the-perfect">
-            Find the perfect plan for your business with our flexible pricing
-            options.
-          </div>
-        </div>
-        <div className="cards-row3">
-          <div className="pricing-card">
-            <div className="text6">
-              <div className="pricing-info">
-                <div className="free">Free</div>
-                <div className="pricing1">
-                  <b className="b">$0</b>
-                  <b className="month">/ month</b>
-                </div>
-                <div className="short-description-goes">
-                  Best for Small Teams or Individuals.
-                </div>
-              </div>
-              <div className="pricing-features">
-                <div className="pricing-feature">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature1">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in1">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature2">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in2">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature3">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in3">Feature Details in plan</b>
-                </div>
-              </div>
-            </div>
-            <div className="button11" onClick={onButtonContainer9Click}>
-              <div className="label11">Get Started</div>
-            </div>
-          </div>
-          <div className="pricing-card1">
-            <div className="text7">
-              <div className="pricing-info1">
-                <div className="free1">Professional</div>
-                <div className="pricing2">
-                  <b className="b1">$19</b>
-                  <b className="month1">/ month</b>
-                </div>
-                <div className="short-description-goes1">
-                  Ideal for Growing Companies.
-                </div>
-              </div>
-              <div className="pricing-features1">
-                <div className="pricing-feature4">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in4">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature5">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in5">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature6">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in6">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature7">
-                  <img className="check-icon7" alt="" src="/check.svg" />
-                  <b className="feature-details-in7">Feature Details in plan</b>
-                </div>
-              </div>
-            </div>
-            <div className="button12" onClick={onButtonContainer10Click}>
-              <div className="label12">Get Started</div>
-            </div>
-          </div>
-          <div className="pricing-card2">
-            <div className="text8">
-              <div className="pricing-info2">
-                <div className="special">Enterprise</div>
-                <div className="pricing3">
-                  <b className="b2">$49</b>
-                  <b className="month2">/ month</b>
-                </div>
-                <div className="short-description-goes2">
-                  Ultimate for Enterprise Solutions.
-                </div>
-              </div>
-              <div className="pricing-features2">
-                <div className="pricing-feature8">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in8">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature9">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in9">
-                    Write feature details here
-                  </b>
-                </div>
-                <div className="pricing-feature10">
-                  <img className="check-icon10" alt="" src="/check-10.svg" />
-                  <b className="feature-details-in10">
-                    Feature Details in plan
-                  </b>
-                </div>
-                <div className="pricing-feature11">
-                  <i className="fa-solid fa-check"></i>
-                  <b className="feature-details-in11">
-                    Write feature details here
-                  </b>
-                </div>
-              </div>
-            </div>
-            <div className="button13" onClick={onButtonContainer11Click}>
-              <div className="label13">Get Started</div>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <ContactForm /> */}
-      <div className="highlighted-cta2">
-        <img className="visuals-icon1" alt="" src={Inteligente} />
-        <div className="header5">
-          <div className="header6">
-            <b className="get-landing-page1">
-              ¡Haz que tu negocio crezca de forma inteligente!
-            </b>
-            <div className="break-the-figma">
-              Break the Figma limits and explore the endless possibilities with
-              Anima.
-            </div>
-          </div>
-          <div className="ctas3">
-            <div className="button15" onClick={onButtonContainer15Click}>
-              <div className="label15">Get Started</div>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="team">
-        <div className="headline-subhead5">
-          <b className="conoce-a-nuestro">Conoce a nuestro equipo</b>
-          <div className="get-to-know">
-            Get to know the faces behind the scenes and learn about the values
-            that drive us.
-          </div>
-        </div>
-        <div className="cards-row4">
-          <div className="member-card">
-            <img className="profile-image-placeholder-1" src={Irene} />
-            <div className="text9">
-              <div className="john-doe3">Irene Vázquez</div>
-              <div className="lead-designer">Full Stack</div>
-            </div>
-            <div className="social-links1">
-              <i className="fa-brands fa-twitter" onClick={onSocialIcons4Click}></i>
-              <i className="fa-brands fa-linkedin" onClick={onSocialIcons12Click}></i>
-              <i className="fa-brands fa-github" onClick={onSocialIcons22Click}></i>
-            </div>
-          </div>
-          <div className="member-card1">
-            <img className="profile-image-placeholder-11" src={Mercedes} />
-
-            <div className="text10">
-              <div className="john-doe4">Mercedes Sánchez</div>
-              <div className="lead-designer1">Full Stack</div>
-            </div>
-            <div className="social-links2">
-              <i className="fa-brands fa-twitter" onClick={onSocialIcons5Click}></i>
-              <i className="fa-brands fa-linkedin" onClick={onSocialIcons13Click}></i>
-              <i className="fa-brands fa-github" onClick={onSocialIcons23Click}></i>
-            </div>
-          </div>
-          <div className="member-card2">
-            <img className="profile-image-placeholder-12" src={Fran} />
-            <div className="text11">
-              <div className="john-doe5">Francisco Julian</div>
-              <div className="lead-designer2">Full Stack</div>
-            </div>
-            <div className="social-links3">
-              <i className="fa-brands fa-twitter" onClick={onSocialIcons6Click}></i>
-              <i className="fa-brands fa-linkedin" onClick={onSocialIcons14Click}></i>
-              <i className="fa-brands fa-github" onClick={onSocialIcons24Click}></i>
-            </div>
-          </div>
-          <div className="member-card3">
-            <img className="profile-image-placeholder-13" src={Matteo}
-            />
-            <div className="text12">
-              <div className="john-doe6">Mateo Scilleri</div>
-              <div className="lead-designer3">Full Stack</div>
-            </div>
-            <div className="social-links4">
-              <i className="fa-brands fa-twitter" onClick={onSocialIcons7Click}></i>
-              <i className="fa-brands fa-linkedin" onClick={onSocialIcons15Click}></i>
-              <i className="fa-brands fa-github" onClick={onSocialIcons25Click}></i>
-            </div>
-          </div>
-        </div>
-      </div>
+    const { store, actions } = useContext(Context);
+  
+    return (
+        <>
+        <div className="container-fluid d-inline text-center">
+    <div className="row shadow p-3 mb-2 bg-body-tertiary rounded justify-content-center">
+      <div className="col-lg-4 text-start mt-5 "><h1 className="fw-bold">
+        Gestiona el stock de tu restaurante de forma fácil
+        <small className="text-body-secondary"></small></h1><h5> ¡Olvídate de contar croquetas! Comparte el stock con la comunidad
+              y siente el apoyo de otros restaurantes y bares.</h5></div>
+      <div className="col-md-5"><div><img src="http://www.qrquestion.info/wp-content/uploads/2015/07/restaurant-646678_1920.jpg" className="rounded-circle shadow" width="400" height="400" alt="..."/></div>
+    </div>
+    </div>
     </div>
 
-  );
+
+    <div className="container-fluid d-inline text-center">
+    <div className="row shadow p-3 mb-2 bg-tertiary justify-content-center">
+      <h3 className="fw-light">Algunos de nuestros Clientes!</h3>
+    <div id="carouselExample" className="col-4 carousel carousel-dark slide">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="https://www.telefonogratis.net/wp-content/uploads/2021/07/telefono-atencion-fosters-hollywood.jpg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://www.thader.net/wp-content/uploads/2023/06/LOGO.jpg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://www.saborgranada.es/wp-content/uploads/2016/11/logo-40.jpg" className="" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://www.distribucionactualidad.com/wp-content/uploads/2019/11/LOGO-POPEYE-300x213.jpg" className="" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://console.listae.com/files/2014/12/la_tagliatella_logo.jpg" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.KNR60-Ax0mwVxa03LTCOFwHaCI&pid=Api&P=0&h=180" className="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+    </div>
+
+
+    </div>
+    <div className="container-fluid d-inline text-center" >
+    <div className="row shadow p-3 mb-5 bg-body-tertiary rounded justify-content-center">
+     <h3 className="fw-light"> Conoce a nuestro equipo de desarrolladores!</h3>
+     <div className="d-flex flex-row mb-3 mt-3 justify-content-evenly">
+  <div className="p-2 col-xl-3"> 
+  <img src="https://media.licdn.com/dms/image/D4D03AQGYlnzTkwWMww/profile-displayphoto-shrink_400_400/0/1708935778229?e=1718236800&v=beta&t=i6vIckY5pI4jaIN-TtvFqVEkTsvPVT1h2fykJaZlxEU" className="rounded-circle shadow" width="200" height="200" alt="..."/>
+   <p className="fw-bold mt-2">IRENE VASQUEZ</p>
+   <a href="https://github.com/iireneVS"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+   <a href="https://www.linkedin.com/in/irene-vazquez-sanchez-727a662a2/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+  </div>
+  
+  
+  <div className="p-2 col-xl-3">
+    <img src="https://media.licdn.com/dms/image/D4D03AQEMk4b_G7ocNQ/profile-displayphoto-shrink_400_400/0/1712937366963?e=1718236800&v=beta&t=s1nyqIEvlimabZ0cvIHjvMkOF_Gm3EUTkQWKxm3te1Q" className="rounded-circle shadow" width="200" height="200" alt="..."/>
+    <p className="fw-bold mt-2">FRAN JULIAN </p>
+    <a href=""><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+    <a href="https://www.linkedin.com/in/fran-julian-1b150921/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+    </div>
+
+  <div className="p-2 col-xl-3">
+    <img src="https://static.vecteezy.com/system/resources/previews/000/550/731/original/user-icon-vector.jpg" className="rounded-circle shadow" width="200" height="200" alt="..."/>
+    <p className="fw-bold mt-2">MATTEO SCILLERI </p>
+    <a href="https://github.com/Matteo0310"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+    <a href="https://www.linkedin.com/in/matteo-scilleri-b565a117a/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+    </div>
+
+  <div className="p-2 col-xl-3">
+    <img src="https://avatars.githubusercontent.com/u/144907375?v=4" className="rounded-circle shadow" width="200" height="200" alt="..."/>
+    <p className="fw-bold mt-2">MERCEDES SANCHEZ</p>
+    <a href="https://github.com/Mercedes0708"> <i className="fa-brands fa-github fs-3 mr-2"></i></a>
+    <a href= "https://www.linkedin.com/in/mercedes-s%C3%A1nchez-pe%C3%B1a-32625821a/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+  </div>
+</div>
+    </div>
+    </div>
+    </>
+    );
 };
