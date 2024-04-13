@@ -9,18 +9,15 @@ import { Sidebar } from "./component/Sidebar.jsx";
 import { Footer } from "./component/Footer.jsx";
 // Import custom pages
 import { Home } from "./pages/Home.jsx";
-import { Demo } from "./pages/Demo.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Recipes } from "./pages/Recipes.jsx";
 import { Previsions } from "./pages/Previsions.jsx";
 import { DeliveryNotes } from "./pages/DeliveryNotes.jsx";
 import { ManufacturingOrders } from "./pages/ManufacturingOrders.jsx";
-import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
-import { Prueba } from "./pages/Prueba.jsx";
 import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
@@ -28,6 +25,8 @@ import { Logout } from "./pages/Logout.jsx";
 import { BtnName } from "./component/BtnName.jsx";
 import { EditRecipes } from "./pages/EditRecipes.jsx"
 import { DeleteRecipe } from "./pages/DeleteRecipe.jsx"
+import { SumLine } from "./pages/SumLine.jsx";
+
 
 // Create your first component
 const Layout = () => {
@@ -69,8 +68,10 @@ const Layout = () => {
                                     <Route element={<Suppliers />} path="/suppliers" />
                                     <Route element={<Logout />} path="/logout" />
                                     <Route element={<NotFound />} path="*" />
-                                    <Route element ={<EditRecipes />} path="/edit-recipes" />
-                                    <Route element ={<DeleteRecipe />} path="/del-recipes" />
+                                    <Route element={<EditRecipes />} path="/edit-recipes" />
+                                    <Route element={<DeleteRecipe />} path="/del-recipes" />
+                                    <Route element={<NewRecipes />} path="/new-recipes" />
+                                    <Route element={<SumLine />} path="/add-line" />
                                 </Routes>
                             </div>
                         </div>

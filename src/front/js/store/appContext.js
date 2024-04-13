@@ -33,6 +33,7 @@ const injectContext = (PassedComponent) => {
           state.actions.getReferences();
           state.actions.getFormats();
           state.actions.getRecipes();
+          state.actions.getLinesRecipes();
           // state.actions.getManufacturing();
           // state.actions.getPrevisions();
         }

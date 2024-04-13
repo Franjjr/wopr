@@ -43,7 +43,7 @@ def create_token():
     response_body['user'] = user.serialize()
     return response_body, 200
 
-
+#region Registro
 @api.route("/register", methods=["POST"])
 def register_user():
     response_body = {}
@@ -112,12 +112,12 @@ def handle_delivery_notes():
     if request.method == 'POST':
         data = request.json
         line = DeliveryNotes(date = data['date'],
-                             center_id = data ['center_id'],
-                             sum_costs = data ['sum_costs'],
-                             sum_totals = data ['sum_totals'],
-                             sum_vat = data['sum_vat'],
-                             status = data ['status'],
-                             user_id = data ['user_id'],)
+                            center_id = data ['center_id'],
+                            sum_costs = data ['sum_costs'],
+                            sum_totals = data ['sum_totals'],
+                            sum_vat = data['sum_vat'],
+                            status = data ['status'],
+                            user_id = data ['user_id'],)
         db.session.add(line)
         db.session.commit()
         response_body['results'] = line.serialize()
@@ -178,11 +178,11 @@ def handle_delivery_lines():
         data = request.json
         # BUG: Validar que data tenga todos esas claves que necito
         line = DeliveryNoteLines(qty = data['qty'],
-                                 unit_cost = data['unit_cost'], # este campo deberia de venir de la tabla Recipes
-                                 total = data['total'],
-                                 vat = data['vat'],
-                                 recipe_id = data['recipe_id'], # este campo deberia de venir de la tabla Recipes
-                                 delivery_note_id = data['delivery_note_id'],) # este campo deberia de venir de la tabla DeliveryNotes
+                                unit_cost = data['unit_cost'], # este campo deberia de venir de la tabla Recipes
+                                total = data['total'],
+                                vat = data['vat'],
+                                recipe_id = data['recipe_id'], # este campo deberia de venir de la tabla Recipes
+                                delivery_note_id = data['delivery_note_id'],) # este campo deberia de venir de la tabla DeliveryNotes
         db.session.add(line)
         db.session.commit()
         response_body['results'] = line.serialize()
@@ -221,7 +221,7 @@ def modify_delivery_lines(delivery_note_lines_id):
         response_body['message'] = f'Delivery Note Line {delivery_note_line_id} se ha actualizado con exito'
         return response_body, 200
 
-
+#region Centros
 @api.route('/centers', methods=['GET', 'POST'])
 @jwt_required()
 def handle_centers():
@@ -392,12 +392,11 @@ def modify_composition_line(compositions_line_id):
         response_body['message'] = f'Compositions Line {composition_line_id} it is OK!'
         return response_body, 200
 
-
+#region Recetas
 @api.route('/recipes', methods=['GET', 'POST'])
 @jwt_required()
 def handle_recipes():
     response_body = {}
-    results = []
     if request.method == 'GET':
         recipes = db.session.query(Recipes).all()
         response_body['data'] = [row.serialize()for row in recipes]
@@ -452,17 +451,16 @@ def modify_recipes(recipes_id):
         response_body['message'] = f'Recipes {recipes_id} it is OK!'
         return response_body, 200
 
-
-@api.route('/line_recipes', methods=['POST'])
+#region Lineas de Receta
+@api.route('/line-recipes', methods=['POST'])
 @jwt_required()
 def handle_line_recipe():
     response_body = {}
     results = []
-    # El GET se realiza dentroi de la recipe
     if request.method == 'POST':
         data = request.json
         line = LineRecipes (recipe_id = data['recipe_id'],
-                            reference_id = data['reference_id'],
+                            references_idWopr = data['reference_id'],
                             qty = data ['qty'],
                             cost = data ['cost'],
                             total = data ['total'],
@@ -472,6 +470,23 @@ def handle_line_recipe():
         db.session.commit()
         response_body['results'] = line.serialize()
         response_body['message'] = 'POST Method Line Recipe'
+        return response_body, 200
+
+
+@api.route('/line_recipes/<int:recipe_id>', methods=['GET'])
+@jwt_required()
+def handle_line_recipeID(recipe_id):
+    response_body = {}
+    results = []
+    current_user = get_jwt_identity()
+    user_id = current_user['user_id']
+    if request.method == 'GET':
+        if user_id is None:
+            response_body['message'] = 'Usuario no proporcionado en los encabezados de la solicitud'
+            return response_body, 400
+        data = db.session.execute(db.select(LineRecipes).where(LineRecipes.recipe_id == recipe_id)).scalars()
+        response_body['data'] = [row.serialize() for row in data]
+        response_body['message'] = 'GET lineas de la receta'
         return response_body, 200
 
 
@@ -724,7 +739,7 @@ def modify_manufacturing(manufacturing_orders_id):
         response_body['message'] = f'Manufacturing order {manufacturing_orders_id} se ha actualizado con exito'
         return response_body, 200
 
-
+#region Proveedores
 @api.route("/suppliers/<int:center_id>", methods=['GET'])
 @jwt_required()
 def handle_supplier(center_id):
@@ -801,15 +816,15 @@ def handle_supplier(center_id):
         response_body['message'] = f'{len(new_suppliers)} proveedores nuevos añadidos con éxito'
     else:
         response_body['message'] = 'No se encontraron nuevos proveedores para añadir'
-        for supplier_data in suppliers:
-            print(supplier_data['name'])
-        for supplier in existing_suppliers:
-            print(supplier.name)
+        # for supplier_data in suppliers:
+        #     print(supplier_data['name'])
+        # for supplier in existing_suppliers:
+        #     print(supplier.name)
     existing_suppliers = Suppliers.query.all()
     response_body["data"] = [supplier.serialize() for supplier in existing_suppliers]
     return response_body, 200
         
-    
+#region Formatos  
 @api.route("/products_formats/<int:center_id>", methods=['GET'])
 @jwt_required()
 def handle_format(center_id):
@@ -881,15 +896,15 @@ def handle_format(center_id):
         response_body['message'] = f'{len(new_formats)} formatos de compra nuevos añadidos con éxito'
     else:
         response_body['message'] = 'No se encontraron nuevos formatos de compra para añadir'
-        for formate_data in formats:
-            print(formate_data['name'])
-        for formate in existing_formats:
-            print(formate.name)
+        # for formate_data in formats:
+        #     print(formate_data['name'])
+        # for formate in existing_formats:
+        #     print(formate.name)
     existing_formats = ProductsFormats.query.all()
     response_body["data"] = [format.serialize() for format in existing_formats]
     return response_body, 200
 
-
+#region Referencias
 @api.route("/references/<int:center_id>", methods=['GET'])
 @jwt_required()
 def handle_references(center_id):
@@ -955,10 +970,10 @@ def handle_references(center_id):
         response_body['message'] = f'{len(new_references)} referencias nuevas añadidas con éxito'
     else:
         response_body['message'] = 'No se encontraron nuevas referencias para añadir'
-        for reference_data in references:
-            print(reference_data['name'])
-        for reference in existing_references:
-            print(reference.name)
+        # for reference_data in references:
+        #     print(reference_data['name'])
+        # for reference in existing_references:
+        #     print(reference.name)
     existing_references = References.query.all()
     response_body["data"] = [reference.serialize() for reference in existing_references]
     return response_body, 200
