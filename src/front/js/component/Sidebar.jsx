@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
   return (
-    <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion">
         <hr className="sidebar-divider"></hr>
         <div className="sidebar-heading">Menu</div>
         {/* Pages */}
@@ -38,11 +39,8 @@ export const Sidebar = () => {
             </Link>
         </li>
         {/* <!-- Divider -->  */}
-        <hr className="sidebar-divider d-none d-md-block"></hr>
-        {/*  <!-- Sidebar Toggler (Sidebar) --> */}
-        <div className="text-center d-none d-md-inline">
-            <button className="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+        <hr className="sidebar-divider"></hr>
     </ul>
+
   );
 };
