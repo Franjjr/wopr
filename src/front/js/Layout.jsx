@@ -15,7 +15,6 @@ import { Recipes } from "./pages/Recipes.jsx";
 import { Previsions } from "./pages/Previsions.jsx";
 import { DeliveryNotes } from "./pages/DeliveryNotes.jsx";
 import { ManufacturingOrders } from "./pages/ManufacturingOrders.jsx";
-import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
@@ -32,6 +31,7 @@ import { EditManufacturing} from "./pages/EditManufacturing.jsx";
 import { DeleteManufacturing } from "./pages/DeleteManufacturing.jsx";
 import { EditNotes } from "./pages/EditNotes.jsx";
 import { DeleteNotes } from "./pages/DeleteNotes.jsx";
+
 
 // Create your first component
 const Layout = () => {

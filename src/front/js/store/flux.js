@@ -7,12 +7,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       references:[],
       formats:[],
       recipes:[],
+      lineRecipes:[],
       manufacturing:[],
       previsions:[],
       isLogin: false,
       rol: null,
       name: null,
       currentRecipes: { }, 
+      sumLineActive: false,
     },
     actions: {
       login: async () => {
@@ -39,10 +41,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ previsions: []});
       },
       
+      sumLineOn: () => {
+        setStore({ sumLineActive: true })
+      },
+
+      sumLineOff: () => {
+        setStore({ sumLineActive: false })
+      },
+
       selectRecipes : (row) => {
         setStore({currentRecipes: row })
       },
       
+      selectRecipesLines : () => {
+        setStore({currentRecipes: row})
+      },
+
       getSuppliers : async () => {
         const login = getStore().isLogin;
         if (login) {
@@ -132,6 +146,29 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = await response.json();
           setStore({recipes:data.data});
           console.log('Recipes: ', data);
+        }
+      },
+
+      getLinesRecipes : async () => {
+        const login = getStore().isLogin;
+        if (login) {
+          const base_url = process.env.BACKEND_URL;
+          const url = base_url + "/api/line_recipes/" + getStore().currentRecipes.id;
+          const options = {
+            method: 'GET',
+            headers: {
+              'Authorization': "Bearer " + localStorage.getItem("token"),
+              "Content-Type": "application/json"
+            },
+          };
+          const response = await fetch(url, options);
+          if (!response.ok) {
+            console.log('Error', response.status, response.statusText);
+            return response.status;
+          }
+          const data = await response.json();
+          setStore({lineRecipes:data.data});
+          console.log('lineRecipes: ', data);
         }
       },
 

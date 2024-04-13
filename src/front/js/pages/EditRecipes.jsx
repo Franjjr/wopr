@@ -41,7 +41,7 @@ export const EditRecipes = () => {
     }
   };
 
-  return store.currentRecipes.name ?  ( 
+  return ( 
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-xl-10 col-lg-12 col-md-9">
@@ -93,8 +93,7 @@ export const EditRecipes = () => {
                       </div>
                       <button
                         type="submit"
-                        className="btn btn-primary btn-user btn-block"
-                      >
+                        className="btn btn-primary btn-user btn-block">
                         Actualizar Receta
                       </button>
                     </form>
@@ -108,5 +107,5 @@ export const EditRecipes = () => {
       </div>
     </div>
     
-  ) : (<p>On LOAD...</p>) ;
+  );
 };
