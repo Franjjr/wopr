@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import "../../styles/index.css";
 import { SumLine } from "./SumLine.jsx";
 import { useNavigate } from "react-router-dom";
+import { Spiner } from "../component/Spiner.jsx";
 
 export const NewRecipes = () => {
   const { store, actions } = useContext(Context);
@@ -58,8 +59,6 @@ export const NewRecipes = () => {
   }
 
   const addLine = () => {
-    // actions.getLinesRecipes();
-    // navigate("/add-line");
     actions.sumLineOn();
 
   }
@@ -68,7 +67,7 @@ export const NewRecipes = () => {
     navigate("/recipes")
   }
 
-  return  (
+  return (
     <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-10 col-lg-12 col-md-9">
@@ -227,3 +226,4 @@ export const NewRecipes = () => {
     </div>
   );
 };
+

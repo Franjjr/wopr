@@ -3,6 +3,7 @@ import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Spiner } from "../component/Spiner.jsx";
 
 
 export const Recipes = () => {
@@ -12,17 +13,18 @@ export const Recipes = () => {
   // mandamos la informacion del row al localStorage
   const editBtn = (row) => {
     // 1. Tengo que mandar row al store
-    actions.selectRecipes(row);
+    actions.selectRecipesEdit(row);
     // 2. Ir al componente editRecipes
     navigate("/edit-recipes");
   } 
 
   const delBtn = (row) => {
-    actions.selectRecipes(row);
+    actions.selectRecipesEdit(row);
+    actions.getLineRecipes();
     navigate("/del-recipes")
   }
   // Falta poner el BtnCreate dentro de la tabla.
-  return (
+  return (store.recipes).length == 0 ? <Spiner /> : (
     <div id="page-top">
       {!store.isLogin ? (
         <h1>FORBIDEN</h1>

@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
+import { Spiner } from "../component/Spiner.jsx";
 
 export const References = () => {
   const { store, actions } = useContext(Context);
 
-  return (
+  return (store.references).length == 0 ? <Spiner /> : (
     <div id="page-top">
       {!store.isLogin ? (
         <h1>FORBIDEN</h1>

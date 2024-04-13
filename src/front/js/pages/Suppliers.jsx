@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
+import { Spiner } from "../component/Spiner.jsx";
 
 // importar useNavigate para luego utilzarlo en el return
 export function Suppliers() {
   const { store, actions } = useContext(Context);
 
-  return (
+  return (store.suppliers).length == 0 ? <Spiner /> : (
     <div id="page-top">
       {!store.isLogin ? (
         <h1>FORBIDEN</h1>
