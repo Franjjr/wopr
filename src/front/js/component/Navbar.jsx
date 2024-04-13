@@ -40,7 +40,7 @@ export const Navbar = () => {
 
     :
 
-    <nav className="navbar navbar-expand navbar-light bg-white">
+    <nav className="navbar navbar-expand bg-body-tertiary">
       <div className="container-fluid d-flex justify-beetween">
         <div className="logo mt-0">
           <img className="logo" src={Logo} />

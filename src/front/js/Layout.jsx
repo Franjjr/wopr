@@ -9,7 +9,6 @@ import { Sidebar } from "./component/Sidebar.jsx";
 import { Footer } from "./component/Footer.jsx";
 // Import custom pages
 import { Home } from "./pages/Home.jsx";
-import { Demo } from "./pages/Demo.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Recipes } from "./pages/Recipes.jsx";
@@ -20,7 +19,6 @@ import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
-import { Prueba } from "./pages/Prueba.jsx";
 import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
@@ -50,6 +48,7 @@ const Layout = () => {
                             <Route element={<Register />} path="/register" />
                             <Route element={<ContactForm />} path="/contact" />
                             <Route element={<NotFound />} path="*" />
+                    
                         </Routes>
                     :
                         <div className="row">
