@@ -26,8 +26,14 @@ import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
 import { Logout } from "./pages/Logout.jsx";
 import { BtnName } from "./component/BtnName.jsx";
-import { EditRecipes } from "./pages/EditRecipes.jsx"
-import { DeleteRecipe } from "./pages/DeleteRecipe.jsx"
+import { EditRecipes } from "./pages/EditRecipes.jsx";
+import { DeleteRecipe } from "./pages/DeleteRecipe.jsx";
+import { EditPrevisions } from "./pages/EditPrevisions.jsx";
+import { DeletePrevisions } from "./pages/DeletePrevisions.jsx";
+import { EditManufacturing} from "./pages/EditManufacturing.jsx";
+import { DeleteManufacturing } from "./pages/DeleteManufacturing.jsx";
+import { EditNotes } from "./pages/EditNotes.jsx";
+import { DeleteNotes } from "./pages/DeleteNotes.jsx";
 
 // Create your first component
 const Layout = () => {
@@ -71,6 +77,12 @@ const Layout = () => {
                                     <Route element={<NotFound />} path="*" />
                                     <Route element ={<EditRecipes />} path="/edit-recipes" />
                                     <Route element ={<DeleteRecipe />} path="/del-recipes" />
+                                    <Route element ={<EditPrevisions />} path="/edit-previsions" />
+                                    <Route element ={<DeletePrevisions />} path="/del-previsions" />
+                                    <Route element ={<EditManufacturing />} path="/edit-manufacturing" />
+                                    <Route element ={<DeleteManufacturing />} path="/del-manufacturing" />
+                                    <Route element ={<EditNotes />} path="/edit-notes" />
+                                    <Route element ={<DeleteNotes />} path="/del-notes" />
                                 </Routes>
                             </div>
                         </div>
