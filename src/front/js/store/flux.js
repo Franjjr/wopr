@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       rol: null,
       name: null,
       currentRecipes: { }, 
+      currentEditRecipes: { },
       sumLineActive: false,
     },
     actions: {
@@ -51,6 +52,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       selectRecipes : (row) => {
         setStore({currentRecipes: row })
+      },
+
+      selectRecipesEdit : (row) => {
+        setStore({currentEditRecipes: row })
       },
       
       selectRecipesLines : () => {
