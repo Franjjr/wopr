@@ -72,30 +72,30 @@ export const Home = () => {
             <div className="p-2 col m-auto">
               <img src={irene} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">IRENE VÁZQUEZ</p>
-              <a href="https://github.com/iireneVS"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/irene-vazquez-sanchez-727a662a2/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/iireneVS"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/irene-vazquez-sanchez-727a662a2/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
 
             <div className="p-2 col m-auto">
               <img src={fran} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">FRAN JULIAN </p>
-              <a href=""><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/fran-julian-1b150921/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/Franjjr"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/fran-julian-1b150921/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
             <div className="p-2 col m-auto">
               <img src={matteo} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">MATTEO SCILLERI </p>
-              <a href="https://github.com/Matteo0310"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/matteo-scilleri-b565a117a/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/Matteo0310"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/matteo-scilleri-b565a117a/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
             <div className="p-2 col m-auto">
               <img src={mercedes} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">MERCEDES SANCHEZ</p>
-              <a href="https://github.com/Mercedes0708"> <i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/mercedes-s%C3%A1nchez-pe%C3%B1a-32625821a/"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/Mercedes0708"target="_blank"> <i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/mercedes-s%C3%A1nchez-pe%C3%B1a-32625821a/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
           </div>
         </div>
