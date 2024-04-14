@@ -1,13 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import "../../styles/index.css";
+import { Spiner } from "../component/Spiner.jsx";
+import "../../styles/paginacion.css";
 
-// importar useNavigate para luego utilzarlo en el return
 export function Suppliers() {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(15);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  return (
+  // Filtrar los proveedores según el término de búsqueda
+  const filteredSuppliers = store.suppliers.filter(supplier =>
+    supplier.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Calcular el índice del primer y último elemento de la página actual
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredSuppliers.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Calcular el número total de páginas
+  const totalPages = Math.ceil(filteredSuppliers.length / itemsPerPage);
+
+  // Cambiar a una página específica
+  const handleChangePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Generar la lista de números de página
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  // Función para manejar el cambio en el campo de búsqueda
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1); // Regresar a la primera página al realizar una búsqueda
+  };
+
+  return store.suppliers.length === 0 ? (
+    <Spiner />
+  ) : (
     <div id="page-top">
       {!store.isLogin ? (
         <h1>FORBIDEN</h1>
@@ -30,6 +66,15 @@ export function Suppliers() {
               </h6>
             </div>
             <div className="card-body">
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Buscar Proveedor..."
+                  value={searchTerm}
+                  onChange={handleSearch}
+                />
+              </div>
               <div className="table-responsive">
                 <table
                   className="table table-bordered"
@@ -67,69 +112,51 @@ export function Suppliers() {
                       <th>Fecha de Modificacion</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Id Wopr</th>
-                      <th>Id G-Stock</th>
-                      <th>Referencia</th>
-                      <th>Categoria Id</th>
-                      <th>Subcategoria Id</th>
-                      <th>Nombre</th>
-                      <th>Nombre Registrado</th>
-                      <th>CIF</th>
-                      <th>Direccion</th>
-                      <th>Direccion adicional</th>
-                      <th>Numero</th>
-                      <th>Planta</th>
-                      <th>Letra</th>
-                      <th>Codigo Postal</th>
-                      <th>Ciudad</th>
-                      <th>Codigo Provincia</th>
-                      <th>Nombre Provincia</th>
-                      <th>Telefono 1</th>
-                      <th>Telefono 2</th>
-                      <th>Fax</th>
-                      <th>Mobile</th>
-                      <th>email</th>
-                      <th>Codigo Lenguaje</th>
-                      <th>Activo</th>
-                      <th>Fecha Creacion</th>
-                      <th>Fecha de Modificacion</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
-                    {/* Mapea sobre los datos para renderizar cada fila */}
-                    {store.suppliers.map((row, idWopr) => (
+                    {currentItems.map((supplier, idWopr) => (
                       <tr key={idWopr}>
-                        <td>{row.idWopr}</td>
-                        <td>{row.id}</td>
-                        <td>{row.reference}</td>
-                        <td>{row.categoryId}</td>
-                        <td>{row.subcategoryId}</td>
-                        <td>{row.name}</td>
-                        <td>{row.nameRegistered}</td>
-                        <td>{row.cif}</td>
-                        <td>{row.address}</td>
-                        <td>{row.addressAdditional}</td>
-                        <td>{row.addressNumber}</td>
-                        <td>{row.addressFloor}</td>
-                        <td>{row.addressLetter}</td>
-                        <td>{row.codePostal}</td>
-                        <td>{row.cityCode}</td>
-                        <td>{row.cityName}</td>
-                        <td>{row.provinceCode}</td>
-                        <td>{row.provinceName}</td>
-                        <td>{row.phone1}</td>
-                        <td>{row.phone2}</td>
-                        <td>{row.fax}</td>
-                        <td>{row.mobile}</td>
-                        <td>{row.email}</td>
-                        <td>{row.languageCode}</td>
-                        <td>{row.active}</td>
+                        <td>{supplier.idWopr}</td>
+                        <td>{supplier.id}</td>
+                        <td>{supplier.reference}</td>
+                        <td>{supplier.categoryId}</td>
+                        <td>{supplier.subcategoryId}</td>
+                        <td>{supplier.name}</td>
+                        <td>{supplier.nameRegistered}</td>
+                        <td>{supplier.cif}</td>
+                        <td>{supplier.address}</td>
+                        <td>{supplier.addressAdditional}</td>
+                        <td>{supplier.addressNumber}</td>
+                        <td>{supplier.addressFloor}</td>
+                        <td>{supplier.addressLetter}</td>
+                        <td>{supplier.codePostal}</td>
+                        <td>{supplier.cityCode}</td>
+                        <td>{supplier.cityName}</td>
+                        <td>{supplier.provinceCode}</td>
+                        <td>{supplier.provinceName}</td>
+                        <td>{supplier.phone1}</td>
+                        <td>{supplier.phone2}</td>
+                        <td>{supplier.fax}</td>
+                        <td>{supplier.mobile}</td>
+                        <td>{supplier.email}</td>
+                        <td>{supplier.languageCode}</td>
+                        <td>{supplier.active}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+              <div>
+                {pageNumbers.map((pageNumber) => (
+                  <button
+                    key={pageNumber}
+                    className={`pageButton ${
+                      pageNumber === currentPage ? "active" : ""
+                    }`}
+                    onClick={() => handleChangePage(pageNumber)}
+                  >
+                    {pageNumber}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

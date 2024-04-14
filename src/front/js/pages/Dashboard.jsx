@@ -8,12 +8,12 @@ export const Dashboard = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="col-6 text-center my-auto">
+    <div className="col-5 text-center my-auto">
       <div className="error mx-auto" data-text="Bienvenido">
         Bienvenido, 
         {store.name}
       </div>
-      <div className="col-7">
+      <div className="col">
         <img src={logo} />
       </div>
       <h3><p>Warehouse and Operations Planning & Reporting</p></h3>

@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const DeleteRecipe = () => {
+export const DeleteNotes = () => {
   const { store, actions } = useContext(Context)
   const navigate = useNavigate();
   const url_del =
-    process.env.BACKEND_URL + "/api/recipes/" + store.currentRecipes.id;
+    process.env.BACKEND_URL + "/api/delivery-notes/" + store.currentDeliveryNotes.id;
 
   const submitDel = async () => {
     const response = await fetch(url_del, {
@@ -18,7 +18,9 @@ export const DeleteRecipe = () => {
       
     });
     if (response.ok) {
-      navigate("/recipes");
+      const data = await response.json();
+      // Redirigir a la página delivery notes
+      navigate("/manufacturing-orders");
     } else {
       // Manejar el caso en que la respuesta no sea exitosa
       console.error("Acceso denegado", response.status, response.statusText);
@@ -37,14 +39,14 @@ export const DeleteRecipe = () => {
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">Estas seguro?</h1>
+                        <h1 className="h4 text-gray-900 mb-4">Estás seguro?</h1>
                       </div>
                       <form className="user" onSubmit={submitDel}>
                         <button
                           type="submit"
                           className="btn btn-primary btn-user btn-block"
                         >
-                          Eliminar
+                          Estoy Seguro
                         </button>
                         <Link
                           to="/dashboard"

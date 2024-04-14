@@ -24,12 +24,21 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => { 
-      state.actions.getSuppliers();
-      state.actions.getReferences();
-      state.actions.getFormats();
-      state.actions.getRecipes();
-    // state.actions.getManufacturing();
-    // state.actions.getPrevisions();
+      const checkLogin = () => {
+        const token = localStorage.getItem('token');
+        if (token){
+          state.actions.login();
+        } else {
+          state.actions.getSuppliers();
+          state.actions.getReferences();
+          state.actions.getFormats();
+          state.actions.getRecipes();
+          state.actions.getLinesRecipes();
+          // state.actions.getManufacturing();
+          // state.actions.getPrevisions();
+        }
+      };
+      checkLogin();
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,

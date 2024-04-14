@@ -9,18 +9,15 @@ import { Sidebar } from "./component/Sidebar.jsx";
 import { Footer } from "./component/Footer.jsx";
 // Import custom pages
 import { Home } from "./pages/Home.jsx";
-import { Demo } from "./pages/Demo.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Recipes } from "./pages/Recipes.jsx";
 import { Previsions } from "./pages/Previsions.jsx";
 import { DeliveryNotes } from "./pages/DeliveryNotes.jsx";
 import { ManufacturingOrders } from "./pages/ManufacturingOrders.jsx";
-import { Single } from "./pages/Single.jsx";
 import { References } from "./pages/References.jsx";
 import { Suppliers } from "./pages/Suppliers.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
-import { Prueba } from "./pages/Prueba.jsx";
 import { ContactForm } from "./component/ContactForm.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
 import { NewRecipes } from "./pages/NewRecipes.jsx";
@@ -28,6 +25,15 @@ import { Logout } from "./pages/Logout.jsx";
 import { EditRecipes } from "./pages/EditRecipes.jsx"
 import { DeleteRecipe } from "./pages/DeleteRecipe.jsx"
 import {ViewRecipes} from "./pages/ViewRecipes.jsx"
+import { EditRecipes } from "./pages/EditRecipes.jsx";
+import { DeleteRecipe } from "./pages/DeleteRecipe.jsx";
+import { EditPrevisions } from "./pages/EditPrevisions.jsx";
+import { DeletePrevisions } from "./pages/DeletePrevisions.jsx";
+import { EditManufacturing} from "./pages/EditManufacturing.jsx";
+import { DeleteManufacturing } from "./pages/DeleteManufacturing.jsx";
+import { EditNotes } from "./pages/EditNotes.jsx";
+import { DeleteNotes } from "./pages/DeleteNotes.jsx";
+
 
 // Create your first component
 const Layout = () => {
@@ -50,6 +56,7 @@ const Layout = () => {
                             <Route element={<Register />} path="/register" />
                             <Route element={<ContactForm />} path="/contact" />
                             <Route element={<NotFound />} path="*" />
+                    
                         </Routes>
                     :
                         <div className="row">
@@ -71,6 +78,12 @@ const Layout = () => {
                                     <Route element ={<EditRecipes />} path="/edit-recipes" />
                                     <Route element ={<DeleteRecipe />} path="/del-recipes" />
                                     <Route element ={<ViewRecipes />} path="/view-recipes" />
+                                    <Route element ={<EditPrevisions />} path="/edit-previsions" />
+                                    <Route element ={<DeletePrevisions />} path="/del-previsions" />
+                                    <Route element ={<EditManufacturing />} path="/edit-manufacturing" />
+                                    <Route element ={<DeleteManufacturing />} path="/del-manufacturing" />
+                                    <Route element ={<EditNotes />} path="/edit-notes" />
+                                    <Route element ={<DeleteNotes />} path="/del-notes" />
                                 </Routes>
                             </div>
                         </div>
