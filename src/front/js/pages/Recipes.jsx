@@ -42,7 +42,12 @@ export const Recipes = () => {
     actions.selectRecipesEdit(row);
     navigate("/edit-recipes");
   } 
-
+  const viewBtn = (row) => {
+    // 1. Tengo que mandar row al store
+    actions.selectRecipes(row);
+    // 2. Ir al componente viewRecipes
+    navigate("/view-recipes");
+  } 
   const delBtn = (row) => {
     actions.selectRecipesEdit(row);
     actions.getLineRecipes();
@@ -127,6 +132,7 @@ export const Recipes = () => {
                         <td>{row.is_active}</td>
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
+                        <td><i className="fa-solid fa-pen-to-square" onClick={() => editBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i className="fa-solid fa-trash" onClick={() => delBtn(row)}></i> <i class="fa-regular fa-eye" onClick ={()=>viewBtn(row)}></i></td>
                         <td>
                           <i
                             className="fa-solid fa-pen-to-square"
