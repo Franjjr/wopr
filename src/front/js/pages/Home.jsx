@@ -15,12 +15,17 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container text-center ">
+      <div className="container text-center justify-content-center">
         <div className="row shadow p-3 mb-2 bg-body-tertiary rounded justify-content-center">
           <div className="col-lg-4 text-start mt-5 "><h1 className="fw-bold">
-            Gestiona el stock de tu restaurante de forma fácil
-            <small className="text-body-secondary"></small></h1><h5 className="mb-4"> ¡Olvídate de contar croquetas! Comparte el stock con la comunidad
-              y siente el apoyo de otros restaurantes y bares.</h5><BtnRegister /><BtnLogin /></div>
+            Gestiona el stock de tu restaurante de forma fácil.
+            <small className="text-body-secondary"></small></h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <h5 className="mb-4">
+            </h5><BtnRegister /><BtnLogin />
+          </div>
           <div className="col-md-5"><div><img src={imglanding} className="rounded-circle shadow" width="400" height="400" alt="..." /></div>
           </div>
         </div>
@@ -29,7 +34,7 @@ export const Home = () => {
 
       <div className="container text-center">
         <div className="row shadow p-3 mb-2 bg-tertiary justify-content-center">
-          <h3 className="fw-light">Algunos de nuestros Clientes!</h3>
+          <h3 className="fw-light">Algunos de nuestros clientes:</h3>
           <div id="carouselExample" className="col-4 carousel carousel-dark slide">
             <div className="carousel-inner">
               <div className="carousel-item active">
@@ -61,41 +66,72 @@ export const Home = () => {
             </button>
           </div>
         </div>
-
-
       </div>
+      <div>
+      </div>
+
+      <div className="container text-center">
+        <div className="row shadow p-3 mb-2 bg-body-tertiary justify-content-center">
+          <div className="col sm-4">
+            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
+              <div className="card-body">
+                <h5 className="card-title"><b>Gestión del Stock</b></h5>
+                <p className="card-text">Puedes tener a simple vista los estados de los pedidos, albaranes para gastos, recetas disponibles... Y más funcionalidades imprescindibles para llevar un buen control de tu local. </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
+              <div className="card-body">
+                <h5 className="card-title"><b>Vista sencilla</b></h5>
+                <p className="card-text">Facilitamos la visualización para que se pueda usar desde un despacho hasta la cocina de tu restaurante. Apta desde la pantalla de una tablet en adelante.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-4">
+            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
+              <div className="card-body">
+                <h5 className="card-title"><b>Fácil comunicación</b></h5>
+                <p className="card-text">Con nuestra aplicación todo el mundo está al día, en cuanto a pedidos, recetas, órdenes de compra, gastos...<br></br> ¡No perdamos el tiempo en comunicados!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div className="container text-center">
         <div className="row shadow p-3 mb-5 bg-body-tertiary justify-content-center">
-          <h3 className="fw-light text-center"> Conoce a nuestro equipo de desarrolladores!</h3>
+          <h3 className="fw-light text-center"> Conoce a nuestro equipo de desarrolladores:</h3>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-3 justify-content-evenly">
 
             <div className="p-2 col m-auto">
-              <img src={irene} className="rounded-circle shadow img-thumbnail" alt="..." />
+              <img src={mercedes} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">IRENE VÁZQUEZ</p>
-              <a href="https://github.com/iireneVS"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/irene-vazquez-sanchez-727a662a2/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/iireneVS" target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/irene-vazquez-sanchez-727a662a2/" target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
 
             <div className="p-2 col m-auto">
               <img src={fran} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">FRAN JULIAN </p>
-              <a href="https://github.com/Franjjr"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/fran-julian-1b150921/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/Franjjr" target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/fran-julian-1b150921/" target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
             <div className="p-2 col m-auto">
               <img src={matteo} className="rounded-circle shadow img-thumbnail" alt="..." />
               <p className="fw-bold mt-2">MATTEO SCILLERI </p>
-              <a href="https://github.com/Matteo0310"target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/matteo-scilleri-b565a117a/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <a href="https://github.com/Matteo0310" target="_blank"><i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/matteo-scilleri-b565a117a/" target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
 
             <div className="p-2 col m-auto">
-              <img src={mercedes} className="rounded-circle shadow img-thumbnail" alt="..." />
-              <p className="fw-bold mt-2">MERCEDES SANCHEZ</p>
-              <a href="https://github.com/Mercedes0708"target="_blank"> <i className="fa-brands fa-github fs-3 mr-2"></i></a>
-              <a href="https://www.linkedin.com/in/mercedes-s%C3%A1nchez-pe%C3%B1a-32625821a/"target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
+              <img src={irene} className="rounded-circle shadow img-thumbnail" alt="..." />
+              <p className="fw-bold mt-2">MERCEDES SÁNCHEZ</p>
+              <a href="https://github.com/Mercedes0708" target="_blank"> <i className="fa-brands fa-github fs-3 mr-2"></i></a>
+              <a href="https://www.linkedin.com/in/mercedes-s%C3%A1nchez-pe%C3%B1a-32625821a/" target="_blank"><i className="fa-brands fa-linkedin fs-3 "></i></a>
             </div>
           </div>
         </div>
