@@ -133,16 +133,6 @@ export const Recipes = () => {
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
                         <td><i className="fa-solid fa-pen-to-square" onClick={() => editBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i className="fa-solid fa-trash" onClick={() => delBtn(row)}></i> <i class="fa-regular fa-eye" onClick ={()=>viewBtn(row)}></i></td>
-                        <td>
-                          <i
-                            className="fa-solid fa-pen-to-square"
-                            onClick={() => editBtn(row)}
-                          ></i>&nbsp;&nbsp;&nbsp;
-                          <i
-                            className="fa-solid fa-trash"
-                            onClick={() => delBtn(row)}
-                          ></i>
-                        </td>
                       </tr>
                     ))}
                   </tbody>
