@@ -24,7 +24,7 @@ import { NewRecipes } from "./pages/NewRecipes.jsx";
 import { Logout } from "./pages/Logout.jsx";
 import { EditRecipes } from "./pages/EditRecipes.jsx"
 import { DeleteRecipe } from "./pages/DeleteRecipe.jsx"
-import { ViewRecipes } from "./pages/ViewRecipes.jsx"
+import {ViewRecipes} from "./pages/ViewRecipes.jsx"
 import { EditPrevisions } from "./pages/EditPrevisions.jsx";
 import { DeletePrevisions } from "./pages/DeletePrevisions.jsx";
 import { EditManufacturing} from "./pages/EditManufacturing.jsx";
