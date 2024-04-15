@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       formats:[],
       recipes:[],
       lineRecipes:[],
+      lineEditRecipes:[],
       manufacturing:[],
       previsions:[],
       isLogin: false,
@@ -51,15 +52,36 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       selectRecipes : (row) => {
+        setStore({currentRecipes: [] })
         setStore({currentRecipes: row })
       },
 
       selectRecipesEdit : (row) => {
+        setStore({currentEditRecipes: [] })
         setStore({currentEditRecipes: row })
       },
       
-      selectRecipesLines : () => {
-        setStore({currentRecipes: row})
+      getLinesEditRecipes : async () => {
+        const login = getStore().isLogin;
+        if (login) {
+          const base_url = process.env.BACKEND_URL;
+          const url = base_url + "/api/line_recipes/" + getStore().currentEditRecipes.id;
+          const options = {
+            method: 'GET',
+            headers: {
+              'Authorization': "Bearer " + localStorage.getItem("token"),
+              "Content-Type": "application/json"
+            },
+          };
+          const response = await fetch(url, options);
+          if (!response.ok) {
+            console.log('Error', response.status, response.statusText);
+            return response.status;
+          }
+          const data = await response.json();
+          setStore({lineEditRecipes:data.data});
+          console.log('lineEditRecipes: ', data);
+        }
       },
 
       getSuppliers : async () => {

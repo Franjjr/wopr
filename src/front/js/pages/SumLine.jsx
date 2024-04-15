@@ -91,7 +91,7 @@ export const SumLine = () => {
                       <div className="form-group">
                         <label htmlFor="ingrediente">Ingrediente:</label>
                         <select
-                          className="form-control form-control-user"
+                          className="form-control"
                           id="ingrediente"
                           value={referenceId}
                           onChange={(e) => setReferenceId(e.target.value)}
