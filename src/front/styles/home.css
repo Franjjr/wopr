@@ -11303,3 +11303,8 @@
   width: 240px;
   height: 240px ;
 }
+
+.logodash {
+  max-width: 30%;
+  max-height: 30%;
+}

@@ -16,7 +16,7 @@ export const Home = () => {
   return (
     <>
       <div className="container text-center justify-content-center">
-        <div className="row shadow p-3 mb-2 bg-body-tertiary rounded justify-content-center">
+        <div className="row shadow p-3 mb-2 bg-body-tertiary justify-content-center">
           <div className="col-lg-4 text-start mt-5 "><h1 className="fw-bold">
             Gestiona el stock de tu restaurante de forma fácil.
             <small className="text-body-secondary"></small></h1>
@@ -71,33 +71,55 @@ export const Home = () => {
       </div>
 
       <div className="container text-center">
-        <div className="row shadow p-3 mb-2 bg-body-tertiary justify-content-center">
-          <div className="col sm-4">
-            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
-              <div className="card-body">
-                <h5 className="card-title"><b>Gestión del Stock</b></h5>
-                <p className="card-text">Puedes tener a simple vista los estados de los pedidos, albaranes para gastos, recetas disponibles... Y más funcionalidades imprescindibles para llevar un buen control de tu local. </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
-              <div className="card-body">
-                <h5 className="card-title"><b>Vista sencilla</b></h5>
-                <p className="card-text">Facilitamos la visualización para que se pueda usar desde un despacho hasta la cocina de tu restaurante. Apta desde la pantalla de una tablet en adelante.</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <div className="card border-light" style={{ width: '15rem', height: '15rem' }}>
-              <div className="card-body">
-                <h5 className="card-title"><b>Fácil comunicación</b></h5>
-                <p className="card-text">Con nuestra aplicación todo el mundo está al día, en cuanto a pedidos, recetas, órdenes de compra, gastos...<br></br> ¡No perdamos el tiempo en comunicados!</p>
-              </div>
-            </div>
-          </div>
+        <div className="row d-flex shadow p-3 mb-2 bg-body-tertiary justify-content-center">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 my-3 justify-content-evenly">
+        <div className="col card shadow mb-4">
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+           role="button" aria-expanded="true" aria-controls="collapseCardExample">
+        <h6 className="m-0 font-weight-bold text-primary">Gestión del Stock</h6>
+        </a>
+        <div className="collapse" id="collapseCardExample">
+        <div className="card-body text-start">
+        Puedes tener a simple vista los estados de los pedidos, 
+        albaranes para gastos, recetas disponibles... 
+        Y más funcionalidades imprescindibles para llevar un buen control de tu local.
         </div>
-      </div>
+       </div>
+     </div>
+
+     <div className="col card shadow mb-4">
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+           role="button" aria-expanded="true" aria-controls="collapseCardExample">
+        <h6 className="m-0 font-weight-bold text-primary">Vista sencilla</h6>
+        </a>
+        <div className="collapse" id="collapseCardExample">
+        <div className="card-body text-start">
+        Facilitamos la visualización para que se pueda usar desde un despacho hasta la cocina de tu restaurante.
+        Apta desde la pantalla de una tablet en adelante.
+        </div>
+       </div>
+     </div>
+
+
+     <div className="col card shadow mb-4">
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+           role="button" aria-expanded="true" aria-controls="collapseCardExample">
+        <h6 className="m-0 font-weight-bold text-primary">Fácil comunicación</h6>
+        </a>
+        <div className="collapse" id="collapseCardExample">
+        <div className="card-body">
+        Con nuestra aplicación todo el mundo está al día, en cuanto a pedidos, recetas, órdenes de compra, gastos...
+        <strong>¡No perdamos el tiempo en comunicados!</strong>
+        </div>
+       </div>
+     </div>
+
+     </div>
+  </div>
+</div>
+
+
+                            
 
 
       <div className="container text-center">
