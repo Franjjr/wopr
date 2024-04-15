@@ -9,9 +9,8 @@ export const EditRecipes = () => {
   const [isActive, setIsActive] = useState(store.currentEditRecipes.is_active);
   const [meals, setMeals] = useState(store.currentEditRecipes.meals);
   const [costMeals, setCostMeals] = useState(store.currentEditRecipes.cost_meals);
-  const url_edit =
-    process.env.BACKEND_URL + "/api/recipes/" + store.currentEditRecipes.id;
   const navigate = useNavigate();
+  const url_edit = process.env.BACKEND_URL + "/api/recipes/" + store.currentEditRecipes.id;
 
   const submitEdit = async (e) => {
     e.preventDefault();
@@ -34,7 +33,7 @@ export const EditRecipes = () => {
     if (response.ok) {
       const data = await response.json();
       // Redirigir a la página recetas
-      setStore({currentEditRecipes: { }});
+      setStore({currentEditRecipes: {}});
       navigate("/recipes");
     } else {
       // Manejar el caso en que la respuesta no sea exitosa
@@ -47,6 +46,11 @@ export const EditRecipes = () => {
     navigate("/recipes");
   }
   
+  //editLineBtn
+  //delLineBtn
+  //addLine
+
+
   return ( 
     <div className="container">
       <div className="row justify-content-center">
@@ -144,7 +148,7 @@ export const EditRecipes = () => {
                                   </tr>
                                 </tfoot>
                                 <tbody>
-                                  {store.lineRecipes.map((row, id) => (
+                                  {store.lineEditRecipes.map((row, id) => (
                                     <tr key={id}>
                                       <td>{row.id}</td>
                                       <td>{row.recipe_to}</td>

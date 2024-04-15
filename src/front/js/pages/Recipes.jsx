@@ -37,14 +37,15 @@ export const Recipes = () => {
     pageNumbers.push(i);
   }
 
-  // mandar la información del row al localStorage
+  // mandar la información del row al store
   const editBtn = (row) => {
     actions.selectRecipesEdit(row);
+    actions.getLinesEditRecipes();
     navigate("/edit-recipes");
   } 
   const viewBtn = (row) => {
     // 1. Tengo que mandar row al store
-    actions.selectRecipes(row);
+    actions.selectRecipesEdit(row);
     // 2. Ir al componente viewRecipes
     navigate("/view-recipes");
   } 
@@ -132,7 +133,7 @@ export const Recipes = () => {
                         <td>{row.is_active}</td>
                         <td>{row.meals}</td>
                         <td>{row.cost_meals}</td>
-                        <td><i className="fa-solid fa-pen-to-square" onClick={() => editBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i className="fa-solid fa-trash" onClick={() => delBtn(row)}></i> <i class="fa-regular fa-eye" onClick ={()=>viewBtn(row)}></i></td>
+                        <td><i className="fa-solid fa-pen-to-square" onClick={() => editBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i className="fa-solid fa-trash" onClick={() => delBtn(row)}></i>&nbsp;&nbsp;&nbsp;<i class="fa-regular fa-eye" onClick ={()=>viewBtn(row)}></i></td>
                       </tr>
                     ))}
                   </tbody>
