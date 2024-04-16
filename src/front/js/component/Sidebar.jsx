@@ -18,21 +18,21 @@ export const Sidebar = () => {
                 <i className="fa-solid fa-truck-field"></i><span>Proveedores</span>
             </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
             <Link className="nav-link" to="/previsions">
                 <i className="fa-regular fa-clipboard"></i><span>Previsiones</span>
             </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
             <Link className="nav-link" to="/delivery-notes">
                 <i className="fa-solid fa-file-invoice-dollar"></i><span>Ordenes de Compra</span>
             </Link>
         </li>
-        <li className="nav-item">
+       {/*  <li className="nav-item">
             <Link className="nav-link" to="/manufacturing-orders">
                 <i className="fa-regular fa-paper-plane"></i><span>Ordenes de Fabricacion</span>
             </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
             <Link className="nav-link" to="/references">
                 <i className="fas fa-fw fa-file"></i><span>Referencias</span>
