@@ -58,7 +58,7 @@ class Compositions(db.Model):
 
 class Recipes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(250), nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     meals = db.Column(db.Integer, nullable=False)
     cost_meals = db.Column(db.Integer, nullable=False)
@@ -74,56 +74,166 @@ class Recipes(db.Model):
                 'cost_meals': self.cost_meals}
 
 
-class Supliers(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
-    phone = db.Column(db.Integer)  
-    email = db.Column(db.String(120), unique=True, nullable=False)
+class Suppliers(db.Model):
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String)
+    reference = db.Column(db.String(50))
+    categoryId = db.Column(db.String(50))
+    subcategoryId = db.Column(db.String(50))
+    name = db.Column(db.String, nullable=False)
+    nameRegistered = db.Column(db.String(200))
+    cif = db.Column(db.String(200))
+    address = db.Column(db.String(500))
+    addressAdditional = db.Column(db.String(500))
+    addressNumber = db.Column(db.String(500))
+    addressFloor = db.Column(db.String(500))
+    addressLetter = db.Column(db.String(500))
+    codePostal = db.Column(db.String(500))
+    cityCode = db.Column(db.String(500))
+    cityName = db.Column(db.String(500))
+    provinceCode = db.Column(db.String(500))
+    provinceName = db.Column(db.String(500))
+    phone1 = db.Column(db.String(150))
+    phone2 = db.Column(db.String(150))
+    fax = db.Column(db.String(150))
+    mobile = db.Column(db.String(150))
+    email = db.Column(db.String(120),)
+    languageCode = db.Column(db.String(500))
+    active = db.Column(db.Boolean())
+    creationDate = db.Column(db.DateTime)
+    modificationDate = db.Column(db.DateTime)
 
     def __repr__(self):
-        return f'<Suplier: {self.id} - {self.name}>'
+        return f'<Supplier: {self.id} - {self.name}>'
 
     def serialize(self):
-        return {'id': self.id,
+        return {'idWopr': self.idWopr,
+                'id': self.id,
+                'reference': self.reference,
+                'categoryId': self.categoryId,
+                'subcategoryId': self.subcategoryId,
                 'name': self.name,
-                'phone': self.phone,
-                'email': self.email}
+                'nameRegistered': self.nameRegistered,
+                'CIF': self.cif,
+                'address': self.address,
+                'addressAdditional': self.addressAdditional,
+                'addressNumber': self.addressNumber,
+                'addressFloor': self.addressFloor,
+                'addressLetter': self.addressLetter,
+                'codePostal': self.codePostal,
+                'cityCode': self.cityCode,
+                'cityName': self.cityName,
+                'provinceCode': self.provinceCode,
+                'provinceName': self.provinceName,
+                'phone1': self.phone1,
+                'phone2': self.phone2,
+                'fax': self.fax,
+                'mobile': self.mobile,
+                'email': self.email,
+                'languageCode': self.languageCode,
+                'active': self.active,
+                'creationDate': self.creationDate,
+                'modificationDate': self.modificationDate}
 
 
 class References(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
-    category = db.Column(db.Enum('Alimento Fresco', 'Alimento Congelado', 'Conserva', 'Bebida', 'Licor', name="category"), nullable=False)
-    units = db.Column(db.Enum('ud', 'gr', 'ml', 'kg', 'l', name="units"), nullable=False)
-    id_suplier = db.Column(db.Integer, db.ForeignKey('supliers.id'))
-    cost = db.Column(db.Integer, nullable=False)
-    vat = db.Column(db.Enum('4', '10', '21', name="vat"), nullable=False)
-    purchase_format = db.Column(db.Integer)
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+    reference = db.Column(db.Integer, unique=True)
+    categoryId = db.Column(db.Integer)
+    familyId = db.Column(db.Integer)
+    typeId = db.Column(db.Integer)
+    subtypeId = db.Column(db.Integer)
+    measureUnitId = db.Column(db.Integer)
+    measurePriceLastPurchase = db.Column(db.Integer)
+    measurePriceAverage = db.Column(db.Integer)
+    displayUnitId = db.Column(db.Integer)
+    equivalenceBetweeenMeasureAndDisplay = db.Column(db.Integer)
+    active = db.Column(db.Boolean())
+    creationDate = db.Column(db.DateTime)
+    modificationDate = db.Column(db.DateTime)
 
     def __repr__(self):
         return f'<Reference: {self.id} - {self.name}>'
 
     def serialize(self):
         return {'id': self.id,
+                'idWopr': self.idWopr,
                 'name': self.name,
-                'category': self.category,
-                'units': self.units,
-                'id_suplier': self.id_suplier,
-                'cost': self.cost,
-                'vat': self.vat,
-                'purchase_format': self.purchase_format}
+                'categoryId': self.categoryId,
+                'familyId': self.familyId,
+                'typeId': self.typeId,
+                'subtypeId': self.subtypeId,
+                'measureUnitId': self.measureUnitId,
+                'measurePriceLastPurchase': self.measurePriceLastPurchase,
+                'measurePriceAverage': self.measurePriceAverage,
+                'displayUnitId': self.displayUnitId,
+                'equivalenceBetweeenMeasureAndDisplay': self.equivalenceBetweeenMeasureAndDisplay,
+                'active': self.active,
+                'creationDate': self.creationDate,
+                'modificationDate': self.modificationDate}
+
+
+class ProductsFormats(db.Model):
+    __tablename__ = "products_formats"
+    idWopr = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, nullable=False)
+    productPurchaseId = db.Column(db.String)
+    reference = db.Column(db.Integer, db.ForeignKey('references.reference'))
+    name = db.Column(db.String)
+    storageUnit = db.Column(db.String)
+    orderUnit = db.Column(db.String)
+    equivalenceBetweenMeasureAndStorage = db.Column(db.Integer)
+    equivalenceBetweenStorageAndOrder = db.Column(db.Integer)
+    storageBarcode = db.Column(db.String)
+    orderBarcode = db.Column(db.String)
+    storageWeight = db.Column(db.Integer)
+    orderWeight = db.Column(db.Integer)
+    conservationState = db.Column(db.Integer)
+    measurePriceLastPurchase = db.Column(db.Integer)
+    measurePriceAverage = db.Column(db.Integer)
+    storagePrice = db.Column(db.Integer)
+    storagePriceAverage = db.Column(db.Integer)
+    orderPrice = db.Column(db.Integer)
+    orderPriceAverage = db.Column(db.Integer)
+    creationDate = db.Column(db.DateTime)
+    modificationDate = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return f'<Formato: {self.id} - {self.name}>'
+
+    def serialize(self):
+        return {'id': self.id,
+                'idWopr': self.idWopr,
+                'productPurchaseId': self.productPurchaseId,
+                'reference': self.reference,
+                'name': self.name,
+                'storageUnit': self.storageUnit,
+                'orderUnit': self.orderUnit,
+                'equivalenceBetweenMeasureAndStorage': self.equivalenceBetweenMeasureAndStorage,
+                'equivalenceBetweenStorageAndOrder': self.equivalenceBetweenStorageAndOrder,
+                'storageBarcode': self.storageBarcode,
+                'orderBarcode': self.orderBarcode,
+                'storageWeight':self.storageWeight,
+                'orderWeight': self.orderWeight,
+                'conservationState': self.conservationState,
+                'measurePriceLastPurchase': self.measurePriceLastPurchase,
+                'measurePriceAverage': self.measurePriceAverage,
+                'storagePrice': self.storagePrice,
+                'storagePriceAverage': self.storagePriceAverage,
+                'orderPrice': self.orderPrice,
+                'orderPriceAverage': self.orderPriceAverage,
+                'creationDate': self.creationDate,
+                'modificationDate': self.modificationDate}
 
 
 class Previsions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False)
-    service = db.Column(db.Enum('Desayuno', 'Almuerzo', 'Cena', name="service"), nullable=False)
-    pax_service = db.Column(db.Integer, nullable=False)
     center_id = db.Column(db.Integer, db.ForeignKey('centers.id'))
-    composition_id = db.Column(db.Integer, db.ForeignKey('compositions.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     center_to = db.relationship('Centers', foreign_keys=[center_id])
-    composition_to = db.relationship('Compositions', foreign_keys=[composition_id])   
     user_to = db.relationship('Users', foreign_keys=[user_id])
 
     def __repr__(self):
@@ -133,10 +243,28 @@ class Previsions(db.Model):
         return {'id': self.id,
                 'center_id': self.center_id,
                 'date': self.date,
+                'user_id': self.user_id}
+
+
+class PrevisionLines(db.Model):
+    __tablename__ = "prevision_lines"
+    id = db.Column(db.Integer, primary_key=True)
+    prevision_id = db.Column(db.Integer, db.ForeignKey('previsions.id')) 
+    service = db.Column(db.Enum('Desayuno', 'Almuerzo', 'Cena', name="service"), nullable=False)
+    pax_service = db.Column(db.Integer, nullable=False)
+    composition_id = db.Column(db.Integer, db.ForeignKey('compositions.id'))
+    composition_to = db.relationship('Compositions', foreign_keys=[composition_id]) 
+    prevision_to = db.relationship('Previsions', foreign_keys=[prevision_id])
+
+    def __repr__(self):
+        return f'<Prevision Line: {self.id} - Prevision: {self.prevision_id} - Service: {self.service}>'
+
+    def serialize(self):
+        return {'id': self.id,
+                'prevision_id': self.prevision_id,
                 'service': self.service,
                 'pax_service': self.pax_service,
-                'composition_id': self.composition_id,
-                'user_id': self.user_id}
+                'composition_id': self.composition_id}
 
 
 class DeliveryNotes(db.Model):
@@ -199,7 +327,7 @@ class CompositionLines(db.Model):
     cost_unit_line = db.Column(db.Integer, nullable=False)
     composition_id = db.Column(db.Integer, db.ForeignKey('compositions.id'))
     recipe_to = db.relationship('Recipes', foreign_keys=[recipe_id])
-    composition_to = db.relationship('Compositions', foreign_keys=[composition_id])  
+    composition_to = db.relationship('Compositions', foreign_keys=[composition_id])
 
     def __repr__(self):
         return f'<CompositionLine: {self.id} - Recipe ID: {self.recipe_id}>'
@@ -216,22 +344,22 @@ class LineRecipes(db.Model):
     __tablename__ = "line_recipes"
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'))
-    reference_id = db.Column(db.Integer, db.ForeignKey('references.id'))
+    references_idWopr = db.Column(db.Integer, db.ForeignKey('references.idWopr'))
     qty = db.Column(db.Integer, nullable=False)
     cost = db.Column(db.Integer, nullable=False)
     total = db.Column(db.Integer, nullable=False)
     units = db.Column(db.Integer, nullable=False)
     cost_unit = db.Column(db.Integer, nullable=False)
-    reference_to = db.relationship('References', foreign_keys=[reference_id])
+    reference_to = db.relationship('References', foreign_keys=[references_idWopr])
     recipe_to = db.relationship('Recipes', foreign_keys=[recipe_id])
 
     def __repr__(self):
-        return f'<Line Recipe: {self.id} - Recipe ID: {self.recipe_id} - Reference ID: {self.reference_id}>'
+        return f'<Line Recipe: {self.id} - Recipe ID: {self.recipe_id} - Reference ID: {self.references_idWopr}>'
 
     def serialize(self):
         return {'id': self.id,
                 'recipe_id': self.recipe_id,
-                'reference_id': self.reference_id,
+                'references_idWopr': self.references_idWopr,
                 'qty': self.qty,
                 'cost': self.cost,
                 'total': self.total,
@@ -247,7 +375,6 @@ class ManufacturingOrders(db.Model):
     qty = db.Column(db.Integer, nullable=False)
     status = db.Column(db.Enum('Pendiente', 'En Proceso', 'Fabricado', 'Almacenado', 'Enviado', name="status"), nullable=False)
     recipe_to = db.relationship('Recipes', foreign_keys=[recipe_id])
-    
 
     def __repr__(self):
         return f'<Composition Line: {self.id} - Recipe: {self.recipe_id}>'
