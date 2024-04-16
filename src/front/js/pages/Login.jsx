@@ -43,7 +43,7 @@ export const Login = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container" style={ {height: '47rem' }}>
         <div className="row justify-content-center">
           <div className="col-xl-10 col-lg-12 col-md-9">
             <div className="card o-hidden border-0 shadow-lg my-5">

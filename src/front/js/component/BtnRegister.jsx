@@ -6,7 +6,7 @@ export const BtnRegister = () => {
 
   return (
     <Link to="/register">
-        <button class="btn btn-success" type="button"><i className="fa-solid fa-user-plus"></i> Registrarse</button>
+        <button className="btn btn-success" type="button"><i className="fa-solid fa-user-plus"></i> Registrarse</button>
     </Link>
   )
 }
