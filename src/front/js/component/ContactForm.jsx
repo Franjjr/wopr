@@ -11,7 +11,7 @@ export const ContactForm = () => {
 
   return (
     <div className="container">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center" style={ {height: '47rem' }}>
 
                 <div className="col-xl-10 col-lg-12 col-md-9">
 
@@ -23,7 +23,7 @@ export const ContactForm = () => {
                                 <div className="col-lg-6">
                                     <div className="p-5">
                                         <div className="text-center">
-                                            <h1 className="h4 text-gray-900 mb-4">Contácta con nosotros</h1>
+                                            <h1 className="h4 text-gray-900 mb-4">Contacta con nosotros</h1>
                                         </div>
                                         <form className="user">
                                             <div className="form-group">
