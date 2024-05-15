@@ -122,7 +122,7 @@ export const Home = () => {
                             
 
 
-      <div className="container text-center">
+      {/* <div className="container text-center">
         <div className="row shadow p-3 mb-5 bg-body-tertiary justify-content-center">
           <h3 className="fw-light text-center"> Conoce a nuestro equipo de desarrolladores:</h3>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-3 justify-content-evenly">
@@ -157,7 +157,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
